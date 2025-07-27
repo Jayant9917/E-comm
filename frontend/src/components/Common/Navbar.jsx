@@ -32,12 +32,12 @@ const Navbar = () => {
           </Link>
         </div>
         {/* Right - Social Icons */}
-        <div className="flex itmes-center space-x-4">
+        <div className="flex items-center space-x-4">
           <Link to="/profile" className="hover:text-black">
-            <HiOutlineUser className="h-6 w-6 text-gary-700"/>
+            <HiOutlineUser className="h-6 w-6 text-gray-700"/>
           </Link>
           <button className="relative hover:text-black">
-            <HiOutlineShoppingBag className="h-6 w-6 text-gary-700"/>
+            <HiOutlineShoppingBag className="h-6 w-6 text-gray-700"/>
             <span className="absolute -top-1 bg-rabbit-red text-white text-xs rounded-full px-2 pu-0.5">
                 4
             </span>
@@ -46,7 +46,7 @@ const Navbar = () => {
           <SearchBar />
 
           <button className="md:hidden">
-            <HiBars3BottomRight className="h-6 w-6 text-gary-700"/>
+            <HiBars3BottomRight className="h-6 w-6 text-gray-700"/>
           </button>
         </div>
       </nav>
