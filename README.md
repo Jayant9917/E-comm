@@ -18,3 +18,14 @@ In this project, we will be creating a E-commerce website using React.js. We wil
 
 ## Screenshots
 
+nsozursnoiuboedsW
+FEWF
+WRCRWEFW
+$CFWC$XFW$F
+W$FXF
+F
+WXF
+XF
+FW
+F
+GETHGEVR
