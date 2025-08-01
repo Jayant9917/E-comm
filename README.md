@@ -18,14 +18,5 @@ In this project, we will be creating a E-commerce website using React.js. We wil
 
 ## Screenshots
 
-nsozursnoiuboedsW
-FEWF
-WRCRWEFW
-$CFWC$XFW$F
-W$FXF
-F
-WXF
-XF
-FW
-F
-GETHGEVR
+![Screenshot](https://user-images.githubusercontent.com/71889751/159610071-f9c1f3f7-b6f0-4f2a-a9f1-c2c0c9a0b9d7.png)
+![Screenshot](https://user-images.githubusercontent.com/71889751/159610080-f9c1f3f7-b6f0-4f2a-a9f1-c2c0c9a0b9d7.png)
