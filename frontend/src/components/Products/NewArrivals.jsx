@@ -138,7 +138,8 @@ const NewArrivals = () => {
   const handleMouseDown = (e) => {
     setIsDragging(true);
     setStartX(e.pageX - scrollRef.current.offsetLeft);
-    setCanScrollLeft(scrollRef.current.scrollLeft );
+    setScrollLeft(scrollRef.current.scrollLeft); // Fix: store the current scrollLeft
+    document.body.style.userSelect = "none"; // Prevent text selection
   }
 
   const handleMouseMove = (e) => {
@@ -150,6 +151,7 @@ const NewArrivals = () => {
 
   const handleMouseUpOrLeave = () => {
     setIsDragging(false);
+    document.body.style.userSelect = ""; // Restore text selection
   }
 
 
@@ -228,6 +230,7 @@ const NewArrivals = () => {
       <div
         ref={scrollRef}
         className={`container mx-auto overflow-x-scroll flex space-x-6 relative ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+        style={{ scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUpOrLeave}
@@ -237,6 +240,7 @@ const NewArrivals = () => {
           <div
             key={product._id}
             className="min-w-[100%] sm:min-w-[50%] lg:min-w-[30%] relative"
+            style={{ scrollSnapAlign: "start" }}
           >
             <img
               src={product.images[0]?.url}
