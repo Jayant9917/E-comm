@@ -1,5 +1,5 @@
-import mensCollectionImage from "../../assets/mens-collection.webp";
-import womensCollectionImage from "../../assets/womens-collection.webp";
+import womenCollectionImage from "../../assets/women/bishesh-shrestha-NtTRTWwaULw-unsplash.jpg";
+import mensCollectionImage from "../../assets/women/alireza-zare-XdITD0mPU-Y-unsplash.jpg";
 import { Link } from "react-router-dom";
 
 const GenderCollectionSection = () => {
@@ -9,7 +9,7 @@ const GenderCollectionSection = () => {
         {/* Women's Collection */}
         <div className="relative flex-1">
           <img
-            src={womensCollectionImage}
+            src={womenCollectionImage}
             alt="Women's Collection"
             className="w-full h-[700px] object-cover"
           />

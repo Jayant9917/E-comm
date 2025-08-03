@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import img1 from "../../assets/women/bishesh-shrestha-NtTRTWwaULw-unsplash.jpg";
+import img1 from "../../assets/women/beauty-portrait-young-adult.jpg";
 import img2 from "../../assets/women/quan-nguyen-FiANPPQaaC8-unsplash.jpg";
 import img3 from "../../assets/women/glassesshop-WidHA6plUik-unsplash.jpg";
 import img4 from "../../assets/women/quan-nguyen-oeX3hyWcyWg-unsplash.jpg";
@@ -11,6 +11,7 @@ import img7 from "../../assets/women/jamar-crable-unfmZMNUDko-unsplash.jpg";
 import img8 from "../../assets/women/oleg-ivanov-QhR78CbFPoE-unsplash.jpg";
 import img9 from "../../assets/women/leyli-nova-gd0qpyteVFY-unsplash.jpg";
 import img10 from "../../assets/women/spenser-sembrat-bNc5C0rqBCw-unsplash.jpg";
+
 
 
 
