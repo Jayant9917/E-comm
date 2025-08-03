@@ -46,11 +46,11 @@ const CartContents = () => {
                     </div>
                 </div>
             </div>
-            <div>
-                <p>$ {product.price.toLocaleString()}</p>
-                <button>
-                    <RiDeleteBin3Line className='h-6 w-6 mt-2 text-red-600'/>
-                </button>
+            <div className="flex flex-col items-end space-y-4 md:flex-row md:items-center md:space-y-0 md:space-x-4 min-w-[48px]">
+              <p className="text-base font-semibold pr-2 md:pr-0">$ {product.price.toLocaleString()}</p>
+              <button>
+                <RiDeleteBin3Line className="h-6 w-6 text-red-600" />
+              </button>
             </div>
           </div>
         ))}
