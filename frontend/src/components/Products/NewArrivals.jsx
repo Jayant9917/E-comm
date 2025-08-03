@@ -1,6 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import img1 from "../../assets/women/bishesh-shrestha-NtTRTWwaULw-unsplash.jpg";
+import img2 from "../../assets/women/quan-nguyen-FiANPPQaaC8-unsplash.jpg";
+import img3 from "../../assets/women/glassesshop-WidHA6plUik-unsplash.jpg";
+import img4 from "../../assets/women/quan-nguyen-oeX3hyWcyWg-unsplash.jpg";
+import img5 from "../../assets/women/alireza-zare-XdITD0mPU-Y-unsplash.jpg";
+import img6 from "../../assets/women/sonnie-hiles-gG70fyu3qsg-unsplash.jpg";
+import img7 from "../../assets/women/jamar-crable-unfmZMNUDko-unsplash.jpg";
+import img8 from "../../assets/women/oleg-ivanov-QhR78CbFPoE-unsplash.jpg";
+import img9 from "../../assets/women/leyli-nova-gd0qpyteVFY-unsplash.jpg";
+import img10 from "../../assets/women/spenser-sembrat-bNc5C0rqBCw-unsplash.jpg";
+
+
 
 const NewArrivals = () => {
   const scrollRef = useRef(null);
@@ -17,7 +29,7 @@ const NewArrivals = () => {
       price: 120,
       images: [
         {
-          url: "https://picsum.photos/500/500?random=1",
+          url: img1,
           altText: "Stylish Jacket",
         },
       ],
@@ -28,7 +40,7 @@ const NewArrivals = () => {
       price: 120,
       images: [
         {
-          url: "https://picsum.photos/500/500?random=2",
+          url: img2,
           altText: "Stylish Jacket",
         },
       ],
@@ -39,7 +51,7 @@ const NewArrivals = () => {
       price: 120,
       images: [
         {
-          url: "https://picsum.photos/500/500?random=3",
+          url: img3,
           altText: "Stylish Jacket",
         },
       ],
@@ -50,7 +62,7 @@ const NewArrivals = () => {
       price: 120,
       images: [
         {
-          url: "https://picsum.photos/500/500?random=4",
+          url: img4,
           altText: "Stylish Jacket",
         },
       ],
@@ -61,7 +73,7 @@ const NewArrivals = () => {
       price: 120,
       images: [
         {
-          url: "https://picsum.photos/500/500?random=5",
+          url: img5,
           altText: "Stylish Jacket",
         },
       ],
@@ -72,7 +84,7 @@ const NewArrivals = () => {
       price: 120,
       images: [
         {
-          url: "https://picsum.photos/500/500?random=6",
+          url: img6,
           altText: "Stylish Jacket",
         },
       ],
@@ -83,7 +95,7 @@ const NewArrivals = () => {
       price: 120,
       images: [
         {
-          url: "https://picsum.photos/500/500?random=7",
+          url: img7,
           altText: "Stylish Jacket",
         },
       ],
@@ -94,7 +106,7 @@ const NewArrivals = () => {
       price: 120,
       images: [
         {
-          url: "https://picsum.photos/500/500?random=18",
+          url: img8,
           altText: "Stylish Jacket",
         },
       ],
@@ -105,7 +117,7 @@ const NewArrivals = () => {
       price: 120,
       images: [
         {
-          url: "https://picsum.photos/500/500?random=19",
+          url: img9,
           altText: "Stylish Jacket",
         },
       ],
@@ -116,7 +128,7 @@ const NewArrivals = () => {
       price: 120,
       images: [
         {
-          url: "https://picsum.photos/500/500?random=17",
+          url: img10,
           altText: "Stylish Jacket",
         },
       ],
