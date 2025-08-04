@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
-import img1 from "../../assets/women/beauty-portrait-young-adult.jpg";
+import img1 from "../../assets/women/quan-nguyen-bYry70RTElE-unsplash.jpg";
 import img2 from "../../assets/women/quan-nguyen-FiANPPQaaC8-unsplash.jpg";
+import img3 from "../../assets/Men/andres-hernandez-LhUOZH0a798-unsplash.jpg";
+import img4 from "../../assets/Men/glassesshop-n_8Nd-Fqb4A-unsplash.jpg";
+import img5 from "../../assets/Men/venrick-azcueta-yBVCwHbx_74-unsplash.jpg";
+import img6 from "../../assets/Men/jakob-owens-lkMJcGDZLVs-unsplash.jpg";
+
 import { toast } from "sonner";
 import ProductGrid from "./ProductGrid";
 
@@ -25,7 +30,32 @@ const selectedProduct = {
   ],
 };
 
-const similarProducts = [];
+const similarProducts = [
+  {
+    _id: 1,
+    name: "Top For Girls",
+    price: 100,
+    images: [{url: img3, altText: "product 1"}],
+  },
+  {
+    _id: 2,
+    name: "Casual Denim Shirt",
+    price: 100,
+    images: [{url: img4, altText: "product 1"}],
+  },
+  {
+    _id: 3,
+    name: "Slim Fit Shirt",
+    price: 100,
+    images: [{url: img5, altText: "product 1"}],
+  },
+  {
+    _id: 4,
+    name: "Goa Trip Outfit",
+    price: 100,
+    images: [{url: img6, altText: "product 1"}],
+  }
+];
 
 const ProductDetails = () => {
   // Remeber here jay it is usestate("") but you make it useState()
@@ -217,7 +247,9 @@ const ProductDetails = () => {
             <h2 className="text-2xl text-center font-medium mb-4">
                 You May Also Like 
             </h2>
-            <ProductGrid product={similarProducts}/>
+            <div className="-mx-8 sm:px-0">
+                <ProductGrid products={similarProducts}/>
+            </div>
         </div>
       </div>
     </div>
