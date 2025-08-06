@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import img1 from "../../assets/women/quan-nguyen-bYry70RTElE-unsplash.jpg";
-import img2 from "../../assets/women/quan-nguyen-FiANPPQaaC8-unsplash.jpg";
-import img3 from "../../assets/Men/andres-hernandez-LhUOZH0a798-unsplash.jpg";
+import img1 from "../../assets/women/tony-saiko-IqxRGqjZOIk-unsplash.jpg";
+import img2 from "../../assets/women/tony-saiko-HU1Me40RTGo-unsplash.jpg";
+import img3 from "../../assets/Women/tony-saiko-RIwXSSIxPtY-unsplash.jpg";
 import img4 from "../../assets/Men/glassesshop-n_8Nd-Fqb4A-unsplash.jpg";
 import img5 from "../../assets/Men/venrick-azcueta-yBVCwHbx_74-unsplash.jpg";
 import img6 from "../../assets/Men/jakob-owens-lkMJcGDZLVs-unsplash.jpg";
@@ -33,7 +33,7 @@ const selectedProduct = {
 const similarProducts = [
   {
     _id: 1,
-    name: "Top For Girls",
+    name: "Jacket",
     price: 100,
     images: [{url: img3, altText: "product 1"}],
   },
@@ -51,7 +51,7 @@ const similarProducts = [
   },
   {
     _id: 4,
-    name: "Goa Trip Outfit",
+    name: "Hunk Outfit",
     price: 100,
     images: [{url: img6, altText: "product 1"}],
   }
