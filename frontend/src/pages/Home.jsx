@@ -14,6 +14,7 @@ import img6 from "../assets/women/young-teenage-girl-recording-reels-herself-out
 import img7 from "../assets/women/joel-mott-qclr7hbOCwk-unsplash.jpg";
 import img8 from "../assets/women/ismail-efe-top-w_5OeQBs118-unsplash.jpg";
 import FeaturedCollection from "../components/Products/FeaturedCollection";
+import FeaturesSection from "../components/Products/FeaturesSection";
 const placeholderProducts = [
   {
     _id: 1,
@@ -85,6 +86,7 @@ const Home = () => {
         <ProductGrid products={placeholderProducts} />
       </div>
       <FeaturedCollection />
+      <FeaturesSection />
     </div>
   );
 };
