@@ -13,6 +13,7 @@ import img5 from "../assets/women/alexander-jawfox-GNd5gstTSg8-unsplash.jpg";
 import img6 from "../assets/women/young-teenage-girl-recording-reels-herself-outdoors-social-media.jpg";
 import img7 from "../assets/women/joel-mott-qclr7hbOCwk-unsplash.jpg";
 import img8 from "../assets/women/ismail-efe-top-w_5OeQBs118-unsplash.jpg";
+import FeaturedCollection from "../components/Products/FeaturedCollection";
 const placeholderProducts = [
   {
     _id: 1,
@@ -83,6 +84,7 @@ const Home = () => {
         </h2>
         <ProductGrid products={placeholderProducts} />
       </div>
+      <FeaturedCollection />
     </div>
   );
 };
