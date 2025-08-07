@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import loginIMG from "../assets/login.webp";
+import registerIMG from "../assets/register.webp";
 
-const Login = () => {
+const Register = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("User Login:", { email, password });
+    console.log("User Register:", { name, email, password });
   };
 
   return (
@@ -28,13 +29,23 @@ const Login = () => {
             Enter Your username and password to Login
           </p>
           <div className="mb-4">
+            <label className="block text-sm font-semibold mb-2">Name</label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full p-2 border rounded"
+              placeholder="Enter your Full Name"
+            />
+          </div>
+          <div className="mb-4">
             <label className="block text-sm font-semibold mb-2">Email</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full p-2 border rounded"
-              placeholder="Enter your email"
+              placeholder="Enter your Email"
             />
           </div>
           <div className="mb-4 ">
@@ -44,19 +55,19 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full p-2 border rounded"
-              placeholder="Enter your password"
+              placeholder="Enter your Password"
             />
           </div>
           <button
             className="w-full bg-black text-white p-2 rounded-lg font-semibold hover:bg-gray-800 transition"
             type="submit"
           >
-            Sign In
+            Sign Up
           </button>
           <p className="mt-6 text-center text-sm">
-            Don't have an account?{" "}
-            <Link to="/register" className="text-blue-500 hover:underline">
-              Register
+            You have an account?{" "}
+            <Link to="/login" className="text-blue-500 hover:underline">
+              Login
             </Link>
           </p>
         </form>
@@ -65,7 +76,7 @@ const Login = () => {
       <div className="hidden md:block w-1/2 bg-gray-800 ">
         <div className="h-full flex flex-col justify-center items-center">
           <img
-            src={loginIMG}
+            src={registerIMG}
             alt="login image"
             className="w-full h-[750px] object-cover"
           />
@@ -75,4 +86,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
