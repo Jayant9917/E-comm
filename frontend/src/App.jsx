@@ -5,6 +5,7 @@ import Login from './pages/Login.jsx'
 import Resigter from './pages/Resigter.jsx'
 import Profile from './pages/Profile.jsx'
 import { Toaster } from 'sonner'; 
+import CollectionPage from './pages/CollectionPage.jsx'
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
       <Route path="login" element={<Login/>} />
       <Route path="register" element={<Resigter/>} />
       <Route path="profile" element={<Profile/>} />
+      <Route path='collections/:collection' element={<CollectionPage/>}/>
       </Route>
       <Route>{/* Admin Layout */}</Route>
     </Routes>
