@@ -66,7 +66,7 @@ const Navbar = () => {
             </div>
             {/* Right - Social Icons */}
             <div className="flex items-center space-x-4">
-              <Link to="/admin" className="block bg-black px-2 rounded text-sm text-white">Admin</Link>
+              <Link to="/admin" className="hidden md:block bg-black px-2 rounded text-sm text-white">Admin</Link>
               <Link to="/profile" className="hover:text-black">
                 <HiOutlineUser className="h-6 w-6 text-gray-700" />
               </Link>
@@ -130,6 +130,14 @@ const Navbar = () => {
               >
                 Bottom Wear
               </Link>
+              <Link
+                to="/admin"
+                onClick={toggleNavDrawer}
+                className="block bg-black text-white px-3 py-2 rounded text-sm font-medium hover:bg-gray-800"
+              >
+                Admin
+              </Link>
+
             </nav>
           </div>
         </div>
