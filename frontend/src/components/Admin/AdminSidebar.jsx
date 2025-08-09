@@ -65,7 +65,7 @@ const AdminSidebar = ({ toggleSidebar }) => {
         </NavLink>
         {/* Shop */}
         <NavLink
-          to="/admin/shop"
+          to="/"
           onClick={handleNavClick}
           className={({ isActive }) =>
             isActive
