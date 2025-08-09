@@ -8,6 +8,7 @@ import { Toaster } from 'sonner';
 import CollectionPage from './pages/CollectionPage.jsx'
 import ProductDetails from './components/Products/ProductDetails.jsx'
 import Checkout from './components/Cart/Checkout.jsx'
+import OrderConfirmationPage from './pages/OrderConfirmationPage.jsx'
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
       <Route path='collections/:collection' element={<CollectionPage/>}/>
       <Route path='product/:id' element={<ProductDetails/>}/>
       <Route path='checkout' element={<Checkout/>}/>
+      <Route path='order-confirmation' element={<OrderConfirmationPage/>}/>
       </Route>
       <Route>{/* Admin Layout */}</Route>
     </Routes>

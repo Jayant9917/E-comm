@@ -3,11 +3,12 @@ import CartContents from "../Cart/CartContents";
 import { useNavigate } from "react-router-dom";
 
 const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const handleCheckout = () => {
-        navigate('/Checkout')
-    }
+  const handleCheckout = () => {
+    toggleCartDrawer();
+    navigate("/Checkout");
+  };
 
   return (
     <div
