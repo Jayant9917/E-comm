@@ -1,10 +1,17 @@
 import { FaBoxOpen, FaClipboardList, FaSignOutAlt, FaStore, FaUser } from "react-icons/fa";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
-const AdminSidebar = () => {
+const AdminSidebar = ({ toggleSidebar }) => {
   const navigate = useNavigate();
   const handleLogout = () => {
     navigate("/");
+  };
+
+  const handleNavClick = () => {
+    // Close sidebar on mobile when navigation item is clicked
+    if (window.innerWidth < 768) {
+      toggleSidebar();
+    }
   };
 
   return (
@@ -20,6 +27,7 @@ const AdminSidebar = () => {
         {/* users */}
         <NavLink
           to="/admin/users"
+          onClick={handleNavClick}
           className={({ isActive }) =>
             isActive
               ? "bg-gray-700 text-white py-3 px-4 rounded flex items-center space-x-2"
@@ -32,6 +40,7 @@ const AdminSidebar = () => {
         {/* products */}
         <NavLink
           to="/admin/products"
+          onClick={handleNavClick}
           className={({ isActive }) =>
             isActive
               ? "bg-gray-700 text-white py-3 px-4 rounded flex items-center space-x-2"
@@ -44,6 +53,7 @@ const AdminSidebar = () => {
         {/* orders */}
         <NavLink
           to="/admin/orders"
+          onClick={handleNavClick}
           className={({ isActive }) =>
             isActive
               ? "bg-gray-700 text-white py-3 px-4 rounded flex items-center space-x-2"
@@ -56,6 +66,7 @@ const AdminSidebar = () => {
         {/* Shop */}
         <NavLink
           to="/admin/shop"
+          onClick={handleNavClick}
           className={({ isActive }) =>
             isActive
               ? "bg-gray-700 text-white py-3 px-4 rounded flex items-center space-x-2"
