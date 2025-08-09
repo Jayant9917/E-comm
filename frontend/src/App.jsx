@@ -6,6 +6,8 @@ import Resigter from './pages/Resigter.jsx'
 import Profile from './pages/Profile.jsx'
 import { Toaster } from 'sonner'; 
 import CollectionPage from './pages/CollectionPage.jsx'
+import ProductDetails from './components/Products/ProductDetails.jsx'
+import Checkout from './components/Cart/Checkout.jsx'
 
 
 const App = () => {
@@ -19,6 +21,8 @@ const App = () => {
       <Route path="register" element={<Resigter/>} />
       <Route path="profile" element={<Profile/>} />
       <Route path='collections/:collection' element={<CollectionPage/>}/>
+      <Route path='product/:id' element={<ProductDetails/>}/>
+      <Route path='checkout' element={<Checkout/>}/>
       </Route>
       <Route>{/* Admin Layout */}</Route>
     </Routes>
