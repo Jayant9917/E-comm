@@ -38,6 +38,8 @@ A modern, responsive e-commerce platform built with React.js and Node.js, featur
 ## 📱 Screenshots
 
 ### Homepage
+![Homepage](./frontend/src/assets/Screenshot%20(109).png)
+
 The homepage features a stunning hero section with vacation-ready imagery, showcasing beach scenes with people enjoying outdoor dining. The design includes:
 - Promotional banner with worldwide shipping message
 - Clean navigation with brand logo and category links
@@ -45,6 +47,8 @@ The homepage features a stunning hero section with vacation-ready imagery, showc
 - Call-to-action "Shop Now" button
 
 ### Product Details
+![Product Details](./frontend/src/assets/Screenshot%20(110).png)
+
 The product detail page displays:
 - Large product images with thumbnail navigation
 - Product information (name, price, description)
@@ -52,6 +56,15 @@ The product detail page displays:
 - Quantity controls with add/remove buttons
 - Add to cart functionality
 - Product characteristics (brand, material)
+
+### Admin Dashboard
+![Admin Dashboard](./frontend/src/assets/Screenshot%20(111).png)
+
+The admin dashboard provides comprehensive management tools:
+- User management interface
+- Product management system
+- Order tracking and status updates
+- Shop settings and inventory control
 
 ## 🏗️ Project Structure
 
