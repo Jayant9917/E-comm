@@ -1,30 +1,32 @@
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 
-const PayPalButton = ({amount, onSuccess, onError}) => {
+const PayPalButton = ({ amount, onSuccess, onError }) => {
   // Minimal PayPal configuration for sandbox testing
   const initialOptions = {
-    "client-id": "Af0yDobMJaThYqzqkdSrgpm0ed40bztdnFs9qv2gewH4AsP4ebebtWADVzFl1xnnEVZVaadI8TFz7Knn",
+    "client-id": import.meta.env.VITE_PAYPAL_CLIENT_ID,
     currency: "USD",
-    intent: "capture"
+    intent: "capture",
   };
 
   return (
     <PayPalScriptProvider options={initialOptions}>
       <PayPalButtons
-        style={{ 
+        style={{
           layout: "vertical",
           color: "blue",
           shape: "rect",
-          label: "paypal"
+          label: "paypal",
         }}
         createOrder={(data, actions) => {
           console.log("Creating PayPal order with amount:", amount);
           return actions.order.create({
-            purchase_units: [{
-              amount: {
-                value: amount.toString()
-              }
-            }]
+            purchase_units: [
+              {
+                amount: {
+                  value: amount.toString(),
+                },
+              },
+            ],
           });
         }}
         onApprove={async (data, actions) => {
