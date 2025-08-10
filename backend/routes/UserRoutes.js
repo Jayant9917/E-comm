@@ -1,7 +1,7 @@
 const express = require("express");
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
-const protect = require("../middleware/authMiddleware");
+const { protect } = require("../middleware/authMiddleware");
 const transporter = require("../config/nodemailer");
 const { createWelcomeEmail, createLoginNotificationEmail } = require("../emails");
 
@@ -128,13 +128,12 @@ router.post("/login", async (req, res) => {
 // @desc Get Logged-in user's profile (Protected Route)
 // @access Private
 router.get("/profile", protect, async (req, res) => {
-  res.json(req.user);
-})
-
-
-
-
-
-
+  try {
+    res.json(req.user);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Server error");
+  }
+});
 
 module.exports = router;
