@@ -124,7 +124,7 @@ router.put("/:id", protect, admin, async (req, res) => {
     }
   } catch (err) {
     console.error(err);
-    res.status(500).send( "Server Error" );
+    res.status(500).send("Server Error");
   }
 });
 
@@ -132,7 +132,7 @@ router.put("/:id", protect, admin, async (req, res) => {
 // @desc Delete an existing product by ID
 // @access Private/Admin
 router.delete("/:id", protect, admin, async (req, res) => {
-  try{
+  try {
     // Find the product by Id
     const product = await Product.findById(req.params.id);
 
@@ -140,18 +140,115 @@ router.delete("/:id", protect, admin, async (req, res) => {
       // Remove the product from DB
       await product.deleteOne();
       res.json({
-        message: "Product removed"
+        message: "Product removed",
       });
-    }else{
+    } else {
       res.status(404).json({
-        message: "No product found with that ID"
+        message: "No product found with that ID",
       });
     }
   } catch (err) {
     console.error(err);
-    res.status(500).send( "Server Error" );
+    res.status(500).send("Server Error");
   }
 });
+
+// @route GET /api/products
+// @desc Get all products with optional query filters
+// @access Public
+router.get("/", async (req, res) => {
+  try {
+    const {
+      collections,
+      sizes,
+      colors,
+      gender,
+      minPrice,
+      maxPrice,
+      sortBy,
+      search,
+      category,
+      material,
+      brand,
+      limit,
+    } = req.query;
+
+    let query = {};
+
+    // Filter Logic
+    if (collections && collections.toLocaleLowerCase() !== "all") {
+      query.collections = collections;
+    }
+
+    if (category && category.toLocaleLowerCase() !== "all") {
+      query.category = category;
+    }
+
+    if (material) {
+      query.material = { $in: material.split(",") };
+    }
+
+    if (brand) {
+      query.brand = { $in: brand.split(",") };
+    }
+
+    if (sizes) {
+      query.sizes = { $in: sizes.split(",") };
+    }
+
+    if (colors) {
+      query.colors = { $in: [colors] };
+    }
+
+    if (gender) {
+      query.gender = gender;
+    }
+
+    if (minPrice || maxPrice) {
+      query.price = {};
+      if (minPrice) query.price.$gte = Number(minPrice);
+      if (maxPrice) query.price.$lte = Number(maxPrice);
+    }
+
+    if (search) {
+      query.$or = [
+        { name: { $regex: search, $options: "i" } },
+        { description: { $regex: search, $options: "i" } },
+      ];
+    }
+
+    // Sort Logic
+    let sort = {};
+    if (sortBy) {
+      switch (sortBy) {
+        case "priceAsc":
+          sort = { price: 1 };
+          break;
+        case "priceDesc":
+          sort = { price: -1 };
+          break;
+        case "popularity":
+          sort = { rating: -1 };
+          break;
+        default:
+          break;
+      }
+    }
+    // Fetch products and apply sorting and limit
+    let products = await Product.find(query)
+      .sort(sort)
+      .limit(Number(limit) || 0);
+      res.json(products);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server Error");
+  }
+});
+
+
+// @route GET /api/products/:id
+// @desc Get a single product by ID
+// @access Public
 
 
 module.exports = router;

@@ -43,7 +43,7 @@ const ProductSchema = new mongoose.Schema({
     required: true,
   },
   collections: {
-    type: [String],
+    type: String,
     required: true,
   },
   material: {
@@ -53,7 +53,7 @@ const ProductSchema = new mongoose.Schema({
     type: String,
     enum: ["Men", "Women", "Unisex"],
   },
-  image: [
+  images: [
     {
       url: {
         type: String,
