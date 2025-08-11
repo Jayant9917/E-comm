@@ -1,7 +1,12 @@
 const createWelcomeEmail = require('./welcomeEmail');
 const createLoginNotificationEmail = require('./loginNotificationEmail');
+const { createProductCreatedEmail, createProductUpdatedEmail, createProductDeletedEmail, createAbandonedCartEmail } = require('./productNotificationEmail');
 
 module.exports = {
   createWelcomeEmail,
-  createLoginNotificationEmail
+  createLoginNotificationEmail,
+  createProductCreatedEmail,
+  createProductUpdatedEmail,
+  createProductDeletedEmail,
+  createAbandonedCartEmail
 };

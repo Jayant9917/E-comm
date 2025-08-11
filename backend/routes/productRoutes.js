@@ -1,8 +1,43 @@
 const express = require("express");
 const Product = require("../models/Product");
+const User = require("../models/User");
 const { protect, admin } = require("../middleware/authMiddleware");
+const transporter = require("../config/nodemailer");
+const { createProductCreatedEmail, createProductUpdatedEmail, createProductDeletedEmail } = require("../emails");
 
 const router = express.Router();
+
+// Helper function to send product notification emails
+const sendProductNotification = async (adminId, action, productName, productDetails = {}) => {
+  try {
+    const admin = await User.findById(adminId);
+    if (admin) {
+      let mailOptions;
+      
+      switch (action) {
+        case 'Created':
+          mailOptions = createProductCreatedEmail(admin.name, productName, productDetails);
+          break;
+        case 'Updated':
+          mailOptions = createProductUpdatedEmail(admin.name, productName, productDetails);
+          break;
+        case 'Deleted':
+          mailOptions = createProductDeletedEmail(admin.name, productName);
+          break;
+        default:
+          return;
+      }
+      
+      await transporter.sendMail({
+        ...mailOptions,
+        to: admin.email
+      });
+      console.log(`Product ${action} notification email sent to ${admin.email}`);
+    }
+  } catch (error) {
+    console.log(`Error sending product ${action} notification email:`, error);
+  }
+};
 
 // @route Post /api/products
 // @desc Create a new product
@@ -55,6 +90,21 @@ router.post("/", protect, admin, async (req, res) => {
     });
 
     const createdProduct = await product.save();
+    
+    // Send product creation notification email
+    await sendProductNotification(
+      req.user._id, 
+      'Created', 
+      createdProduct.name, 
+      {
+        sku: createdProduct.sku,
+        category: createdProduct.category,
+        price: createdProduct.price,
+        countInStock: createdProduct.countInStock,
+        isPublished: createdProduct.isPublished
+      }
+    );
+
     res.status(201).json(createdProduct);
   } catch (err) {
     console.log(err);
@@ -118,6 +168,21 @@ router.put("/:id", protect, admin, async (req, res) => {
 
       // Save the updated product
       const updatedProduct = await product.save();
+      
+      // Send product update notification email
+      await sendProductNotification(
+        req.user._id, 
+        'Updated', 
+        updatedProduct.name, 
+        {
+          sku: updatedProduct.sku,
+          category: updatedProduct.category,
+          price: updatedProduct.price,
+          countInStock: updatedProduct.countInStock,
+          isPublished: updatedProduct.isPublished
+        }
+      );
+
       res.status(200).json(updatedProduct);
     } else {
       res.status(404).json({ message: "No product found with that ID" });
@@ -137,6 +202,13 @@ router.delete("/:id", protect, admin, async (req, res) => {
     const product = await Product.findById(req.params.id);
 
     if (product) {
+      // Send product deletion notification email before deleting
+      await sendProductNotification(
+        req.user._id, 
+        'Deleted', 
+        product.name
+      );
+
       // Remove the product from DB
       await product.deleteOne();
       res.json({
