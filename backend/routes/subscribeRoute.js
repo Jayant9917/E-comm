@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Subscriber = require("../models/Subscriber");
+const transporter = require("../config/nodemailer");
+const { createNewsletterConfirmationEmail } = require("../emails");
 
 // @route POST /api/subscribers
 // @desc Subscribe to newsletter
@@ -24,6 +26,15 @@ router.post("/subscribe", async (req, res) => {
     // Create a new subscriber
     subscriber = new Subscriber({ email });
     await subscriber.save();
+
+    // Send newsletter confirmation email
+    const mailOptions = createNewsletterConfirmationEmail(email);
+    try {
+      await transporter.sendMail(mailOptions);
+      console.log("Newsletter confirmation email sent to", email);
+    } catch (emailErr) {
+      console.log("Error sending newsletter confirmation email:", emailErr);
+    }
 
     res
       .status(201)

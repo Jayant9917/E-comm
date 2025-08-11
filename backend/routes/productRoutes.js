@@ -3,7 +3,8 @@ const Product = require("../models/Product");
 const User = require("../models/User");
 const { protect, admin } = require("../middleware/authMiddleware");
 const transporter = require("../config/nodemailer");
-const { createProductCreatedEmail, createProductUpdatedEmail, createProductDeletedEmail } = require("../emails");
+const { createProductCreatedEmail, createProductUpdatedEmail, createProductDeletedEmail, createNewsletterProductAnnouncementEmail } = require("../emails");
+const Subscriber = require("../models/Subscriber");
 
 const router = express.Router();
 
@@ -104,6 +105,22 @@ router.post("/", protect, admin, async (req, res) => {
         isPublished: createdProduct.isPublished
       }
     );
+
+    // Send new product announcement to all newsletter subscribers
+    try {
+      const subscribers = await Subscriber.find({});
+      for (const sub of subscribers) {
+        const mailOptions = createNewsletterProductAnnouncementEmail(sub.email, createdProduct);
+        try {
+          await transporter.sendMail(mailOptions);
+          console.log("Product announcement email sent to", sub.email);
+        } catch (emailErr) {
+          console.log("Error sending product announcement email to", sub.email, emailErr);
+        }
+      }
+    } catch (err) {
+      console.log("Error sending product announcement emails to subscribers:", err);
+    }
 
     res.status(201).json(createdProduct);
   } catch (err) {

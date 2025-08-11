@@ -4,6 +4,9 @@ const Order = require("../models/Order");
 const Product = require("../models/Product");
 const cart = require("../models/Cart");
 const { protect } = require("../middleware/authMiddleware");
+const transporter = require("../config/nodemailer");
+const { createOrderConfirmationEmail, createPaymentReceiptEmail } = require("../emails");
+const User = require("../models/User");
 
 const router = express.Router();
 
@@ -55,6 +58,17 @@ router.put("/:id/pay", protect, async (req, res) => {
       checkout.paidAt = Date.now();
       await checkout.save();
 
+      // Send payment receipt email
+      const user = await User.findById(checkout.user);
+      if (user) {
+        const mailOptions = createPaymentReceiptEmail(user.name, user.email, checkout);
+        try {
+          await transporter.sendMail(mailOptions);
+          console.log("Payment receipt email sent to", user.email);
+        } catch (emailErr) {
+          console.log("Error sending payment receipt email:", emailErr);
+        }
+      }
       res.status(200).json(checkout);
     } else {
       res.status(400).json({ message: "Invalid payment status" });
@@ -100,6 +114,18 @@ router.post("/:id/finalize", protect, async (req, res) => {
       } catch (cartError) {
         console.log("Error deleting cart:", cartError);
         // Continue with order creation even if cart deletion fails
+      }
+
+      // Send order confirmation email
+      const user = await User.findById(checkout.user);
+      if (user) {
+        const mailOptions = createOrderConfirmationEmail(user.name, user.email, finalOrder);
+        try {
+          await transporter.sendMail(mailOptions);
+          console.log("Order confirmation email sent to", user.email);
+        } catch (emailErr) {
+          console.log("Error sending order confirmation email:", emailErr);
+        }
       }
       res.status(201).json(finalOrder);
     } else if (checkout.isFinalized) {
