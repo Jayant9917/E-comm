@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 
-const checkoutSchema = new mongoose.Schema(
+const checkoutItemSchema = new mongoose.Schema(
   {
     productId: {
       type: mongoose.Schema.Types.ObjectId,
@@ -20,6 +20,10 @@ const checkoutSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    quantity: {
+      type: Number,
+      required: true,
+    },
   },
   { _id: false }
 );
@@ -31,7 +35,7 @@ const CheckoutSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    checkoutItems: [checkoutSchema],
+    checkoutItems: [checkoutItemSchema],
     shippingAddress: {
       address: {
         type: String,

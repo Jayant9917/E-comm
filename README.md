@@ -1,43 +1,190 @@
-# Rabbit - E-commerce Website
+# 🐰 Rabbit - Premium Clothing E-commerce Platform
 
-A modern, responsive e-commerce platform built with React.js and Node.js, featuring a comprehensive admin dashboard, user management, and seamless shopping experience.
+A full-stack, modern e-commerce platform built with React, Node.js, and MongoDB. Rabbit offers a seamless shopping experience with professional email notifications, comprehensive product management, and a beautiful responsive design.
 
-## 🚀 Features
+![Rabbit E-commerce](https://img.shields.io/badge/Rabbit-E--commerce%20Platform-blue?style=for-the-badge&logo=react)
+![React](https://img.shields.io/badge/React-18.0+-61DAFB?style=for-the-badge&logo=react)
+![Node.js](https://img.shields.io/badge/Node.js-18.0+-339933?style=for-the-badge&logo=node.js)
+![MongoDB](https://img.shields.io/badge/MongoDB-6.0+-47A248?style=for-the-badge&logo=mongodb)
 
-### Customer Features
-- **Responsive Design**: Mobile-first approach with Tailwind CSS
-- **Product Browsing**: Browse products by category (Men, Women, Top Wear, Bottom Wear)
-- **Product Details**: Comprehensive product information with image galleries
-- **Shopping Cart**: Add/remove items with quantity controls
-- **User Authentication**: Login and registration system
-- **Order Management**: Track order history and status
-- **Search Functionality**: Find products quickly with search bar
-- **Responsive Navigation**: Mobile-friendly navigation with hamburger menu
+## ✨ Features
 
-### Admin Features
-- **Dashboard**: Comprehensive admin overview
-- **User Management**: View and manage user accounts
-- **Product Management**: Add, edit, and delete products
-- **Order Management**: Process orders and update statuses
-- **Shop Management**: Manage shop settings and inventory
+### 🛍️ **Shopping Experience**
+- **Responsive Design**: Beautiful, modern UI that works on all devices
+- **Product Catalog**: Extensive clothing collection with detailed product pages
+- **Advanced Filtering**: Filter by gender, category, price, and more
+- **Search Functionality**: Intelligent product search with real-time results
+- **Shopping Cart**: Persistent cart with guest and user support
+- **Cart Merging**: Seamless cart synchronization when users log in
 
-## 🛠️ Tech Stack
+### 👨‍💼 **Admin Management**
+- **Product Management**: Full CRUD operations for products
+- **User Management**: Comprehensive user administration
+- **Order Management**: Track and manage customer orders
+- **Inventory Control**: Stock management and monitoring
+- **Admin Dashboard**: Intuitive admin interface
 
-### Frontend
-- **React.js** - Modern UI framework
-- **Vite** - Fast build tool and dev server
-- **Tailwind CSS** - Utility-first CSS framework
-- **React Router** - Client-side routing
-- **React Icons** - Icon library
+### 📧 **Smart Email System**
+- **Welcome Emails**: Professional welcome messages for new users
+- **Login Notifications**: Security alerts for account access
+- **Product Notifications**: Admin alerts for product changes
+  - Product creation confirmations
+  - Product update notifications
+  - Product deletion confirmations
+- **Abandoned Cart Reminders**: Automated 24-hour cart recovery emails
+- **Professional Templates**: Beautiful, branded HTML email designs
 
-### Backend
-- **Node.js** - JavaScript runtime
-- **Express.js** - Web application framework
-- **MongoDB** - NoSQL database (implied from structure)
+### 🔐 **Security & Authentication**
+- **JWT Authentication**: Secure token-based authentication
+- **Role-Based Access**: Admin and user permission system
+- **Password Hashing**: Bcrypt encryption for user security
+- **Protected Routes**: Secure admin and user endpoints
 
-## 📱 Screenshots
+## 🏗️ **Architecture**
 
-### Homepage
+```
+E-comm/
+├── frontend/                 # React.js Frontend
+│   ├── src/
+│   │   ├── components/      # Reusable UI components
+│   │   ├── pages/          # Application pages
+│   │   ├── assets/         # Images and static files
+│   │   └── App.jsx         # Main application component
+│   └── package.json
+├── backend/                  # Node.js Backend
+│   ├── config/             # Configuration files
+│   ├── models/             # MongoDB schemas
+│   ├── routes/             # API endpoints
+│   ├── middleware/         # Authentication & validation
+│   ├── emails/             # Email templates
+│   └── server.js           # Express server
+└── README.md
+```
+
+## 🚀 **Technologies Used**
+
+### **Frontend**
+- **React 18**: Modern UI framework with hooks
+- **Tailwind CSS**: Utility-first CSS framework
+- **Vite**: Fast build tool and development server
+- **Responsive Design**: Mobile-first approach
+
+### **Backend**
+- **Node.js**: JavaScript runtime environment
+- **Express.js**: Web application framework
+- **MongoDB**: NoSQL database
+- **Mongoose**: MongoDB object modeling
+- **JWT**: JSON Web Token authentication
+- **Nodemailer**: Email sending functionality
+- **Bcryptjs**: Password hashing
+
+### **Email Service**
+- **Brevo (SMTP)**: Professional email delivery
+- **HTML Templates**: Beautiful, responsive email designs
+- **Automated Notifications**: Smart email triggers
+
+## 📦 **Installation & Setup**
+
+### **Prerequisites**
+- Node.js (v18 or higher)
+- MongoDB (local or cloud)
+- Brevo account for email services
+
+### **1. Clone the Repository**
+```bash
+git clone <repository-url>
+cd E-comm
+```
+
+### **2. Backend Setup**
+```bash
+cd backend
+npm install
+```
+
+Create a `.env` file in the backend directory:
+```env
+# Database
+MONGODB_URI=mongodb://localhost:27017/rabbit-store
+
+# JWT
+JWT_SECRET=your-super-secret-jwt-key-here
+
+# Email Configuration (Brevo)
+SMTP_USER=your-brevo-username
+SMTP_PASS=your-brevo-password
+SENDER_EMAIL=noreply@yourdomain.com
+```
+
+### **3. Frontend Setup**
+```bash
+cd ../frontend
+npm install
+```
+
+### **4. Database Seeding**
+```bash
+cd ../backend
+npm run seed
+```
+
+### **5. Start Development Servers**
+```bash
+# Backend (Terminal 1)
+cd backend
+npm run dev
+
+# Frontend (Terminal 2)
+cd frontend
+npm run dev
+```
+
+## 🌐 **API Endpoints**
+
+### **Authentication Routes**
+```
+POST /api/users/register     # User registration
+POST /api/users/login        # User login
+GET  /api/users/profile      # Get user profile
+```
+
+### **Product Routes**
+```
+GET    /api/products         # Get all products
+GET    /api/products/:id     # Get single product
+POST   /api/products         # Create product (Admin)
+PUT    /api/products/:id     # Update product (Admin)
+DELETE /api/products/:id     # Delete product (Admin)
+```
+
+### **Cart Routes**
+```
+GET    /api/cart             # Get user cart
+POST   /api/cart             # Add item to cart
+PUT    /api/cart/:id         # Update cart item
+DELETE /api/cart/:id         # Remove cart item
+POST   /api/cart/abandoned-reminder  # Send cart reminder
+```
+
+## 📧 **Email System**
+
+### **Email Types**
+1. **Welcome Email**: Sent when users register
+2. **Login Notification**: Security alert for account access
+3. **Product Created**: Admin confirmation for new products
+4. **Product Updated**: Admin notification for product changes
+5. **Product Deleted**: Admin confirmation for product removal
+6. **Abandoned Cart**: 24-hour cart recovery reminder
+
+### **Email Features**
+- **Professional Design**: Beautiful, branded HTML templates
+- **Responsive Layout**: Works on all email clients
+- **Rabbit Branding**: Consistent with your e-commerce brand
+- **Automated Triggers**: Smart email sending based on actions
+
+## 📱 **Website Screenshots**
+
+### **Homepage**
 ![Homepage](./frontend/src/assets/Screenshot%20(109).png)
 
 The homepage features a stunning hero section with vacation-ready imagery, showcasing beach scenes with people enjoying outdoor dining. The design includes:
@@ -46,7 +193,7 @@ The homepage features a stunning hero section with vacation-ready imagery, showc
 - Hero section with "VACATION READY" messaging
 - Call-to-action "Shop Now" button
 
-### Product Details
+### **Product Details**
 ![Product Details](./frontend/src/assets/Screenshot%20(110).png)
 
 The product detail page displays:
@@ -57,7 +204,7 @@ The product detail page displays:
 - Add to cart functionality
 - Product characteristics (brand, material)
 
-### Admin Dashboard
+### **Admin Dashboard**
 ![Admin Dashboard](./frontend/src/assets/Screenshot%20(111).png)
 
 The admin dashboard provides comprehensive management tools:
@@ -66,141 +213,145 @@ The admin dashboard provides comprehensive management tools:
 - Order tracking and status updates
 - Shop settings and inventory control
 
-## 🏗️ Project Structure
+## 🎨 **UI Components**
 
+### **Layout Components**
+- **Header**: Navigation and branding
+- **Footer**: Site information and links
+- **Navbar**: Main navigation menu
+- **Topbar**: Secondary navigation and user actions
+
+### **Product Components**
+- **ProductGrid**: Display products in grid layout
+- **ProductDetails**: Detailed product information
+- **FilterSidebar**: Advanced filtering options
+- **SortOptions**: Product sorting functionality
+- **FeaturedCollection**: Highlighted product sections
+
+### **User Components**
+- **CartDrawer**: Shopping cart interface
+- **Checkout**: Payment and order processing
+- **UserLayout**: User dashboard layout
+- **AdminSidebar**: Admin navigation panel
+
+## 🔧 **Configuration**
+
+### **Environment Variables**
+```env
+# Database
+MONGODB_URI=mongodb://localhost:27017/rabbit-store
+
+# JWT Security
+JWT_SECRET=your-secret-key-here
+
+# Email (Brevo SMTP)
+SMTP_USER=your-brevo-username
+SMTP_PASS=your-brevo-password
+SENDER_EMAIL=noreply@yourdomain.com
 ```
-E-comm/
-├── backend/                 # Node.js backend
-│   ├── controllers/         # API route handlers
-│   ├── index.js            # Server entry point
-│   └── package.json        # Backend dependencies
-├── frontend/               # React frontend
-│   ├── src/
-│   │   ├── components/     # Reusable UI components
-│   │   │   ├── Admin/      # Admin dashboard components
-│   │   │   ├── Cart/       # Shopping cart components
-│   │   │   ├── Common/     # Shared components (Header, Navbar)
-│   │   │   ├── Layout/     # Layout components
-│   │   │   └── Products/   # Product-related components
-│   │   ├── pages/          # Page components
-│   │   ├── assets/         # Images and static files
-│   │   └── main.jsx        # App entry point
-│   ├── package.json        # Frontend dependencies
-│   └── tailwind.config.js  # Tailwind CSS configuration
-└── README.md               # Project documentation
+
+### **Database Models**
+- **User**: Authentication and profile data
+- **Product**: Product catalog and inventory
+- **Cart**: Shopping cart management
+- **Checkout**: Order processing (future implementation)
+
+## 🚀 **Deployment**
+
+### **Backend Deployment**
+```bash
+cd backend
+npm run build
+npm start
 ```
 
-## 🚀 Getting Started
+### **Frontend Deployment**
+```bash
+cd frontend
+npm run build
+# Deploy dist/ folder to your hosting service
+```
 
-### Prerequisites
-- Node.js (v14 or higher)
-- npm or yarn package manager
+## 🧪 **Testing**
 
-### Installation
+### **Postman Collection**
+Import the provided Postman collection for API testing:
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd E-comm
-   ```
+**User Registration:**
+```json
+POST /api/users/register
+{
+  "name": "Test User",
+  "email": "test@example.com",
+  "password": "password123"
+}
+```
 
-2. **Install backend dependencies**
-   ```bash
-   cd backend
-   npm install
-   ```
+**Product Creation (Admin):**
+```json
+POST /api/products
+{
+  "name": "Premium T-Shirt",
+  "description": "High-quality cotton t-shirt",
+  "price": 29.99,
+  "category": "Men",
+  "countInStock": 100
+}
+```
 
-3. **Install frontend dependencies**
-   ```bash
-   cd ../frontend
-   npm install
-   ```
+## 📱 **Responsive Design**
 
-4. **Start the backend server**
-   ```bash
-   cd ../backend
-   npm start
-   ```
+- **Mobile First**: Optimized for mobile devices
+- **Tablet Support**: Responsive tablet layouts
+- **Desktop Experience**: Full-featured desktop interface
+- **Cross-Browser**: Compatible with all modern browsers
 
-5. **Start the frontend development server**
-   ```bash
-   cd ../frontend
-   npm run dev
-   ```
+## 🔒 **Security Features**
 
-6. **Open your browser**
-   Navigate to `http://localhost:5173` to view the application
+- **JWT Authentication**: Secure token-based sessions
+- **Password Encryption**: Bcrypt hashing for user passwords
+- **Protected Routes**: Role-based access control
+- **Input Validation**: Server-side data validation
+- **CORS Protection**: Cross-origin request security
 
-## 🔧 Available Scripts
+## 🚀 **Future Enhancements**
 
-### Backend
-- `npm start` - Start the production server
-- `npm run dev` - Start the development server with nodemon
+- **Payment Integration**: PayPal, Stripe, and other payment gateways
+- **Order Management**: Complete order lifecycle management
+- **Inventory Tracking**: Advanced stock management
+- **Analytics Dashboard**: Sales and user analytics
+- **Multi-language Support**: Internationalization
+- **Mobile App**: React Native mobile application
 
-### Frontend
-- `npm run dev` - Start the development server
-- `npm run build` - Build the production bundle
-- `npm run preview` - Preview the production build
-
-## 🎨 Key Components
-
-### Navigation
-- **Header**: Top promotional banner and main navigation
-- **Navbar**: Brand logo, category links, and user actions
-- **Mobile Navigation**: Responsive hamburger menu for mobile devices
-
-### Admin Dashboard
-- **AdminLayout**: Main admin layout with sidebar navigation
-- **AdminSidebar**: Navigation menu for admin functions
-- **UserManagement**: Manage user accounts and permissions
-- **ProductManagement**: Add, edit, and delete products
-- **OrderManagement**: Process and track customer orders
-
-### Shopping Experience
-- **ProductGrid**: Display products in responsive grid layout
-- **ProductDetails**: Detailed product view with purchase options
-- **CartDrawer**: Shopping cart sidebar with checkout functionality
-- **Checkout**: Complete purchase process
-
-## 🌟 Features in Detail
-
-### Responsive Design
-- Mobile-first approach with Tailwind CSS
-- Breakpoint-based responsive layouts
-- Touch-friendly mobile navigation
-- Optimized for all device sizes
-
-### User Experience
-- Intuitive navigation structure
-- Fast loading with Vite
-- Smooth animations and transitions
-- Accessible design patterns
-
-### Admin Capabilities
-- Real-time order status updates
-- Bulk product management
-- User role management
-- Comprehensive analytics dashboard
-
-## 🤝 Contributing
+## 🤝 **Contributing**
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
 
-## 📄 License
+## 📄 **License**
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🙏 Acknowledgments
+## 📞 **Support**
 
-- React.js community for the amazing framework
-- Tailwind CSS for the utility-first CSS approach
-- Unsplash for high-quality stock images
-- All contributors who helped build this project
+For support and questions:
+- Create an issue in the repository
+- Contact the development team
+- Check the documentation
+
+## 🙏 **Acknowledgments**
+
+- **React Team**: For the amazing frontend framework
+- **Node.js Community**: For the robust backend runtime
+- **MongoDB**: For the flexible database solution
+- **Tailwind CSS**: For the utility-first CSS framework
+- **Brevo**: For reliable email delivery services
 
 ---
 
-**Built with ❤️ using React.js and Node.js**
+**🐰 Rabbit E-commerce Platform** - Built with ❤️ and modern web technologies
+
+*Transform your wardrobe with Rabbit's premium clothing collection!*
