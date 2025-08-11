@@ -18,7 +18,7 @@ router.post("/register", async (req, res) => {
     let user = await User.findOne({ email });
 
     if (user) {
-      return res.status(400).send("User already exists");
+      return res.status(400).json({ message: "User already exists" });
     }
 
     user = new User({ name, email, password });
@@ -62,7 +62,7 @@ router.post("/register", async (req, res) => {
     );
   } catch (err) {
     console.log(err);
-    res.status(500).send("server error");
+    res.status(500).json({ message: "Server error during registration" });
   }
 });
 
@@ -120,7 +120,7 @@ router.post("/login", async (req, res) => {
     );
   } catch (err) {
     console.log(err);
-    res.status(500).send("server error");
+    res.status(500).json({ message: "Server error during login" });
   }
 });
 
@@ -132,7 +132,7 @@ router.get("/profile", protect, async (req, res) => {
     res.json(req.user);
   } catch (err) {
     console.log(err);
-    res.status(500).send("Server error");
+    res.status(500).json({ message: "Server error" });
   }
 });
 
