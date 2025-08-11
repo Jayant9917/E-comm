@@ -8,6 +8,8 @@ const UserRoutes = require('./routes/UserRoutes');
 const ProductRoutes = require('./routes/productRoutes');
 const CartRoutes = require('./routes/cartRoutes');
 const CheckoutRoutes = require('./routes/checkoutRoutes');
+const OrderRoutes = require('./routes/orderRoutes');
+const uploadRoutes = require('./routes/uploadRoutes');
 
 const app = express();
 app.use(express.json());
@@ -28,6 +30,8 @@ app.use('/api/users', UserRoutes);
 app.use('/api/products', ProductRoutes);
 app.use('/api/cart', CartRoutes);
 app.use('/api/checkout', CheckoutRoutes);
+app.use('/api/orders', OrderRoutes);
+app.use('/api/upload', uploadRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
