@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import img1 from "../../assets/women/beauty-portrait-young-adult.jpg";
 import img2 from "../../assets/women/quan-nguyen-FiANPPQaaC8-unsplash.jpg";
 import img3 from "../../assets/women/glassesshop-WidHA6plUik-unsplash.jpg";
@@ -23,118 +24,19 @@ const NewArrivals = () => {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
-  const newArrivals = [
-    {
-      _id: "1",
-      name: "Stylish Jacket",
-      price: 120,
-      images: [
-        {
-          url: img1,
-          altText: "Stylish Jacket",
-        },
-      ],
-    },
-    {
-      _id: "2",
-      name: "Stylish Jacket",
-      price: 120,
-      images: [
-        {
-          url: img2,
-          altText: "Stylish Jacket",
-        },
-      ],
-    },
-    {
-      _id: "3",
-      name: "Stylish Jacket",
-      price: 120,
-      images: [
-        {
-          url: img3,
-          altText: "Stylish Jacket",
-        },
-      ],
-    },
-    {
-      _id: "4",
-      name: "Stylish Jacket",
-      price: 120,
-      images: [
-        {
-          url: img4,
-          altText: "Stylish Jacket",
-        },
-      ],
-    },
-    {
-      _id: "5",
-      name: "Stylish Jacket",
-      price: 120,
-      images: [
-        {
-          url: img5,
-          altText: "Stylish Jacket",
-        },
-      ],
-    },
-    {
-      _id: "6",
-      name: "Stylish Jacket",
-      price: 120,
-      images: [
-        {
-          url: img6,
-          altText: "Stylish Jacket",
-        },
-      ],
-    },
-    {
-      _id: "7",
-      name: "Stylish Jacket",
-      price: 120,
-      images: [
-        {
-          url: img7,
-          altText: "Stylish Jacket",
-        },
-      ],
-    },
-    {
-      _id: "8",
-      name: "Stylish Jacket",
-      price: 120,
-      images: [
-        {
-          url: img8,
-          altText: "Stylish Jacket",
-        },
-      ],
-    },
-    {
-      _id: "9",
-      name: "Stylish Jacket",
-      price: 120,
-      images: [
-        {
-          url: img9,
-          altText: "Stylish Jacket",
-        },
-      ],
-    },
-    {
-      _id: "10",
-      name: "Stylish Jacket",
-      price: 120,
-      images: [
-        {
-          url: img10,
-          altText: "Stylish Jacket",
-        },
-      ],
-    },
-  ];
+const [newArrivals, setNewArrivals] = useState([]);
+
+useEffect(() => {
+  const fetchNewArrivals = async () => {
+    try{
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/products/new-arrivals`);
+      setNewArrivals(response.data);
+    }catch(err){
+      console.error(err);
+    }
+  };
+  fetchNewArrivals();
+}, [])
 
   const handleMouseDown = (e) => {
     setIsDragging(true);
@@ -183,7 +85,7 @@ const NewArrivals = () => {
       updateScrollButtons();
       return () => container.removeEventListener("scroll", updateScrollButtons);
     }
-  }, []);
+  }, [newArrivals]);
 
   return (
     <section className="py-16 px-4 lg:px-0">

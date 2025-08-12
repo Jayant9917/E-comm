@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserLayout from "./components/Layout/UserLayout.jsx";
 import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
-import Register from "./pages/Resigter.jsx";
+import Register from "./pages/Register.jsx";
 import Profile from "./pages/Profile.jsx";
 import { Toaster } from "sonner";
 import CollectionPage from "./pages/CollectionPage.jsx";

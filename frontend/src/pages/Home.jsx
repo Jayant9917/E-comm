@@ -3,6 +3,10 @@ import GenderCollectionSection from "../components/Products/GenderCollectionSect
 import NewArrivals from "../components/Products/NewArrivals";
 import ProductDetails from "../components/Products/ProductDetails";
 import ProductGrid from "../components/Products/ProductGrid";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import axios from "axios";
+import { fetchProductsByFilters } from "../redux/slices/productsSlice";
 
 // Images
 import img1 from "../assets/women/aiony-haust-K0DxxljcRv0-unsplash.jpg";
@@ -16,58 +20,33 @@ import img8 from "../assets/Women/joeyy-lee-7x_1fK4Kgj8-unsplash.jpg";
 
 import FeaturedCollection from "../components/Products/FeaturedCollection";
 import FeaturesSection from "../components/Products/FeaturesSection";
-const placeholderProducts = [
-  {
-    _id: 1,
-    name: "Top For Girls",
-    price: 100,
-    images: [{ url: img1, altText: "product 1" }],
-  },
-  {
-    _id: 2,
-    name: "Casual Denim Shirt",
-    price: 100,
-    images: [{ url: img2, altText: "product 1" }],
-  },
-  {
-    _id: 3,
-    name: "Slim Fit Shirt",
-    price: 100,
-    images: [{ url: img3, altText: "product 1" }],
-  },
-  {
-    _id: 4,
-    name: "Goa Trip Outfit",
-    price: 100,
-    images: [{ url: img4, altText: "product 1" }],
-  },
-  {
-    _id: 1,
-    name: "Top For Girls",
-    price: 100,
-    images: [{ url: img5, altText: "product 1" }],
-  },
-  {
-    _id: 2,
-    name: "Casual Denim Shirt",
-    price: 100,
-    images: [{ url: img6, altText: "product 1" }],
-  },
-  {
-    _id: 3,
-    name: "Slim Fit Shirt",
-    price: 100,
-    images: [{ url: img7, altText: "product 1" }],
-  },
-  {
-    _id: 4,
-    name: "Goa Trip Outfit",
-    price: 100,
-    images: [{ url: img8, altText: "product 1" }],
-  },
-];
+import { useState } from "react";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const { products, loading, error } = useSelector((state) => state.products);
+  const [bestSellerProduct, setBestSellerProduct] = useState(null);
+
+  useEffect(() => {
+    // Fetch products for a specific category
+    dispatch(fetchProductsByFilters({
+      gender: "Women",
+      category: "Bottom Wear",
+      limit: 8,
+    }));
+    
+    // Fetch best seller product
+    const fetchBestSeller = async () => {
+      try {
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/products/best-seller`);
+        setBestSellerProduct(response.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchBestSeller();
+  }, [dispatch]);
+
   return (
     <div>
       <Hero />
@@ -77,14 +56,18 @@ const Home = () => {
       {/* Best Sellers */}
       <div className="container mx-auto">
         <h2 className="text-3xl text-center font-bold mb-4">Best Sellers</h2>
-        <ProductDetails />
+        {bestSellerProduct ? (
+          <ProductDetails productId={bestSellerProduct._id} />
+        ) : (
+          <p className="text-center">Loading Best Seller Product ...</p>
+        )}
       </div>
 
       <div className="container mx-auto">
         <h2 className="text-3xl text-center font-bold mb-4">
           Top Wear for Women
         </h2>
-        <ProductGrid products={placeholderProducts} />
+        <ProductGrid products={products} loading={loading} error={error} />
       </div>
       <FeaturedCollection />
       <FeaturesSection />
