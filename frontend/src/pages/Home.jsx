@@ -6,13 +6,14 @@ import ProductGrid from "../components/Products/ProductGrid";
 
 // Images
 import img1 from "../assets/women/aiony-haust-K0DxxljcRv0-unsplash.jpg";
-import img2 from "../assets/women/oleg-ivanov-ykurGtWomMw-unsplash.jpg";
-import img3 from "../assets/women/mahdi-chaghari-YKtDVRbpw2U-unsplash.jpg";
-import img4 from "../assets/women/quan-nguyen-bYry70RTElE-unsplash.jpg";
-import img5 from "../assets/women/alexander-jawfox-GNd5gstTSg8-unsplash.jpg";
-import img6 from "../assets/women/young-teenage-girl-recording-reels-herself-outdoors-social-media.jpg";
-import img7 from "../assets/women/joel-mott-qclr7hbOCwk-unsplash.jpg";
-import img8 from "../assets/women/ismail-efe-top-w_5OeQBs118-unsplash.jpg";
+import img2 from "../assets/Women/rafaella-mendes-diniz-et_78QkMMQs-unsplash.jpg";
+import img3 from "../assets/Women/farshad-sheikhzad-IUR8isHHmgI-unsplash.jpg";
+import img4 from "../assets/Women/david-nieto-PN_vlniJa78-unsplash.jpg";
+import img5 from "../assets/Women/leyli-nova-gd0qpyteVFY-unsplash.jpg";
+import img6 from "../assets/Women/kevin-torres-wwGTlaBRgJk-unsplash.jpg";
+import img7 from "../assets/Women/josh-pereira-ANHQ4ZROiH8-unsplash.jpg";
+import img8 from "../assets/Women/joeyy-lee-7x_1fK4Kgj8-unsplash.jpg";
+
 import FeaturedCollection from "../components/Products/FeaturedCollection";
 import FeaturesSection from "../components/Products/FeaturesSection";
 const placeholderProducts = [
