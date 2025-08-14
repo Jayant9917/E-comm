@@ -19,11 +19,34 @@ import img12 from "../assets/Men/whereslugo-lBVOaVl4yy8-unsplash.jpg";
 import FilterSidebar from "../components/Products/FilterSidebar";
 import SortOptions from "../components/Products/SortOptions";
 import ProductGrid from "../components/Products/ProductGrid";
+import { useParams, useSearchParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { fetchProductsByFilters } from "../redux/slices/productsSlice";
+
+// Shuffle function to randomize products
+function shuffleArray(array) {
+  return array
+    ? array
+        .map(value => ({ value, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ value }) => value)
+    : [];
+}
 
 const CollectionPage = () => {
-  const [products, setProducts] = useState([]);
+  const { collection } = useParams();
+  const [searchParams] = useSearchParams();
+  const dispatch = useDispatch();
+  const { products, loading, error } = useSelector((state) => state.products);
+  const queryParams = Object.fromEntries([...searchParams]);
+
   const SidebarRef = useRef(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  useEffect(() => {
+    dispatch(fetchProductsByFilters({ collection, ...queryParams}));
+  }, [dispatch, collection, searchParams])
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -45,85 +68,8 @@ const CollectionPage = () => {
     };
   }, []);
 
-  useEffect(() => {
-    setTimeout(() => {
-      const fetchProducts = [
-        {
-          _id: 1,
-          name: "Top For Girls",
-          price: 100,
-          images: [{ url: img1, altText: "product 1" }],
-        },
-        {
-          _id: 2,
-          name: "Casual Denim Shirt",
-          price: 100,
-          images: [{ url: img2, altText: "product 1" }],
-        },
-        {
-          _id: 3,
-          name: "Slim Fit Shirt",
-          price: 100,
-          images: [{ url: img3, altText: "product 1" }],
-        },
-        {
-          _id: 4,
-          name: "Goa Trip Outfit",
-          price: 100,
-          images: [{ url: img4, altText: "product 1" }],
-        },
-        {
-          _id: 5,
-          name: "Top For Girls",
-          price: 100,
-          images: [{ url: img5, altText: "product 1" }],
-        },
-        {
-          _id: 6,
-          name: "Casual Denim Shirt",
-          price: 100,
-          images: [{ url: img6, altText: "product 1" }],
-        },
-        {
-          _id: 7,
-          name: "Slim Fit Shirt",
-          price: 100,
-          images: [{ url: img7, altText: "product 1" }],
-        },
-        {
-          _id: 8,
-          name: "Goa Trip Outfit",
-          price: 100,
-          images: [{ url: img8, altText: "product 1" }],
-        },
-        {
-          _id: 9,
-          name: "Goa Trip Outfit",
-          price: 100,
-          images: [{ url: img9, altText: "product 1" }],
-        },
-        {
-          _id: 10,
-          name: "Goa Trip Outfit",
-          price: 100,
-          images: [{ url: img10, altText: "product 1" }],
-        },
-        {
-          _id: 11,
-          name: "Goa Trip Outfit",
-          price: 100,
-          images: [{ url: img11, altText: "product 1" }],
-        },
-        {
-          _id: 12,
-          name: "Goa Trip Outfit",
-          price: 100,
-          images: [{ url: img12, altText: "product 1" }],
-        },
-      ];
-      setProducts(fetchProducts);
-    }, 1000);
-  }, []);
+
+
 
   return (
     <div className="flex flex-col lg:flex-row">
@@ -152,7 +98,7 @@ const CollectionPage = () => {
         <SortOptions />
         
         {/* Product Grid */}
-        <ProductGrid products={products}/>
+        <ProductGrid products={shuffleArray(products)} loading={loading} error={error}/>
       </div>
     </div>
   );
