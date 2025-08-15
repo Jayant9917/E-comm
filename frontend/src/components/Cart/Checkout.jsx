@@ -10,9 +10,10 @@ const Checkout = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { cart, loading, error } = useSelector((state) => state.cart);
-  const { user } = useSelector((state) => state.auth);
+  const { user, guestId } = useSelector((state) => state.auth);
 
   const [CheckoutId, setCheckoutId] = useState(null);
+  const [guestEmail, setGuestEmail] = useState("");
   const [shippingAddress, setShippingAddress] = useState({
     firstName: "",
     lastName: "",
@@ -32,33 +33,59 @@ const Checkout = () => {
 
   const handleCreateCheckout = async (e) => {
     e.preventDefault();
+    
+    // Validate guest email if user is not logged in
+    if (!user && !guestEmail) {
+      alert("Please enter your email address to continue with checkout");
+      return;
+    }
+    
     if (cart && cart.products.length > 0) {
-      const res = await dispatch(
-        createCheckout({
-          checkoutItems: cart.products,
-          shippingAddress: shippingAddress,
-          paymentMethod: "paypal",
-          totalPrice: cart.totalPrice,
-        })
-      );
+      // Prepare checkout data
+      const checkoutData = {
+        checkoutItems: cart.products,
+        shippingAddress: shippingAddress,
+        paymentMethod: "paypal",
+        totalPrice: cart.totalPrice,
+      };
+
+      // Add user or guest identifier
+      if (user) {
+        // Authenticated user checkout
+        checkoutData.userId = user._id;
+      } else if (guestId) {
+        // Guest checkout
+        checkoutData.guestId = guestId;
+        // Add guest email to shipping address for order confirmation
+        checkoutData.shippingAddress = {
+          ...shippingAddress,
+          email: guestEmail
+        };
+      }
+
+      const res = await dispatch(createCheckout(checkoutData));
       if (res.payload && res.payload._id) {
-        setCheckoutId(res.payload._id); // set checkout ID if checkout was Successful
+        setCheckoutId(res.payload._id);
       }
     }
   };
 
   const handlePaymentSuccess = async (details) => {
     try {
+      // For guest users, we don't need Authorization header
+      const headers = {};
+      const userToken = localStorage.getItem("userToken");
+      
+      if (userToken) {
+        headers.Authorization = `Bearer ${userToken}`;
+      }
+
       const response = await axios.put(
         `${import.meta.env.VITE_BACKEND_URL}/api/checkout/${CheckoutId}/pay`,
         { paymentStatus: "paid", paymentDetails: details },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("userToken")}`,
-          },
-        }
+        { headers }
       );
-      await handleFinalizeCheckout(CheckoutId); // Finalize checkout if payment was successful
+      await handleFinalizeCheckout(CheckoutId);
     } catch (err) {
       console.error(err);
     }
@@ -66,16 +93,20 @@ const Checkout = () => {
 
   const handleFinalizeCheckout = async (CheckoutId) => {
     try {
+      // For guest users, we don't need Authorization header
+      const headers = {};
+      const userToken = localStorage.getItem("userToken");
+      
+      if (userToken) {
+        headers.Authorization = `Bearer ${userToken}`;
+      }
+
       const response = await axios.post(
         `${
           import.meta.env.VITE_BACKEND_URL
         }/api/checkout/${CheckoutId}/finalize`,
         {},
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("userToken")}`,
-          },
-        }
+        { headers }
       );
       navigate("/order-confirmation");
     } catch (err) {
@@ -106,10 +137,18 @@ const Checkout = () => {
             <label className="block text-gray-700 ">Email</label>
             <input
               type="email"
-              value={user ? user.email : ""}
+              value={user ? user.email : guestEmail}
+              onChange={(e) => setGuestEmail(e.target.value)}
               className="w-full p-2 border rounded"
-              disabled
+              placeholder={user ? "Your Email" : "Guest Email"}
+              disabled={!!user}
+              required={!user}
             />
+            {!user && (
+              <p className="text-sm text-gray-500 mt-1">
+                Your email will be used for order confirmation and updates
+              </p>
+            )}
           </div>
           <h3 className="text-lg mb-4">Delivery</h3>
           {/* First Name */}

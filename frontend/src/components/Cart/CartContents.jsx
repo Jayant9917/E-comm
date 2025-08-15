@@ -5,7 +5,7 @@ import { updateCartItemQuantity, removeFromCart } from "../../redux/slices/cartS
 const CartContents = ({ cart, userId, guestId }) => {
   const dispatch = useDispatch();
 
-  //Handle adding or subtracting to cart
+  // Handle adding or subtracting to cart
   const handleAddToCart = (productId, delta, quantity, size, color) => {
     const newQuantity = quantity + delta;
     if (newQuantity >= 1) {
@@ -17,6 +17,7 @@ const CartContents = ({ cart, userId, guestId }) => {
       };
       if (userId) payload.userId = userId;
       else if (guestId) payload.guestId = guestId;
+      
       dispatch(updateCartItemQuantity(payload));
     }
   };
@@ -29,6 +30,7 @@ const CartContents = ({ cart, userId, guestId }) => {
     };
     if (userId) payload.userId = userId;
     else if (guestId) payload.guestId = guestId;
+    
     dispatch(removeFromCart(payload));
   };
 

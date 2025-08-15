@@ -33,10 +33,22 @@ const CheckoutSchema = new mongoose.Schema(
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      required: true,
+      required: false, // Make user optional for guest checkouts
+    },
+    guestId: {
+      type: String,
+      required: false, // Add guestId for guest checkouts
     },
     checkoutItems: [checkoutItemSchema],
     shippingAddress: {
+      firstName: {
+        type: String,
+        required: true,
+      },
+      lastName: {
+        type: String,
+        required: true,
+      },
       address: {
         type: String,
         required: true,
@@ -53,10 +65,14 @@ const CheckoutSchema = new mongoose.Schema(
         type: String,
         required: true,
       },
+      phone: {
+        type: String,
+        required: true,
+      },
     },
     paymentMethod: {
       type: String,
-      required: true, // TODO: Add payment methods
+      required: true,
     },
     totalPrice: {
       type: Number,
@@ -74,7 +90,7 @@ const CheckoutSchema = new mongoose.Schema(
       default: "pending",
     },
     paymentDetails: {
-      type: mongoose.Schema.Types.Mixed, // Store payment-related details(transactionId, paypal response)
+      type: mongoose.Schema.Types.Mixed,
     },
     isFinalized: {
       type: Boolean,
@@ -86,5 +102,13 @@ const CheckoutSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+// Add validation to ensure either user or guestId is provided
+CheckoutSchema.pre('save', function(next) {
+  if (!this.user && !this.guestId) {
+    return next(new Error('Either user or guestId must be provided'));
+  }
+  next();
+});
 
 module.exports = mongoose.model("Checkout", CheckoutSchema);

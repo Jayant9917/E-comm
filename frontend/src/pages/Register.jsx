@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import registerIMG from "../assets/register.webp";
-import { registerUser } from "../redux/slices/authSlice";
+import { registerUser, clearGuestId } from "../redux/slices/authSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { mergeCart } from "../redux/slices/cartSlice";
-import { fetchCart } from "../redux/slices/cartSlice";
+import { mergeCart, forceRefreshCart } from "../redux/slices/cartSlice";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -16,18 +15,39 @@ const Register = () => {
   const { user, guestId } = useSelector((state) => state.auth);
   const { cart } = useSelector((state) => state.cart);
 
-  // Get redirect parameter and check if it's checkout or somrthing
+  // Get redirect parameter and check if it's checkout or something
   const redirect = new URLSearchParams(location.search).get("redirect") || "/";
   const isCheckoutRedirect = redirect.includes("checkout");
 
   useEffect(() => {
     if (user) {
-      if (cart?.products.length > 0 && guestId) {
-        dispatch(mergeCart({ guestId, user })).then(() => {
-          localStorage.removeItem("guestId");
-          navigate(isCheckoutRedirect ? "/checkout" : "/");
-        });
+      // Check if there's a guest cart with products to merge
+      const hasGuestCart = cart && cart.products && Array.isArray(cart.products) && cart.products.length > 0;
+      
+      if (hasGuestCart && guestId) {
+        // Merge guest cart into user cart
+        dispatch(mergeCart({ guestId, user }))
+          .then((result) => {
+            if (result.payload) {
+              // Check if the merged cart is now a user cart (has user field, no guestId)
+              if (result.payload.user && !result.payload.guestId) {
+                // Force refresh cart state with merged cart
+                dispatch(forceRefreshCart(result.payload));
+                // Clear guest ID from auth state
+                dispatch(clearGuestId());
+              } else {
+                console.error("❌ Register: Cart merge failed - cart still has guest properties");
+              }
+            }
+            navigate(isCheckoutRedirect ? "/checkout" : "/");
+          })
+          .catch((error) => {
+            console.error("❌ Register: Cart merge failed:", error);
+            // Even if merge fails, navigate to checkout
+            navigate(isCheckoutRedirect ? "/checkout" : "/");
+          });
       } else {
+        // No guest cart to merge, just navigate
         navigate(isCheckoutRedirect ? "/checkout" : "/");
       }
     }

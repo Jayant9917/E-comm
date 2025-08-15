@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginIMG from "../assets/login.webp";
-import { loginUser } from "../redux/slices/authSlice";
+import { loginUser, clearGuestId } from "../redux/slices/authSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
-import { mergeCart } from "../redux/slices/cartSlice";
-import { fetchCart } from "../redux/slices/cartSlice";
+import { mergeCart, forceRefreshCart } from "../redux/slices/cartSlice";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -17,18 +16,38 @@ const Login = () => {
   const { user, guestId } = useSelector((state) => state.auth);
   const { cart } = useSelector((state) => state.cart);
 
-  // Get redirect paramster and check if it's checkout or somrthing
+  // Get redirect parameter and check if it's checkout or something
   const redirect = new URLSearchParams(location.search).get("redirect") || "/";
   const isCheckoutRedirect = redirect.includes("checkout");
 
   useEffect(() => {
     if (user) {
-      if (cart?.products.length > 0 && guestId) {
-        dispatch(mergeCart({ guestId, user })).then(() => {
-          localStorage.removeItem("guestId");
+      try {
+        // Check if there's a guest cart with products to merge
+        const hasGuestCart = cart && cart.products && Array.isArray(cart.products) && cart.products.length > 0;
+        
+        if (hasGuestCart && guestId) {
+          // Merge guest cart into user cart
+          dispatch(mergeCart({ guestId, user }))
+            .then((result) => {
+              if (result.payload) {
+                // Force refresh cart state with merged cart
+                dispatch(forceRefreshCart(result.payload));
+                // Clear guest ID from auth state
+                dispatch(clearGuestId());
+              }
+              navigate(isCheckoutRedirect ? "/checkout" : "/");
+            })
+            .catch((error) => {
+              // Even if merge fails, navigate to checkout
+              navigate(isCheckoutRedirect ? "/checkout" : "/");
+            });
+        } else {
+          // No guest cart to merge, just navigate
           navigate(isCheckoutRedirect ? "/checkout" : "/");
-        });
-      } else {
+        }
+      } catch (error) {
+        // If there's any error, just navigate to checkout
         navigate(isCheckoutRedirect ? "/checkout" : "/");
       }
     }

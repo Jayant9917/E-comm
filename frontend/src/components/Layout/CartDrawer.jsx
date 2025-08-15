@@ -1,13 +1,39 @@
 import { IoMdClose } from "react-icons/io";
 import CartContents from "../Cart/CartContents";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchCart, cleanupCartState } from "../../redux/slices/cartSlice";
 
 const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { user, guestId } = useSelector((state) => state.auth);
   const { cart } = useSelector((state) => state.cart);
   const userId = user ? user._id : null;
+
+  // Clean up cart state on mount
+  useEffect(() => {
+    dispatch(cleanupCartState());
+  }, [dispatch]);
+
+  // Fetch user cart when user logs in
+  useEffect(() => {
+    if (user && userId) {
+      // If we have a valid cart with products and it belongs to the user, no need to fetch
+      if (cart && cart.products && cart.products.length > 0 && cart.user === userId) {
+        return;
+      }
+      
+      // Only fetch if we don't have a cart, cart is empty, or cart doesn't belong to user
+      if (!cart || !cart.products || cart.products.length === 0 || cart.user !== userId) {
+        dispatch(fetchCart({ userId }))
+          .catch((error) => {
+            // Handle fetch error silently - user can still use existing cart
+          });
+      }
+    }
+  }, [user, userId, cart, dispatch]);
 
   const handleCheckout = () => {
     toggleCartDrawer();
