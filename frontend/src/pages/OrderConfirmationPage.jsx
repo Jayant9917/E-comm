@@ -1,109 +1,83 @@
-const checkout = {
-  _id: "12321",
-  createdAt: new Date(),
-  checkoutItems: [
-    {
-      productId: "1",
-      name: "Jacket",
-      color: "Red",
-      size: "M",
-      price: 100,
-      quantity: 1,
-      image: "https://picsum.photos/150?random=1",
-    },
-    {
-      productId: "2",
-      name: "T-shirt",
-      color: "Black",
-      size: "XL",
-      price: 75,
-      quantity: 1,
-      image: "https://picsum.photos/150?random=2",
-    },
-  ],
-  shippingAddress: {
-    address: "123 Main St",
-    city: "New York",
-    country: "USA",
-  },
-};
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { clearCart } from "../redux/slices/cartSlice";
+
 
 const OrderConfirmationPage = () => {
-  const calculateEstimatedDelivery = (createdAt) => {
-    const orderDate = new Date(createdAt);
-    orderDate.setDate(orderDate.getDate() + 10); //Add 10 days to the order date
-    return orderDate.toLocaleDateString();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // Clear the cart when the order is confirmed
+  useEffect(() => {
+    // Clear cart from Redux state
+    dispatch(clearCart());
+  }, [dispatch]);
+
+  const handleViewOrders = () => {
+    navigate("/my-order");
+  };
+
+  const handleContinueShopping = () => {
+    navigate("/");
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white ">
-      <h1 className="text-4xl font-bold text-center text-emerald-700 mb-8">
-        Thank you for your order!
-      </h1>
-
-      {checkout && (
-        <div className="p-6 rounded-lg border">
-          <div className="flex justify-between mb-20">
-            {/* Order ID and Date */}
-            <div>
-              <h2 className="text-xl font-semibold">
-                Order ID: {checkout._id}
-              </h2>
-              <p className="text-gray-500">
-                Order date: {new Date(checkout.createdAt).toLocaleDateString()}
-              </p>
-            </div>
-            {/* Estimated Delivery */}
-            <div>
-              <p className="text-emerald-700 text-sm">
-                Estimated Delivery:{" "}
-                {calculateEstimatedDelivery(checkout.createdAt)}
-              </p>
-            </div>
+    <div className="max-w-4xl mx-auto p-6 bg-white">
+      <div className="text-center">
+        <div className="mb-8">
+          <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-4">
+            <svg className="h-8 w-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+            </svg>
           </div>
-          {/* Oreder Items */}
-          <div className="mb-20">
-            {checkout.checkoutItems.map((item) => (
-              <div key={item.productId} className="flex items-center mb-4">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-16 h-16 object-cover rounded-md mr-4"
-                />
-                <div>
-                  <h4 className="text-md font-semibold">{item.name}</h4>
-                  <p className="text-sm text-gray-500">
-                    {item.color} || {item.size}
-                  </p>
-                </div>
-                <div className="ml-auto text-right">
-                  <p className="text-md">${item.price}</p>
-                  <p className="text-sm text-gray-500">Qty: {item.quantity}</p>
-                </div>
+          <h1 className="text-4xl font-bold text-emerald-700 mb-4">
+            Thank you for your order!
+          </h1>
+          <p className="text-lg text-gray-600 mb-8">
+            Your order has been successfully placed and confirmed. You will receive an email confirmation shortly.
+          </p>
+        </div>
+
+        <div className="bg-gray-50 rounded-lg p-6 mb-8">
+          <h2 className="text-xl font-semibold mb-4">What happens next?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600">
+            <div className="text-center">
+              <div className="bg-blue-100 rounded-full h-8 w-8 mx-auto mb-2 flex items-center justify-center">
+                <span className="text-blue-600 font-semibold">1</span>
               </div>
-            ))}
-          </div>
-          {/* Patment and Delivery Details */}
-          <div className="grid grid-cols-2 gap-8">
-            <div>
-              <h4 className="text-lg font-semibold mb-2">Payment</h4>
-              <p className="text-gray-600">Paypal</p>
+              <p>Order Confirmed</p>
             </div>
-
-            {/* Deliver Info */}
-            <div>
-              <h4 className="text-lg font-semibold mb-2">Delivery</h4>
-              <p className="text-gray-600">
-                {checkout.shippingAddress.address}
-              </p>
-              <p className="text-gray-600">
-                {checkout.shippingAddress.city},{" "}
-                {checkout.shippingAddress.country}
-              </p>
+            <div className="text-center">
+              <div className="bg-yellow-100 rounded-full h-8 w-8 mx-auto mb-2 flex items-center justify-center">
+                <span className="text-yellow-600 font-semibold">2</span>
+              </div>
+              <p>Processing & Shipping</p>
+            </div>
+            <div className="text-center">
+              <div className="bg-green-100 rounded-full h-8 w-8 mx-auto mb-2 flex items-center justify-center">
+                <span className="text-green-600 font-semibold">3</span>
+              </div>
+              <p>Delivered to You</p>
             </div>
           </div>
         </div>
-      )}
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            onClick={handleViewOrders}
+            className="bg-emerald-600 text-white px-6 py-3 rounded-lg hover:bg-emerald-700 transition-colors"
+          >
+            View My Orders
+          </button>
+          <button
+            onClick={handleContinueShopping}
+            className="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors"
+          >
+            Continue Shopping
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

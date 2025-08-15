@@ -17,6 +17,7 @@ export const createCheckout = createAsyncThunk("checkout/createCheckout", async(
                 checkoutdata,
                 { headers }
             );
+            
             return response.data;
         } catch (err) {
             return rejectWithValue(err.response?.data || { message: "Failed to create checkout" });

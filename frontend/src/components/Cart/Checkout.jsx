@@ -33,40 +33,59 @@ const Checkout = () => {
 
   const handleCreateCheckout = async (e) => {
     e.preventDefault();
-    
-    // Validate guest email if user is not logged in
+
+    // Client-side validation
     if (!user && !guestEmail) {
-      alert("Please enter your email address to continue with checkout");
+      alert("Please enter your email address");
       return;
     }
-    
-    if (cart && cart.products.length > 0) {
-      // Prepare checkout data
+
+    // Validate shipping address
+    const requiredFields = ['firstName', 'lastName', 'address', 'city', 'postalCode', 'country', 'phone'];
+    for (const field of requiredFields) {
+      if (!shippingAddress[field] || shippingAddress[field].trim() === '') {
+        alert(`Please fill in ${field.replace(/([A-Z])/g, ' $1').toLowerCase()}`);
+        return;
+      }
+    }
+
+    // Validate cart products
+    if (!cart.products || cart.products.length === 0) {
+      alert("Your cart is empty");
+      return;
+    }
+
+    for (const product of cart.products) {
+      if (!product.productId || !product.name || !product.image || !product.price || !product.quantity || !product.size || !product.color) {
+        alert("Invalid product data in cart");
+        return;
+      }
+    }
+
+    try {
       const checkoutData = {
         checkoutItems: cart.products,
-        shippingAddress: shippingAddress,
+        shippingAddress,
         paymentMethod: "paypal",
         totalPrice: cart.totalPrice,
       };
 
-      // Add user or guest identifier
       if (user) {
-        // Authenticated user checkout
-        checkoutData.userId = user._id;
-      } else if (guestId) {
-        // Guest checkout
+        checkoutData.user = user._id;
+      } else {
         checkoutData.guestId = guestId;
-        // Add guest email to shipping address for order confirmation
-        checkoutData.shippingAddress = {
-          ...shippingAddress,
-          email: guestEmail
-        };
+        checkoutData.shippingAddress = { ...shippingAddress, email: guestEmail };
       }
 
       const res = await dispatch(createCheckout(checkoutData));
       if (res.payload && res.payload._id) {
         setCheckoutId(res.payload._id);
+      } else if (res.error) {
+        console.error("Checkout creation failed:", res.error);
+        alert("Checkout creation failed. Please try again.");
       }
+    } catch (err) {
+      console.error(err);
     }
   };
 

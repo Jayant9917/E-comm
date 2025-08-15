@@ -15,7 +15,7 @@ const router = express.Router();
 // @desc Create a new Checkout session for authenticated users or guests
 // @access Public (handles both authenticated and guest users)
 router.post("/", async (req, res) => {
-  const { checkoutItems, shippingAddress, paymentMethod, totalPrice, guestId } = req.body;
+  const { checkoutItems, shippingAddress, paymentMethod, totalPrice, guestId, user } = req.body;
 
   if (!checkoutItems || checkoutItems.length === 0) {
     return res.status(400).json({ message: "No items in checkout" });
@@ -26,41 +26,64 @@ router.post("/", async (req, res) => {
     
     // Check if user is authenticated (has valid token)
     const authHeader = req.headers.authorization;
+    
     if (authHeader && authHeader.startsWith('Bearer ')) {
       try {
         const token = authHeader.substring(7);
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        userId = decoded.id;
+        
+        // Handle both token structures: decoded.id or decoded.user.id
+        if (decoded.id) {
+          userId = decoded.id;
+        } else if (decoded.user && decoded.user.id) {
+          userId = decoded.user.id;
+        }
       } catch (tokenErr) {
         // Token is invalid, treat as guest user
-        console.log("Invalid token, proceeding as guest checkout");
       }
     }
 
+    // Determine the final userId (either from token or from request body)
+    if (!userId && !guestId) {
+      return res.status(400).json({ message: "Either user authentication or guest ID required" });
+    }
+    
+    // If we have a userId from token, use that. Otherwise, use the user field from request body
+    const finalUserId = userId || user;
+
     // Create checkout data
     const checkoutData = {
-      checkoutItems: checkoutItems,
+      checkoutItems,
       shippingAddress,
       paymentMethod,
       totalPrice,
       paymentStatus: "pending",
-      isPaid: false,
+      isPaid: false
     };
-
+    
     // If authenticated user, add user ID; if guest, add guest ID
-    if (userId) {
-      checkoutData.user = userId;
+    if (finalUserId) {
+      checkoutData.user = finalUserId;
     } else if (guestId) {
       checkoutData.guestId = guestId;
-    } else {
-      return res.status(400).json({ message: "Either user authentication or guest ID required" });
     }
 
     // Create a new checkout session
-    const newCheckout = await Checkout.create(checkoutData);
-    res.status(201).json(newCheckout);
+    const checkout = new Checkout(checkoutData);
+    
+    // Validate the checkout before saving
+    const validationError = checkout.validateSync();
+    if (validationError) {
+      return res.status(400).json({ 
+        message: "Checkout validation failed", 
+        errors: validationError.errors 
+      });
+    }
+    
+    await checkout.save();
+    res.status(201).json(checkout);
   } catch (err) {
-    console.error("Error creating checkout session: ", err);
+    console.error("❌ Backend: Error creating checkout session:", err);
     res.status(500).json({ message: "Server error" });
   }
 });
@@ -132,10 +155,22 @@ router.post("/:id/finalize", async (req, res) => {
     }
 
     if (checkout.isPaid && !checkout.isFinalized) {
+      // Get user email if this is an authenticated user
+      let userEmail = null;
+      if (checkout.user) {
+        const user = await User.findById(checkout.user);
+        if (user) {
+          userEmail = user.email;
+        }
+      }
+
       // Create final order based on the checkout details
       const orderData = {
         orderItems: checkout.checkoutItems,
-        shippingAddress: checkout.shippingAddress,
+        shippingAddress: {
+          ...checkout.shippingAddress,
+          email: userEmail || checkout.shippingAddress.email // Add email from user or checkout
+        },
         paymentMethod: checkout.paymentMethod,
         totalPrice: checkout.totalPrice,
         isPaid: true,
@@ -152,7 +187,19 @@ router.post("/:id/finalize", async (req, res) => {
         orderData.guestId = checkout.guestId;
       }
 
-      const finalOrder = await Order.create(orderData);
+      let finalOrder;
+      try {
+        finalOrder = await Order.create(orderData);
+      } catch (orderErr) {
+        console.error("❌ Backend: Error creating order:", orderErr);
+        if (orderErr.name === 'ValidationError') {
+          return res.status(400).json({ 
+            message: "Order validation failed", 
+            errors: orderErr.errors 
+          });
+        }
+        return res.status(500).json({ message: "Failed to create order" });
+      }
 
       // Mark the checkout as finalized
       checkout.isFinalized = true;

@@ -220,6 +220,25 @@ const cartSlice = createSlice({
                 saveCartToStorage(state.cart);
             }
         },
+        clearCart: (state) => {
+            console.log("🔄 clearCart action called, current state:", state.cart);
+            
+            // Clear cart completely after successful order, but preserve user association
+            const currentUser = state.cart?.user;
+            const currentGuestId = state.cart?.guestId;
+            
+            state.cart = { 
+                products: [], 
+                totalPrice: 0,
+                user: currentUser,
+                guestId: currentGuestId
+            };
+            
+            console.log("✅ clearCart action completed, new state:", state.cart);
+            
+            // Clear from localStorage as well
+            localStorage.removeItem("cart");
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -308,5 +327,5 @@ const cartSlice = createSlice({
     },
 });
 
-export const { cleanCart, refreshCartAfterMerge, resetCartState, forceRefreshCart, cleanupCartState } = cartSlice.actions;
+export const { cleanCart, refreshCartAfterMerge, resetCartState, forceRefreshCart, cleanupCartState, clearCart } = cartSlice.actions;
 export default cartSlice.reducer;
