@@ -24,7 +24,7 @@ const Footer = () => {
                     focus:outline-none focus:ring-2 focus:ring-gray-500 transition-all"
               required
             />
-            <button type="submit" className="bg-black text-white px-6 py-3text-sm rounded-r-md hover:bg-gray-800 transition-all">
+            <button type="submit" className="bg-black text-white px-6 py-3 text-sm rounded-r-md hover:bg-gray-800 transition-all">
                 Subscribe
             </button>
           </form>

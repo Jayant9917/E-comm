@@ -16,7 +16,7 @@ const Register = () => {
   const { user, guestId } = useSelector((state) => state.auth);
   const { cart } = useSelector((state) => state.cart);
 
-  // Get redirect paramster and check if it's checkout or somrthing
+  // Get redirect parameter and check if it's checkout or somrthing
   const redirect = new URLSearchParams(location.search).get("redirect") || "/";
   const isCheckoutRedirect = redirect.includes("checkout");
 

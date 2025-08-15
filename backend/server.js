@@ -23,7 +23,7 @@ app.use(cors());
 // Serve static images from the images folder
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 // connect to MongoDB
 connectDB();
