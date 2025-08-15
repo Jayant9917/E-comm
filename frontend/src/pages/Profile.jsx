@@ -3,8 +3,8 @@ import MyOrders from "./MyOrders";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { logoutUser } from "../redux/slices/authSlice";
 import { cleanCart } from "../redux/slices/cartSlice";
+import { logout } from "../redux/slices/authSlice";
 
 const Profile = () => {
 
@@ -20,7 +20,7 @@ const Profile = () => {
   }, [user, navigate]);
 
   const handleLogout = () => {
-    dispatch(logoutUser());
+    dispatch(logout());
     dispatch(cleanCart());
     navigate("/login");
   }

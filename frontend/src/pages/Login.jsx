@@ -5,6 +5,8 @@ import { loginUser } from "../redux/slices/authSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import { mergeCart } from "../redux/slices/cartSlice";
+import { fetchCart } from "../redux/slices/cartSlice";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -23,6 +25,7 @@ const Login = () => {
     if (user) {
       if (cart?.products.length > 0 && guestId) {
         dispatch(mergeCart({ guestId, user })).then(() => {
+          localStorage.removeItem("guestId");
           navigate(isCheckoutRedirect ? "/checkout" : "/");
         });
       } else {

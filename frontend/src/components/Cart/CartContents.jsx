@@ -9,21 +9,27 @@ const CartContents = ({ cart, userId, guestId }) => {
   const handleAddToCart = (productId, delta, quantity, size, color) => {
     const newQuantity = quantity + delta;
     if (newQuantity >= 1) {
-      dispatch(
-        updateCartItemQuantity({
-          productId,
-          quantity: newQuantity,
-          guestId,
-          userId,
-          size,
-          color,
-        })
-      );
+      const payload = {
+        productId,
+        quantity: newQuantity,
+        size,
+        color,
+      };
+      if (userId) payload.userId = userId;
+      else if (guestId) payload.guestId = guestId;
+      dispatch(updateCartItemQuantity(payload));
     }
   };
 
   const handleRemoveFromCart = (productId, size, color) => {
-    dispatch(removeFromCart({ productId, guestId, userId, size, color }));
+    const payload = {
+      productId,
+      size,
+      color,
+    };
+    if (userId) payload.userId = userId;
+    else if (guestId) payload.guestId = guestId;
+    dispatch(removeFromCart(payload));
   };
 
   return (

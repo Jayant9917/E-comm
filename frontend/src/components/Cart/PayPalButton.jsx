@@ -23,7 +23,7 @@ const PayPalButton = ({ amount, onSuccess, onError }) => {
             purchase_units: [
               {
                 amount: {
-                  value: amount.toString(),
+                  value: parseFloat(amount).toFixed(2),
                 },
               },
             ],
