@@ -1,18 +1,36 @@
-const OrderManagement = () => {
-  const orders = [
-    {
-      _id: 1234523,
-      user: {
-        name: "John Doe",
-      },
-      totalPrice: 100,
-      status: "Processing",
-    },
-  ];
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { fetchAllOrders, updateOrderStatus } from "../../redux/slices/adminOrderSlice";
 
-  const handleStatusChange = (orderId, status) => {
-    console.log({id: orderId, status });
+
+const OrderManagement = () => {
+const dispatch = useDispatch();
+const navigate = useNavigate();
+
+const { user } = useSelector((state) => state.auth);
+const { orders, loading, error } = useSelector((state) => state.adminOrders);
+
+useEffect(() => {
+  if(!user && user.role !== 'admin'){
+    navigate("/"); 
+  } else {
+    dispatch(fetchAllOrders());
   }
+}, [user, navigate, dispatch]);
+
+  const handleStatusChange = async (orderId, status) => {
+    try {
+      await dispatch(updateOrderStatus({id: orderId, status })).unwrap();
+      // Refresh the orders list after successful update
+      dispatch(fetchAllOrders());
+    } catch (error) {
+      console.error('Failed to update order status:', error);
+    }
+  };
+
+  if(loading){ return <div> Loading... </div>; }
+  if(error){ return <p className="text-red-500 ">Error fetching orders: {error}</p>; }
 
   return (
     <div className="max-w-7xl mx-auto p-6">
@@ -38,7 +56,7 @@ const OrderManagement = () => {
                   <td className="py-4 px-4 font-medium text-gray-900 whitespace-nowrap">
                     #{order._id}
                   </td>
-                  <td className="p-4">{order.user.name}</td>
+                  <td className="p-4">{order.user?.name || 'Unknown User'}</td>
                   <td className="p-4">{order.totalPrice}</td>
                   <td className="p-4">
                     <select

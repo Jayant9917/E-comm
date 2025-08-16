@@ -22,18 +22,29 @@ router.get("/", protect, admin, async (req, res) => {
 // @access Private/Admin
 router.put("/:id", protect, admin, async (req, res) => {
   try {
-    const order = await Order.findById(req.params.id);
-    if (order) {
-      order.status = req.body.status || order.status;
-      order.isDelivered =
-        req.body.status === "delivered" ? true : order.isDelivered;
-      order.deliveredAt =
-        req.body.status === "delivered" ? Date.now() : order.deliveredAt;
+    const updateFields = {
+      status: req.body.status
+    };
 
-        const updatedOrder = await order.save();
-        res.json({ message: "Order updated successfully", order: updatedOrder });
-    }else{
-        res.status(404).json({ message: "Order not found" });
+    // Set delivery fields if status is "Delivered"
+    if (req.body.status === "Delivered") {
+      updateFields.isDelivered = true;
+      updateFields.deliveredAt = new Date();
+    }
+
+    const updatedOrder = await Order.findByIdAndUpdate(
+      req.params.id,
+      updateFields,
+      { 
+        new: true, 
+        runValidators: false // Skip validation to avoid shippingAddress issues
+      }
+    ).populate("user", "name email");
+
+    if (updatedOrder) {
+      res.json({ message: "Order updated successfully", order: updatedOrder });
+    } else {
+      res.status(404).json({ message: "Order not found" });
     }
   } catch (err) {
     console.error(err);

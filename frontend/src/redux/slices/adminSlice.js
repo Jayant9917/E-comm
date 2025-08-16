@@ -9,7 +9,7 @@ export const fetchUsers = createAsyncThunk("admin/fetchUsers", async () => {
       headers: { Authorization: `Bearer ${localStorage.getItem("userToken")}` },
     }
   );
-  response.data;
+  return response.data;
 });
 
 // Add the create user action
@@ -50,6 +50,27 @@ export const updateUser = createAsyncThunk(
   }
 );
 
+// Update User Role
+export const updateUserRole = createAsyncThunk(
+  "admin/updateUserRole",
+  async ({ id, role }, { rejectWithValue }) => {
+    try {
+      const response = await axios.put(
+        `${import.meta.env.VITE_BACKEND_URL}/api/admin/users/${id}`,
+        { role },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("userToken")}`,
+          },
+        }
+      );
+      return response.data;
+    } catch (err) {
+      return rejectWithValue(err.response.data);
+    }
+  }
+);
+
 // Delete the User
 export const deleteUser = createAsyncThunk("admin/deleteUser", async (id) => {
   await axios.delete(
@@ -86,6 +107,16 @@ const adminSlice = createSlice({
       }) // Update User
       .addCase(updateUser.fulfilled, (state, action) => {
         const updatedUser = action.payload;
+        const userIndex = state.users.findIndex(
+          (user) => user._id === updatedUser._id
+        );
+        if (userIndex !== -1) {
+          state.users[userIndex] = updatedUser;
+        }
+      })
+      // Update User Role
+      .addCase(updateUserRole.fulfilled, (state, action) => {
+        const updatedUser = action.payload.user;
         const userIndex = state.users.findIndex(
           (user) => user._id === updatedUser._id
         );

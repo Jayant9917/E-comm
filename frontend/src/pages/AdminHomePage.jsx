@@ -40,7 +40,7 @@ const AdminHomePage = () => {
         </div>
         <div className="p-4 shadow-md rounded-lg">
           <h2 className="text-xl font-semibold">Total Products</h2>
-          <p className="text-2xl">80</p>
+          <p className="text-2xl">{products.length}</p>
           <Link to="/admin/products" className="text-blue-500 hover:underline">
             Manage Products
           </Link>
@@ -65,7 +65,7 @@ const AdminHomePage = () => {
                         orders.map((order) => (
                             <tr key={order._id} className="border-b hover:bg-gray-50 cursor-pointer">
                                 <th className="p-4">{order._id}</th>
-                                <th className="p-4">{order.user.name}</th>
+                                <th className="p-4">{order.user?.name || 'Unknown User'}</th>
                                 <th className="p-4">{order.totalPrice}</th>
                                 <th className="p-4">{order.status}</th>
                             </tr>

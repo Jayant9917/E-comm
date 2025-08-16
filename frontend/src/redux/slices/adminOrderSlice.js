@@ -31,7 +31,7 @@ export const updateOrderStatus = createAsyncThunk(
   async ({ id, status }, { rejectWithValue }) => {
     try {
       const response = await axios.put(
-        `${API_URL}/api/admin/orders${id}`,
+        `${API_URL}/api/admin/orders/${id}`,
         { status },
         {
           headers: {
@@ -51,7 +51,7 @@ export const deleteOrder = createAsyncThunk(
   "adminOrders/deleteOrder",
   async (id, { rejectWithValue }) => {
     try {
-      await axios.delete(`${API_URL}/api/admin/orders${id}`, {
+      await axios.delete(`${API_URL}/api/admin/orders/${id}`, {
         headers: {
           Authorization: USER_TOKEN,
         },
@@ -88,7 +88,6 @@ const adminOrderSlice = createSlice({
         state.totalSales = action.payload.reduce((acc, order) => {
           return acc + order.totalPrice;
         }, 0);
-        state.totalSales = totalSales;
       })
       .addCase(fetchAllOrders.rejected, (state, action) => {
         state.loading = false;
