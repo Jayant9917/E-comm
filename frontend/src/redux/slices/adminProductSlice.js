@@ -67,10 +67,28 @@ export const deleteProduct = createAsyncThunk(
   }
 );
 
+// Async thunk to fetch product details by ID
+export const fetchProductDetails = createAsyncThunk(
+  "adminProducts/fetchProductDetails",
+  async (id, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(`${API_URL}/api/products/${id}`, {
+        headers: {
+          Authorization: USER_TOKEN,
+        },
+      });
+      return response.data;
+    } catch (err) {
+      return rejectWithValue(err.response.data);
+    }
+  }
+);
+
 const adminProductSlice = createSlice({
   name: "adminProducts",
   initialState: {
     products: [],
+    selectedProduct: null,
     loading: false,
     error: null,
   },
@@ -107,6 +125,19 @@ const adminProductSlice = createSlice({
         state.products = state.products.filter(
           (product) => product._id !== action.payload
         );
+      })
+      // Fetch product details
+      .addCase(fetchProductDetails.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchProductDetails.fulfilled, (state, action) => {
+        state.loading = false;
+        state.selectedProduct = action.payload;
+      })
+      .addCase(fetchProductDetails.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload.message;
       });
   },
 });

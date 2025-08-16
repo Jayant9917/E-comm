@@ -27,40 +27,20 @@ const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
   }, [user?._id]);
 
   useEffect(() => {
-    console.log("🔄 CartDrawer useEffect triggered:", {
-      user: !!user,
-      userId,
-      cartExists: !!cart,
-      cartUser: cart?.user,
-      cartProductsLength: cart?.products?.length,
-      cartUserMatch: cart?.user === userId,
-      hasFetchedCart: hasFetchedCart.current
-    });
-
     if (user && userId && !hasFetchedCart.current) {
       // If we have a valid cart with products and it belongs to the user, no need to fetch
       if (cart && cart.products && cart.products.length > 0 && cart.user === userId) {
-        console.log("✅ CartDrawer: Valid cart exists, no need to fetch");
         hasFetchedCart.current = true;
         return;
       }
-      
-      // Only fetch if we don't have a cart at all, or cart doesn't belong to user
-      // Don't fetch if cart is intentionally empty (after order completion)
+
+      // Don't fetch if we already have a cart for this user
       if (!cart || cart.user !== userId) {
         // Check if this is an intentionally empty cart (has user but no products)
         if (cart && cart.user === userId && cart.products && cart.products.length === 0) {
-          console.log("✅ CartDrawer: Intentionally empty cart, no need to fetch");
           hasFetchedCart.current = true;
           return; // Don't fetch if cart is intentionally empty for this user
         }
-        
-        console.log("🔄 CartDrawer: Fetching cart because:", {
-          noCart: !cart,
-          userMismatch: cart?.user !== userId,
-          cartUser: cart?.user,
-          expectedUserId: userId
-        });
         
         hasFetchedCart.current = true;
         dispatch(fetchCart({ userId }))

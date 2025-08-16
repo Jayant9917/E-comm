@@ -183,7 +183,13 @@ router.get("/", async (req, res) => {
     if (cart) {
       res.json(cart);
     } else {
-      res.status(404).json({ message: "Cart not found" });
+      // Return empty cart instead of 404 to avoid console errors
+      res.json({ 
+        user: userId || undefined,
+        guestId: guestId || undefined,
+        products: [], 
+        totalPrice: 0 
+      });
     }
   } catch (err) {
     console.error(err);
