@@ -1,6 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import img1 from "../assets/women/aiony-haust-K0DxxljcRv0-unsplash.jpg";
-import img2 from "../assets/women/oleg-ivanov-ykurGtWomMw-unsplash.jpg";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserOrders } from "../redux/slices/orderSlice";

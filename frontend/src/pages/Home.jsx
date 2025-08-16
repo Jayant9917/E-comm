@@ -8,16 +8,6 @@ import { useEffect } from "react";
 import axios from "axios";
 import { fetchProductsByFilters } from "../redux/slices/productsSlice";
 
-// Images
-import img1 from "../assets/women/aiony-haust-K0DxxljcRv0-unsplash.jpg";
-import img2 from "../assets/Women/rafaella-mendes-diniz-et_78QkMMQs-unsplash.jpg";
-import img3 from "../assets/Women/farshad-sheikhzad-IUR8isHHmgI-unsplash.jpg";
-import img4 from "../assets/Women/david-nieto-PN_vlniJa78-unsplash.jpg";
-import img5 from "../assets/Women/leyli-nova-gd0qpyteVFY-unsplash.jpg";
-import img6 from "../assets/Women/kevin-torres-wwGTlaBRgJk-unsplash.jpg";
-import img7 from "../assets/Women/josh-pereira-ANHQ4ZROiH8-unsplash.jpg";
-import img8 from "../assets/Women/joeyy-lee-7x_1fK4Kgj8-unsplash.jpg";
-
 import FeaturedCollection from "../components/Products/FeaturedCollection";
 import FeaturesSection from "../components/Products/FeaturesSection";
 import { useState } from "react";
