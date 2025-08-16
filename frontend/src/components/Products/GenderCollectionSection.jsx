@@ -1,5 +1,5 @@
-import womenCollectionImage from "../../assets/women/bishesh-shrestha-NtTRTWwaULw-unsplash.jpg";
-import mensCollectionImage from "../../assets/women/alireza-zare-XdITD0mPU-Y-unsplash.jpg";
+import womenCollectionImage from "../../assets/Women/bishesh-shrestha-NtTRTWwaULw-unsplash.jpg";
+import mensCollectionImage from "../../assets/Women/alireza-zare-XdITD0mPU-Y-unsplash.jpg";
 import { Link } from "react-router-dom";
 
 const GenderCollectionSection = () => {
