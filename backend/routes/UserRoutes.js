@@ -3,7 +3,10 @@ const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 const { protect } = require("../middleware/authMiddleware");
 const transporter = require("../config/nodemailer");
-const { createWelcomeEmail, createLoginNotificationEmail } = require("../emails");
+const {
+  createWelcomeEmail,
+  createLoginNotificationEmail,
+} = require("../emails");
 
 const router = express.Router();
 

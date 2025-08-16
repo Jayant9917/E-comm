@@ -29,91 +29,93 @@ const orderItemSchema = new mongoose.Schema(
   { _id: false }
 );
 
-const orderSchema = new mongoose.Schema({
+const orderSchema = new mongoose.Schema(
+  {
     user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-        required: false, // Make user optional for guest orders
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: false, // Make user optional for guest orders
     },
     guestId: {
-        type: String,
-        required: false, // Add guestId for guest orders
+      type: String,
+      required: false, // Add guestId for guest orders
     },
     orderItems: [orderItemSchema],
     shippingAddress: {
-        firstName: {
-            type: String,
-            required: true,
-        },
-        lastName: {
-            type: String,
-            required: true,
-        },
-        address: {
-            type: String,
-            required: true,
-        },
-        city: {
-            type: String,
-            required: true,
-        },
-        postalCode: {
-            type: String,
-            required: true,
-        },
-        country: {
-            type: String,
-            required: true,
-        },
-        phone: {
-            type: String,
-            required: true,
-        },
-        email: {
-            type: String,
-            required: true,
-        },
-    },
-    paymentMethod: {
+      firstName: {
         type: String,
         required: true,
+      },
+      lastName: {
+        type: String,
+        required: true,
+      },
+      address: {
+        type: String,
+        required: true,
+      },
+      city: {
+        type: String,
+        required: true,
+      },
+      postalCode: {
+        type: String,
+        required: true,
+      },
+      country: {
+        type: String,
+        required: true,
+      },
+      phone: {
+        type: String,
+        required: true,
+      },
+      email: {
+        type: String,
+        required: true,
+      },
+    },
+    paymentMethod: {
+      type: String,
+      required: true,
     },
     totalPrice: {
-        type: Number,
-        required: true
+      type: Number,
+      required: true,
     },
     isPaid: {
-        type: Boolean,
-        default: false
+      type: Boolean,
+      default: false,
     },
     paidAt: {
-        type: Date,
+      type: Date,
     },
     isDelivered: {
-        type: Boolean,
-        default : false,
+      type: Boolean,
+      default: false,
     },
     deliveredAt: {
-        type: Date,
+      type: Date,
     },
     paymentStatus: {
-        type: String,
-        default: "pending",
+      type: String,
+      default: "pending",
     },
     status: {
-        type: String,
-        enum: ["Processing", "Shipped", "Delivered", "Cancelled"],
-        default: "Processing",
+      type: String,
+      enum: ["Processing", "Shipped", "Delivered", "Cancelled"],
+      default: "Processing",
     },
-},{timestamps: true}
+  },
+  { timestamps: true }
 );
 
 // Add validation to ensure either user or guestId is provided
-orderSchema.pre('save', function(next) {
-    if (!this.user && !this.guestId) {
-        return next(new Error('Either user or guestId must be provided'));
-    }
-    next();
+orderSchema.pre("save", function (next) {
+  if (!this.user && !this.guestId) {
+    return next(new Error("Either user or guestId must be provided"));
+  }
+  next();
 });
 
 module.exports = mongoose.model("Order", orderSchema);

@@ -1,10 +1,15 @@
-const createWelcomeEmail = require('./welcomeEmail');
-const createLoginNotificationEmail = require('./loginNotificationEmail');
-const { createProductCreatedEmail, createProductUpdatedEmail, createProductDeletedEmail, createAbandonedCartEmail } = require('./productNotificationEmail');
-const createOrderConfirmationEmail = require('./orderConfirmationEmail');
-const createPaymentReceiptEmail = require('./paymentReceiptEmail');
-const createNewsletterConfirmationEmail = require('./newsletterConfirmationEmail');
-const createNewsletterProductAnnouncementEmail = require('./newsletterProductAnnouncementEmail');
+const createWelcomeEmail = require("./welcomeEmail");
+const createLoginNotificationEmail = require("./loginNotificationEmail");
+const {
+  createProductCreatedEmail,
+  createProductUpdatedEmail,
+  createProductDeletedEmail,
+  createAbandonedCartEmail,
+} = require("./productNotificationEmail");
+const createOrderConfirmationEmail = require("./orderConfirmationEmail");
+const createPaymentReceiptEmail = require("./paymentReceiptEmail");
+const createNewsletterConfirmationEmail = require("./newsletterConfirmationEmail");
+const createNewsletterProductAnnouncementEmail = require("./newsletterProductAnnouncementEmail");
 
 module.exports = {
   createWelcomeEmail,
@@ -16,5 +21,5 @@ module.exports = {
   createOrderConfirmationEmail,
   createPaymentReceiptEmail,
   createNewsletterConfirmationEmail,
-  createNewsletterProductAnnouncementEmail
+  createNewsletterProductAnnouncementEmail,
 };

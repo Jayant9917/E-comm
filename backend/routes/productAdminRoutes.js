@@ -24,7 +24,9 @@ router.post("/", protect, admin, async (req, res) => {
   try {
     const product = new Product(req.body);
     const savedProduct = await product.save();
-    res.status(201).json({ message: "Product created successfully", product: savedProduct });
+    res
+      .status(201)
+      .json({ message: "Product created successfully", product: savedProduct });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Internal Server Error" });
@@ -41,9 +43,12 @@ router.put("/:id", protect, admin, async (req, res) => {
       req.body,
       { new: true, runValidators: true }
     );
-    
+
     if (updatedProduct) {
-      res.json({ message: "Product updated successfully", product: updatedProduct });
+      res.json({
+        message: "Product updated successfully",
+        product: updatedProduct,
+      });
     } else {
       res.status(404).json({ message: "Product not found" });
     }

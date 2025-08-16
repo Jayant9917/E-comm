@@ -60,18 +60,18 @@ router.put("/:id", protect, admin, async (req, res) => {
 // @desc Delete user (admin only)
 // @access Private/Admin
 router.delete("/:id", protect, admin, async (req, res) => {
-    try{
-        const user = await User.findById(req.params.id);
-        if(user){
-            await user.deleteOne();
-            res.json({ message: "User deleted successfully" });
-        }else{
-            res.status(404).json({ message: "User not found" });
-        }
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: "Internal Server Error" });
+  try {
+    const user = await User.findById(req.params.id);
+    if (user) {
+      await user.deleteOne();
+      res.json({ message: "User deleted successfully" });
+    } else {
+      res.status(404).json({ message: "User not found" });
     }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
 });
 
 module.exports = router;

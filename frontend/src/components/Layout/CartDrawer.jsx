@@ -12,6 +12,7 @@ const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
   const { cart } = useSelector((state) => state.cart);
   const userId = user ? user._id : null;
   const hasFetchedCart = useRef(false);
+  const cartRef = useRef(null);
 
   // Clean up cart state on mount
   useEffect(() => {
@@ -51,6 +52,25 @@ const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
     }
   }, [user, userId, cart, dispatch]);
 
+  // Handle click outside to close cart
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (drawerOpen && cartRef.current && !cartRef.current.contains(event.target)) {
+        toggleCartDrawer();
+      }
+    };
+
+    if (drawerOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [drawerOpen, toggleCartDrawer]);
+
   const handleCheckout = () => {
     toggleCartDrawer();
     if (!user) {
@@ -61,11 +81,19 @@ const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
   };
 
   return (
-    <div
-      className={`fixed top-0 right-0 w-3/4 sm:w-1/2 md:w-[30rem] h-full bg-white shadow-lg transform 
-        transition-transform duration-300 flex flex-col z-50  
-        ${drawerOpen ? "translate-x-0" : "translate-x-full"}`}
-    >
+    <>
+      {/* Backdrop overlay */}
+      {drawerOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300" />
+      )}
+      
+      {/* Cart drawer */}
+      <div
+        ref={cartRef}
+        className={`fixed top-0 right-0 w-3/4 sm:w-1/2 md:w-[30rem] h-full bg-white shadow-lg transform 
+          transition-transform duration-300 flex flex-col z-50  
+          ${drawerOpen ? "translate-x-0" : "translate-x-full"}`}
+      >
       {/* Close Button */}
       <div className="flex justify-end p-4">
         <button onClick={toggleCartDrawer}>
@@ -100,7 +128,8 @@ const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
           </>
         )}
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

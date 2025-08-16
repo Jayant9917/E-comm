@@ -184,11 +184,11 @@ router.get("/", async (req, res) => {
       res.json(cart);
     } else {
       // Return empty cart instead of 404 to avoid console errors
-      res.json({ 
+      res.json({
         user: userId || undefined,
         guestId: guestId || undefined,
-        products: [], 
-        totalPrice: 0 
+        products: [],
+        totalPrice: 0,
       });
     }
   } catch (err) {
@@ -251,7 +251,7 @@ router.post("/merge", protect, async (req, res) => {
         } catch (err) {
           console.error("Error deleting guest Cart: ", err);
         }
-        
+
         res.status(200).json(userCart);
       } else {
         // If the user has no existing cart, convert the guest cart to a user cart
@@ -259,18 +259,18 @@ router.post("/merge", protect, async (req, res) => {
         const newUserCart = new Cart({
           user: req.user._id,
           products: guestCart.products,
-          totalPrice: guestCart.totalPrice
+          totalPrice: guestCart.totalPrice,
         });
-        
+
         await newUserCart.save();
-        
+
         // Remove the guest cart after conversion
         try {
           await Cart.findOneAndDelete({ guestId });
         } catch (err) {
           console.error("Error deleting guest Cart: ", err);
         }
-        
+
         res.status(200).json(newUserCart);
       }
     } else {
@@ -294,7 +294,7 @@ router.post("/merge", protect, async (req, res) => {
 router.post("/abandoned-reminder", protect, async (req, res) => {
   try {
     const userCart = await Cart.findOne({ user: req.user._id });
-    
+
     if (!userCart || userCart.products.length === 0) {
       return res.status(400).json({ message: "No active cart found" });
     }
@@ -302,35 +302,34 @@ router.post("/abandoned-reminder", protect, async (req, res) => {
     // Check if cart is older than 24 hours (86400000 milliseconds)
     const cartAge = Date.now() - userCart.updatedAt.getTime();
     const twentyFourHours = 24 * 60 * 60 * 1000;
-    
+
     if (cartAge < twentyFourHours) {
-      return res.status(400).json({ 
+      return res.status(400).json({
         message: "Cart is not old enough for abandoned cart reminder",
-        cartAge: Math.floor(cartAge / (1000 * 60 * 60)) + " hours"
+        cartAge: Math.floor(cartAge / (1000 * 60 * 60)) + " hours",
       });
     }
 
     // Send abandoned cart reminder email
     const mailOptions = createAbandonedCartEmail(
-      req.user.name, 
-      userCart.products, 
+      req.user.name,
+      userCart.products,
       userCart.totalPrice
     );
-    
+
     await transporter.sendMail({
       ...mailOptions,
-      to: req.user.email
+      to: req.user.email,
     });
 
     console.log(`Abandoned cart reminder sent to ${req.user.email}`);
-    
-    res.json({ 
+
+    res.json({
       message: "Abandoned cart reminder sent successfully",
       cartItems: userCart.products.length,
       totalPrice: userCart.totalPrice,
-      cartAge: Math.floor(cartAge / (1000 * 60 * 60)) + " hours"
+      cartAge: Math.floor(cartAge / (1000 * 60 * 60)) + " hours",
     });
-    
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server Error" });

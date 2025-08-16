@@ -3,37 +3,57 @@ const Product = require("../models/Product");
 const User = require("../models/User");
 const { protect, admin } = require("../middleware/authMiddleware");
 const transporter = require("../config/nodemailer");
-const { createProductCreatedEmail, createProductUpdatedEmail, createProductDeletedEmail, createNewsletterProductAnnouncementEmail } = require("../emails");
+const {
+  createProductCreatedEmail,
+  createProductUpdatedEmail,
+  createProductDeletedEmail,
+  createNewsletterProductAnnouncementEmail,
+} = require("../emails");
 const Subscriber = require("../models/Subscriber");
 
 const router = express.Router();
 
 // Helper function to send product notification emails
-const sendProductNotification = async (adminId, action, productName, productDetails = {}) => {
+const sendProductNotification = async (
+  adminId,
+  action,
+  productName,
+  productDetails = {}
+) => {
   try {
     const admin = await User.findById(adminId);
     if (admin) {
       let mailOptions;
-      
+
       switch (action) {
-        case 'Created':
-          mailOptions = createProductCreatedEmail(admin.name, productName, productDetails);
+        case "Created":
+          mailOptions = createProductCreatedEmail(
+            admin.name,
+            productName,
+            productDetails
+          );
           break;
-        case 'Updated':
-          mailOptions = createProductUpdatedEmail(admin.name, productName, productDetails);
+        case "Updated":
+          mailOptions = createProductUpdatedEmail(
+            admin.name,
+            productName,
+            productDetails
+          );
           break;
-        case 'Deleted':
+        case "Deleted":
           mailOptions = createProductDeletedEmail(admin.name, productName);
           break;
         default:
           return;
       }
-      
+
       await transporter.sendMail({
         ...mailOptions,
-        to: admin.email
+        to: admin.email,
       });
-      console.log(`Product ${action} notification email sent to ${admin.email}`);
+      console.log(
+        `Product ${action} notification email sent to ${admin.email}`
+      );
     }
   } catch (error) {
     console.log(`Error sending product ${action} notification email:`, error);
@@ -91,18 +111,18 @@ router.post("/", protect, admin, async (req, res) => {
     });
 
     const createdProduct = await product.save();
-    
+
     // Send product creation notification email
     await sendProductNotification(
-      req.user._id, 
-      'Created', 
-      createdProduct.name, 
+      req.user._id,
+      "Created",
+      createdProduct.name,
       {
         sku: createdProduct.sku,
         category: createdProduct.category,
         price: createdProduct.price,
         countInStock: createdProduct.countInStock,
-        isPublished: createdProduct.isPublished
+        isPublished: createdProduct.isPublished,
       }
     );
 
@@ -110,16 +130,26 @@ router.post("/", protect, admin, async (req, res) => {
     try {
       const subscribers = await Subscriber.find({});
       for (const sub of subscribers) {
-        const mailOptions = createNewsletterProductAnnouncementEmail(sub.email, createdProduct);
+        const mailOptions = createNewsletterProductAnnouncementEmail(
+          sub.email,
+          createdProduct
+        );
         try {
           await transporter.sendMail(mailOptions);
           console.log("Product announcement email sent to", sub.email);
         } catch (emailErr) {
-          console.log("Error sending product announcement email to", sub.email, emailErr);
+          console.log(
+            "Error sending product announcement email to",
+            sub.email,
+            emailErr
+          );
         }
       }
     } catch (err) {
-      console.log("Error sending product announcement emails to subscribers:", err);
+      console.log(
+        "Error sending product announcement emails to subscribers:",
+        err
+      );
     }
 
     res.status(201).json(createdProduct);
@@ -185,18 +215,18 @@ router.put("/:id", protect, admin, async (req, res) => {
 
       // Save the updated product
       const updatedProduct = await product.save();
-      
+
       // Send product update notification email
       await sendProductNotification(
-        req.user._id, 
-        'Updated', 
-        updatedProduct.name, 
+        req.user._id,
+        "Updated",
+        updatedProduct.name,
         {
           sku: updatedProduct.sku,
           category: updatedProduct.category,
           price: updatedProduct.price,
           countInStock: updatedProduct.countInStock,
-          isPublished: updatedProduct.isPublished
+          isPublished: updatedProduct.isPublished,
         }
       );
 
@@ -220,11 +250,7 @@ router.delete("/:id", protect, admin, async (req, res) => {
 
     if (product) {
       // Send product deletion notification email before deleting
-      await sendProductNotification(
-        req.user._id, 
-        'Deleted', 
-        product.name
-      );
+      await sendProductNotification(req.user._id, "Deleted", product.name);
 
       // Remove the product from DB
       await product.deleteOne();
@@ -355,16 +381,15 @@ router.get("/best-seller", async (req, res) => {
 // @desc Retrieve latest 8 products - Creation date
 // @access Public
 router.get("/new-arrivals", async (req, res) => {
-  try{
+  try {
     //Fetch atleast 8 products
-    const newArrivals = await Product.find().sort({createdAt: -1}).limit(8);
+    const newArrivals = await Product.find().sort({ createdAt: -1 }).limit(8);
     res.json(newArrivals);
-  }catch(err){
+  } catch (err) {
     console.error(err);
     res.status(500).send("Server Error");
   }
-})
-
+});
 
 // @route GET /api/products/:id
 // @desc Get a single product by ID

@@ -1,5 +1,5 @@
 // product.js:
-const { maleImages, femaleImages } = require('../images/imageIndex.js');
+const { maleImages, femaleImages } = require("../images/imageIndex.js");
 
 const products = [
   {

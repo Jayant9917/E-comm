@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-
 const checkoutItemSchema = new mongoose.Schema(
   {
     productId: {
@@ -104,9 +103,9 @@ const CheckoutSchema = new mongoose.Schema(
 );
 
 // Add validation to ensure either user or guestId is provided
-CheckoutSchema.pre('save', function(next) {
+CheckoutSchema.pre("save", function (next) {
   if (!this.user && !this.guestId) {
-    return next(new Error('Either user or guestId must be provided'));
+    return next(new Error("Either user or guestId must be provided"));
   }
   next();
 });

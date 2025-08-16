@@ -23,7 +23,7 @@ router.get("/", protect, admin, async (req, res) => {
 router.put("/:id", protect, admin, async (req, res) => {
   try {
     const updateFields = {
-      status: req.body.status
+      status: req.body.status,
     };
 
     // Set delivery fields if status is "Delivered"
@@ -35,9 +35,9 @@ router.put("/:id", protect, admin, async (req, res) => {
     const updatedOrder = await Order.findByIdAndUpdate(
       req.params.id,
       updateFields,
-      { 
-        new: true, 
-        runValidators: false // Skip validation to avoid shippingAddress issues
+      {
+        new: true,
+        runValidators: false, // Skip validation to avoid shippingAddress issues
       }
     ).populate("user", "name email");
 
@@ -56,18 +56,18 @@ router.put("/:id", protect, admin, async (req, res) => {
 // @desc Delete order(Admin only)
 // @access Private/Admin
 router.delete("/:id", protect, admin, async (req, res) => {
-    try{
-        const order = await Order.findById(req.params.id);
-        if(order){
-            await order.deleteOne();
-            res.json({ message: "Order deleted successfully" });
-        }else{
-            res.status(404).json({ message: "Order not found" });
-        }
-    }catch(err){
-        console.error(err);
-        res.status(500).json({ message: "Internal Server Error" });
-    }   
+  try {
+    const order = await Order.findById(req.params.id);
+    if (order) {
+      await order.deleteOne();
+      res.json({ message: "Order deleted successfully" });
+    } else {
+      res.status(404).json({ message: "Order not found" });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
 });
 
 module.exports = router;

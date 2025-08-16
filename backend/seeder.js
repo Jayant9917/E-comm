@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGODB_URI);
 const seedData = async () => {
   try {
     console.log("🌱 Starting data seeding process...");
-    
+
     // Clear existing data
     console.log("🗑️  Clearing existing data...");
     await Product.deleteMany({});
@@ -52,7 +52,7 @@ const seedData = async () => {
     console.error("❌ Error seeding data: ", err);
     if (err.errors) {
       console.error("🔍 Validation errors:");
-      Object.keys(err.errors).forEach(key => {
+      Object.keys(err.errors).forEach((key) => {
         console.error(`  - ${key}: ${err.errors[key].message}`);
       });
     }
