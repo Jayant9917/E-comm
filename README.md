@@ -1,15 +1,16 @@
-# 🐰 Rabbit - Premium Clothing E-commerce Platform
+# 🛍️ E-Commerce Platform
 
-A full-stack, modern e-commerce platform built with React, Node.js, and MongoDB. Rabbit offers a seamless shopping experience with professional email notifications, comprehensive product management, and a beautiful responsive design.
+A full-stack e-commerce application built with React, Node.js, Express, and MongoDB. Features a modern UI, comprehensive admin panel, secure authentication, PayPal integration, and cloud image storage.
 
-![Rabbit E-commerce](https://img.shields.io/badge/Rabbit-E--commerce%20Platform-blue?style=for-the-badge&logo=react)
-![React](https://img.shields.io/badge/React-18.0+-61DAFB?style=for-the-badge&logo=react)
-![Node.js](https://img.shields.io/badge/Node.js-18.0+-339933?style=for-the-badge&logo=node.js)
-![MongoDB](https://img.shields.io/badge/MongoDB-6.0+-47A248?style=for-the-badge&logo=mongodb)
+![E-commerce Platform](https://img.shields.io/badge/E--Commerce-Full%20Stack%20Platform-blue?style=for-the-badge&logo=react)
+![React](https://img.shields.io/badge/React-19.0+-61DAFB?style=for-the-badge&logo=react)
+![Node.js](https://img.shields.io/badge/Node.js-Latest-339933?style=for-the-badge&logo=node.js)
+![MongoDB](https://img.shields.io/badge/MongoDB-Latest-47A248?style=for-the-badge&logo=mongodb)
 
 ## ✨ Features
 
 ### 🛍️ **Shopping Experience**
+
 - **Responsive Design**: Beautiful, modern UI that works on all devices
 - **Product Catalog**: Extensive clothing collection with detailed product pages
 - **Advanced Filtering**: Filter by gender, category, price, and more
@@ -18,6 +19,7 @@ A full-stack, modern e-commerce platform built with React, Node.js, and MongoDB.
 - **Cart Merging**: Seamless cart synchronization when users log in
 
 ### 👨‍💼 **Admin Management**
+
 - **Product Management**: Full CRUD operations for products
 - **User Management**: Comprehensive user administration
 - **Order Management**: Track and manage customer orders
@@ -25,6 +27,7 @@ A full-stack, modern e-commerce platform built with React, Node.js, and MongoDB.
 - **Admin Dashboard**: Intuitive admin interface
 
 ### 📧 **Smart Email System**
+
 - **Welcome Emails**: Professional welcome messages for new users
 - **Login Notifications**: Security alerts for account access
 - **Product Notifications**: Admin alerts for product changes
@@ -35,6 +38,7 @@ A full-stack, modern e-commerce platform built with React, Node.js, and MongoDB.
 - **Professional Templates**: Beautiful, branded HTML email designs
 
 ### 🔐 **Security & Authentication**
+
 - **JWT Authentication**: Secure token-based authentication
 - **Role-Based Access**: Admin and user permission system
 - **Password Hashing**: Bcrypt encryption for user security
@@ -64,12 +68,14 @@ E-comm/
 ## 🚀 **Technologies Used**
 
 ### **Frontend**
+
 - **React 18**: Modern UI framework with hooks
 - **Tailwind CSS**: Utility-first CSS framework
 - **Vite**: Fast build tool and development server
 - **Responsive Design**: Mobile-first approach
 
 ### **Backend**
+
 - **Node.js**: JavaScript runtime environment
 - **Express.js**: Web application framework
 - **MongoDB**: NoSQL database
@@ -79,6 +85,7 @@ E-comm/
 - **Bcryptjs**: Password hashing
 
 ### **Email Service**
+
 - **Brevo (SMTP)**: Professional email delivery
 - **HTML Templates**: Beautiful, responsive email designs
 - **Automated Notifications**: Smart email triggers
@@ -86,23 +93,27 @@ E-comm/
 ## 📦 **Installation & Setup**
 
 ### **Prerequisites**
+
 - Node.js (v18 or higher)
 - MongoDB (local or cloud)
 - Brevo account for email services
 
 ### **1. Clone the Repository**
+
 ```bash
 git clone <repository-url>
 cd E-comm
 ```
 
 ### **2. Backend Setup**
+
 ```bash
 cd backend
 npm install
 ```
 
 Create a `.env` file in the backend directory:
+
 ```env
 # Database
 MONGODB_URI=mongodb://localhost:27017/rabbit-store
@@ -117,18 +128,21 @@ SENDER_EMAIL=noreply@yourdomain.com
 ```
 
 ### **3. Frontend Setup**
+
 ```bash
 cd ../frontend
 npm install
 ```
 
 ### **4. Database Seeding**
+
 ```bash
 cd ../backend
 npm run seed
 ```
 
 ### **5. Start Development Servers**
+
 ```bash
 # Backend (Terminal 1)
 cd backend
@@ -142,6 +156,7 @@ npm run dev
 ## 🌐 **API Endpoints**
 
 ### **Authentication Routes**
+
 ```
 POST /api/users/register     # User registration
 POST /api/users/login        # User login
@@ -149,6 +164,7 @@ GET  /api/users/profile      # Get user profile
 ```
 
 ### **Product Routes**
+
 ```
 GET    /api/products         # Get all products
 GET    /api/products/:id     # Get single product
@@ -158,6 +174,7 @@ DELETE /api/products/:id     # Delete product (Admin)
 ```
 
 ### **Cart Routes**
+
 ```
 GET    /api/cart             # Get user cart
 POST   /api/cart             # Add item to cart
@@ -169,6 +186,7 @@ POST   /api/cart/abandoned-reminder  # Send cart reminder
 ## 📧 **Email System**
 
 ### **Email Types**
+
 1. **Welcome Email**: Sent when users register
 2. **Login Notification**: Security alert for account access
 3. **Product Created**: Admin confirmation for new products
@@ -177,6 +195,7 @@ POST   /api/cart/abandoned-reminder  # Send cart reminder
 6. **Abandoned Cart**: 24-hour cart recovery reminder
 
 ### **Email Features**
+
 - **Professional Design**: Beautiful, branded HTML templates
 - **Responsive Layout**: Works on all email clients
 - **Rabbit Branding**: Consistent with your e-commerce brand
@@ -185,18 +204,22 @@ POST   /api/cart/abandoned-reminder  # Send cart reminder
 ## 📱 **Website Screenshots**
 
 ### **Homepage**
-![Homepage](./frontend/src/assets/Screenshot%20(109).png)
+
+![Homepage](<./frontend/src/assets/Screenshot%20(147).png>)
 
 The homepage features a stunning hero section with vacation-ready imagery, showcasing beach scenes with people enjoying outdoor dining. The design includes:
+
 - Promotional banner with worldwide shipping message
 - Clean navigation with brand logo and category links
 - Hero section with "VACATION READY" messaging
 - Call-to-action "Shop Now" button
 
 ### **Product Details**
-![Product Details](./frontend/src/assets/Screenshot%20(110).png)
+
+![Product Details](<./frontend/src/assets/Screenshot%20(110).png>)
 
 The product detail page displays:
+
 - Large product images with thumbnail navigation
 - Product information (name, price, description)
 - Color and size selection options
@@ -204,24 +227,36 @@ The product detail page displays:
 - Add to cart functionality
 - Product characteristics (brand, material)
 
+### Login Page
+
+![Login Page](<./frontend/src/assets/Screenshot%20(146).png>)
+
 ### **Admin Dashboard**
-![Admin Dashboard](./frontend/src/assets/Screenshot%20(111).png)
+
+![Admin Dashboard](<./frontend/src/assets/Screenshot%20(140).png>)
 
 The admin dashboard provides comprehensive management tools:
+
 - User management interface
 - Product management system
 - Order tracking and status updates
 - Shop settings and inventory control
 
+### **User Dashboard**
+
+![User Dashboard](<./frontend/src/assets/Screenshot%20(145).png>)
+
 ## 🎨 **UI Components**
 
 ### **Layout Components**
+
 - **Header**: Navigation and branding
 - **Footer**: Site information and links
 - **Navbar**: Main navigation menu
 - **Topbar**: Secondary navigation and user actions
 
 ### **Product Components**
+
 - **ProductGrid**: Display products in grid layout
 - **ProductDetails**: Detailed product information
 - **FilterSidebar**: Advanced filtering options
@@ -229,6 +264,7 @@ The admin dashboard provides comprehensive management tools:
 - **FeaturedCollection**: Highlighted product sections
 
 ### **User Components**
+
 - **CartDrawer**: Shopping cart interface
 - **Checkout**: Payment and order processing
 - **UserLayout**: User dashboard layout
@@ -237,6 +273,7 @@ The admin dashboard provides comprehensive management tools:
 ## 🔧 **Configuration**
 
 ### **Environment Variables**
+
 ```env
 # Database
 MONGODB_URI=mongodb://localhost:27017/rabbit-store
@@ -251,6 +288,7 @@ SENDER_EMAIL=noreply@yourdomain.com
 ```
 
 ### **Database Models**
+
 - **User**: Authentication and profile data
 - **Product**: Product catalog and inventory
 - **Cart**: Shopping cart management
@@ -259,6 +297,7 @@ SENDER_EMAIL=noreply@yourdomain.com
 ## 🚀 **Deployment**
 
 ### **Backend Deployment**
+
 ```bash
 cd backend
 npm run build
@@ -266,6 +305,7 @@ npm start
 ```
 
 ### **Frontend Deployment**
+
 ```bash
 cd frontend
 npm run build
@@ -275,9 +315,11 @@ npm run build
 ## 🧪 **Testing**
 
 ### **Postman Collection**
+
 Import the provided Postman collection for API testing:
 
 **User Registration:**
+
 ```json
 POST /api/users/register
 {
@@ -288,6 +330,7 @@ POST /api/users/register
 ```
 
 **Product Creation (Admin):**
+
 ```json
 POST /api/products
 {
@@ -338,6 +381,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 📞 **Support**
 
 For support and questions:
+
 - Create an issue in the repository
 - Contact the development team
 - Check the documentation
@@ -354,4 +398,4 @@ For support and questions:
 
 **🐰 Rabbit E-commerce Platform** - Built with ❤️ and modern web technologies
 
-*Transform your wardrobe with Rabbit's premium clothing collection!*
+_Transform your wardrobe with Rabbit's premium clothing collection!_

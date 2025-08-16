@@ -113,11 +113,16 @@ const adminProductSlice = createSlice({
       })
       // Update an existing product
       .addCase(updateProduct.fulfilled, (state, action) => {
+        const updatedProduct = action.payload.product || action.payload;
         const index = state.products.findIndex(
-          (product) => product._id === action.payload._id
+          (product) => product._id === updatedProduct._id
         );
         if (index !== -1) {
-          state.products[index] = action.payload;
+          state.products[index] = updatedProduct;
+        }
+        // Also update selectedProduct if it's the same product being edited
+        if (state.selectedProduct && state.selectedProduct._id === updatedProduct._id) {
+          state.selectedProduct = updatedProduct;
         }
       })
       // Delete a product
