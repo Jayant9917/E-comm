@@ -15,7 +15,7 @@ const OrderConfirmationPage = () => {
   }, [dispatch]);
 
   const handleViewOrders = () => {
-    navigate("/my-order");
+    navigate("/my-orders");
   };
 
   const handleContinueShopping = () => {
