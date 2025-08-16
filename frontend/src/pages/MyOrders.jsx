@@ -2,49 +2,26 @@ import { useNavigate } from "react-router-dom";
 import img1 from "../assets/women/aiony-haust-K0DxxljcRv0-unsplash.jpg";
 import img2 from "../assets/women/oleg-ivanov-ykurGtWomMw-unsplash.jpg";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUserOrders } from "../redux/slices/orderSlice";
 
 const MyOrders = () => {
-  const [orders, SetOrders] = useState([]);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { orders, loading, error } = useSelector((state) => state.orders);
+
 
   useEffect(() => {
-    // Simulate fetching order
-    setTimeout(() => {
-      const mockOrders = [
-        {
-          _id: "12345",
-          createdAt: new Date(),
-          shippingAddress: { city: "New York", country: "USA" },
-          orderItems: [
-            {
-              name: "Product 1",
-              image: { url: img1 },
-            },
-          ],
-          totalPrice: 100,
-          isPaid: true,
-        },
-        {
-          _id: "34567",
-          createdAt: new Date(),
-          shippingAddress: { city: "Deoband", country: "USA" },
-          orderItems: [
-            {
-              name: "Product 1",
-              image: { url: img2 },
-            },
-          ],
-          totalPrice: 120,
-          isPaid: true,
-        },
-      ];
-      SetOrders(mockOrders);
-    }, 1000);
-  }, []);
+    dispatch(fetchUserOrders());
+  }, [dispatch])
 
+ 
   const handleRowClick = (orderId) => {
     navigate(`/order/${orderId}`);
   }
+
+  if(loading) return <div>Loading...</div>
+  if(error) return <div>Error! {error}</div>
 
   return (
     <div className="max-w-7xl mx-auto p-4 sm:p-6">
@@ -73,7 +50,7 @@ const MyOrders = () => {
                 >
                   <td className="py-2 px-2 sm:py-4 sm:px-4">
                     <img
-                      src={order.orderItems[0].image.url}
+                      src={order.orderItems[0].image}
                       alt={order.orderItems[0].name}
                       className="w-10 h-10 sm:w-12 sm:h-12 object-cover rounded-lg"
                     />
