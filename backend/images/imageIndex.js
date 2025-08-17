@@ -5,12 +5,14 @@ const getBaseUrl = () => {
   // Check multiple indicators for production environment
   const isProduction = process.env.NODE_ENV === 'production' || 
                       process.env.VERCEL || 
-                      process.env.VERCEL_ENV === 'production' ||
-                      !process.env.NODE_ENV; // Default to production if NODE_ENV is not set
+                      process.env.VERCEL_ENV === 'production';
   
-  return isProduction 
-    ? process.env.BACKEND_URL || 'https://e-comm-zeta-two.vercel.app'
-    : 'http://localhost:9000';
+  if (isProduction) {
+    // Use the correct backend URL for your deployed backend
+    return process.env.BACKEND_URL || 'https://e-comm-backend-production.vercel.app';
+  }
+  
+  return 'http://localhost:9000';
 };
 
 // Helper function to generate image URLs dynamically
