@@ -9,7 +9,7 @@ const getBaseUrl = () => {
   
   if (isProduction) {
     // Use the correct backend URL for your deployed backend
-    return process.env.BACKEND_URL || 'https://e-comm-backend-production.vercel.app';
+    return process.env.BACKEND_URL || 'https://e-comm-bice-nine.vercel.app';
   }
   
   return 'http://localhost:9000';
