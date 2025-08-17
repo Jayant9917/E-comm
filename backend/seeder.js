@@ -4,6 +4,7 @@ const Product = require("./models/Product");
 const User = require("./models/User");
 const Cart = require("./models/Cart");
 const products = require("./data/products");
+const { getImagesByGender } = require("./images/imageIndex");
 
 dotenv.config();
 
@@ -37,7 +38,32 @@ const seedData = async () => {
     console.log(`📦 Preparing ${products.length} products...`);
 
     const sampleProducts = products.map((product) => {
-      return { ...product, user: userID };
+      // Determine gender key used by imageIndex (male/female)
+      const genderKey = (product.gender || '').toLowerCase().includes('women')
+        ? 'female'
+        : 'male';
+      const genderImages = getImagesByGender(genderKey);
+      const defaults = Object.values(genderImages || {});
+      const fallbackUrl = defaults && defaults.length > 0 ? defaults[0] : undefined;
+
+      // Ensure images array exists and every image has a url
+      let images = Array.isArray(product.images) ? product.images : [];
+      if (images.length === 0 && fallbackUrl) {
+        images = [
+          {
+            url: fallbackUrl,
+            altText: `${product.name} Image`,
+          },
+        ];
+      } else if (images.length > 0) {
+        images = images.map((img, idx) => ({
+          ...img,
+          url: img && img.url ? img.url : fallbackUrl,
+          altText: img && img.altText ? img.altText : `${product.name} Image ${idx + 1}`,
+        }));
+      }
+
+      return { ...product, user: userID, images };
     });
 
     // Insert the products into the DB

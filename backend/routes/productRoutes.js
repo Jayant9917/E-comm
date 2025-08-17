@@ -353,7 +353,8 @@ router.get("/", async (req, res) => {
     let products = await Product.find(query)
       .sort(sort)
       .limit(Number(limit) || 0);
-    res.json(products);
+    const normalized = products.map((p) => normalizeProductImages(req, p));
+    res.json(normalized);
   } catch (err) {
     console.error(err);
     res.status(500).send("Server Error");
@@ -367,7 +368,7 @@ router.get("/best-seller", async (req, res) => {
   try {
     const bestSeller = await Product.findOne().sort({ rating: -1 });
     if (bestSeller) {
-      res.json(bestSeller);
+      res.json(normalizeProductImages(req, bestSeller));
     } else {
       res.status(404).json({ message: "No Best Seller Found" });
     }
@@ -384,7 +385,8 @@ router.get("/new-arrivals", async (req, res) => {
   try {
     //Fetch atleast 8 products
     const newArrivals = await Product.find().sort({ createdAt: -1 }).limit(8);
-    res.json(newArrivals);
+    const normalized = newArrivals.map((p) => normalizeProductImages(req, p));
+    res.json(normalized);
   } catch (err) {
     console.error(err);
     res.status(500).send("Server Error");
@@ -398,7 +400,7 @@ router.get("/:id", async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
     if (product) {
-      res.json(product);
+      res.json(normalizeProductImages(req, product));
     } else {
       res.status(404).json({ message: "Product Not Found" });
     }
@@ -426,7 +428,8 @@ router.get("/similar/:id", async (req, res) => {
       category: product.category,
     }).limit(4);
 
-    res.json(similarProducts);
+    const normalized = similarProducts.map((p) => normalizeProductImages(req, p));
+    res.json(normalized);
   } catch (err) {
     console.error(err);
     res.status(500).send("Server Error");
