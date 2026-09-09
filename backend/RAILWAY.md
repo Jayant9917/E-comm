@@ -25,10 +25,25 @@ SENDER_EMAIL=your-sender-email
 CLOUDINARY_CLOUD_NAME=your-cloud-name
 CLOUDINARY_API_KEY=your-cloudinary-key
 CLOUDINARY_API_SECRET=your-cloudinary-secret
+SEED_ADMIN_NAME=Rabbit Admin
+SEED_ADMIN_EMAIL=admin@example.com
+SEED_ADMIN_PASSWORD=your-strong-admin-password
 ```
 
 Do not set `PORT` manually. Railway supplies it and `server.js` reads
 `process.env.PORT`.
+
+The three `SEED_ADMIN_*` variables control the first administrator created by
+`npm run seed`:
+
+- `SEED_ADMIN_NAME`: the name shown for the admin account.
+- `SEED_ADMIN_EMAIL`: the email used to log into the admin panel.
+- `SEED_ADMIN_PASSWORD`: the password for that admin account.
+
+They are only needed when no admin user exists yet. The seed script does not
+replace an existing administrator. `SEED_ADMIN_PASSWORD` is the admin login
+password; it is separate from `JWT_SECRET`, which signs login tokens. Keep both
+private and use different random values.
 
 After the first deployment, generate a Railway public domain and test:
 

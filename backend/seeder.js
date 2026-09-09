@@ -32,7 +32,8 @@ async function seed() {
       fs.mkdirSync(credentialsDir, { recursive: true });
       const credentialPath = path.join(credentialsDir, 'admin-credentials.json');
       fs.writeFileSync(credentialPath, JSON.stringify({ email, password }, null, 2) + '\n', { mode: 0o600 });
-      owner = await User.create({ name: 'Rabbit Admin', email, password, role: 'admin' });
+      const name = process.env.SEED_ADMIN_NAME || 'Rabbit Admin';
+      owner = await User.create({ name, email, password, role: 'admin' });
       logger.info('Created seed administrator. Credentials saved in backend/.catalog-work/admin-credentials.json (gitignored).');
     }
     // Preserve IDs and never delete users, carts, orders, or other products.
