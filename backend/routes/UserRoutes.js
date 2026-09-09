@@ -30,13 +30,11 @@ router.post("/register", async (req, res) => {
     // Sending welcome Email
     const mailOptions = createWelcomeEmail(name, email);
 
-    try {
-      await transporter.sendMail(mailOptions);
-      req.log.info("Welcome email sent successfully");
-    } catch (emailError) {
-      req.log.warn({ err: emailError }, "Error sending welcome email");
-      // Don't fail registration if email fails
-    }
+    // Do not make account creation wait for an external SMTP provider.
+    // The user and token response must remain fast even if Brevo is slow/down.
+    transporter.sendMail(mailOptions)
+      .then(() => req.log.info("Welcome email sent successfully"))
+      .catch((emailError) => req.log.warn({ err: emailError }, "Error sending welcome email"));
 
     // Create JWT Payload
     const payload = {
@@ -88,13 +86,10 @@ router.post("/login", async (req, res) => {
     // Sending login notification email
     const loginMailOptions = createLoginNotificationEmail(user.name, email);
 
-    try {
-      await transporter.sendMail(loginMailOptions);
-      req.log.info("Login notification email sent successfully");
-    } catch (emailError) {
-      req.log.warn({ err: emailError }, "Error sending login notification email");
-      // Don't fail login if email fails
-    }
+    // Login should not wait for an external SMTP provider either.
+    transporter.sendMail(loginMailOptions)
+      .then(() => req.log.info("Login notification email sent successfully"))
+      .catch((emailError) => req.log.warn({ err: emailError }, "Error sending login notification email"));
 
     // Create JWT Payload
     const payload = {

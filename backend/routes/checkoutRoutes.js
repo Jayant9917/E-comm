@@ -128,12 +128,9 @@ router.put("/:id/pay", async (req, res) => {
             user.email,
             checkout
           );
-          try {
-            await transporter.sendMail(mailOptions);
-            req.log.info("Payment receipt email sent");
-          } catch (emailErr) {
-            req.log.warn({ err: emailErr }, "Error sending payment receipt email");
-          }
+          transporter.sendMail(mailOptions)
+            .then(() => req.log.info("Payment receipt email sent"))
+            .catch((emailErr) => req.log.warn({ err: emailErr }, "Error sending payment receipt email"));
         }
       } else if (checkout.shippingAddress?.email) {
         // Send email to guest user
@@ -142,12 +139,9 @@ router.put("/:id/pay", async (req, res) => {
           checkout.shippingAddress.email,
           checkout
         );
-        try {
-          await transporter.sendMail(mailOptions);
-          req.log.info("Payment receipt email sent to guest");
-        } catch (emailErr) {
-          req.log.warn({ err: emailErr }, "Error sending payment receipt email to guest");
-        }
+        transporter.sendMail(mailOptions)
+          .then(() => req.log.info("Payment receipt email sent to guest"))
+          .catch((emailErr) => req.log.warn({ err: emailErr }, "Error sending payment receipt email to guest"));
       }
 
       res.status(200).json(checkout);
@@ -243,12 +237,9 @@ router.post("/:id/finalize", async (req, res) => {
             user.email,
             finalOrder
           );
-          try {
-            await transporter.sendMail(mailOptions);
-            req.log.info("Order confirmation email sent");
-          } catch (emailErr) {
-            req.log.warn({ err: emailErr }, "Error sending order confirmation email");
-          }
+          transporter.sendMail(mailOptions)
+            .then(() => req.log.info("Order confirmation email sent"))
+            .catch((emailErr) => req.log.warn({ err: emailErr }, "Error sending order confirmation email"));
         }
       } else if (checkout.shippingAddress?.email) {
         // Send email to guest user
@@ -257,12 +248,9 @@ router.post("/:id/finalize", async (req, res) => {
           checkout.shippingAddress.email,
           finalOrder
         );
-        try {
-          await transporter.sendMail(mailOptions);
-          req.log.info("Order confirmation email sent to guest");
-        } catch (emailErr) {
-          req.log.warn({ err: emailErr }, "Error sending order confirmation email to guest");
-        }
+        transporter.sendMail(mailOptions)
+          .then(() => req.log.info("Order confirmation email sent to guest"))
+          .catch((emailErr) => req.log.warn({ err: emailErr }, "Error sending order confirmation email to guest"));
       }
 
       res.status(201).json(finalOrder);
