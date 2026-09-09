@@ -7,3 +7,39 @@
     font-optical-sizing: auto;
     font-style: normal;
 }
+
+.product-card {
+    transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.product-card-image {
+    transition: transform 450ms cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .product-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px -12px rgb(0 0 0 / 20%);
+    }
+
+    .product-card:hover .product-card-image {
+        transform: scale(1.045);
+    }
+}
+
+.product-card:focus-visible .product-card-image {
+    transform: scale(1.045);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .product-card,
+    .product-card-image {
+        transition: none;
+    }
+
+    .product-card:hover,
+    .product-card:hover .product-card-image,
+    .product-card:focus-visible .product-card-image {
+        transform: none;
+    }
+}

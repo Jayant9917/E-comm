@@ -12,15 +12,15 @@ const ProductGrid = ({ products, loading, error }) => {
   }
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      {products.map((product, index) => (
-        <Link key={index} to={`/product/${product._id}`} className="block">
+      {products.map((product) => (
+        <Link key={product._id} to={`/product/${product._id}`} className="product-card block rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-4">
           <div className="bg-white p-4 rounded-lg ">
-            <div className="w-full h-96 mb-4">
+            <div className="w-full h-96 mb-4 overflow-hidden rounded-lg">
               {product.images && product.images.length > 0 ? (
                 <img
                   src={product.images[0].url}
                   alt={product.images[0].altText || product.name}
-                  className="w-full h-full object-cover rounded-lg"
+                  className="product-card-image w-full h-full object-cover rounded-lg"
                 />
               ) : (
                 <div className="w-full h-full bg-gray-200 rounded-lg flex items-center justify-center">

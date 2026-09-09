@@ -32,9 +32,9 @@ router.post("/register", async (req, res) => {
 
     try {
       await transporter.sendMail(mailOptions);
-      console.log("Welcome email sent successfully");
+      req.log.info("Welcome email sent successfully");
     } catch (emailError) {
-      console.log("Error sending welcome email:", emailError);
+      req.log.warn({ err: emailError }, "Error sending welcome email");
       // Don't fail registration if email fails
     }
 
@@ -64,7 +64,7 @@ router.post("/register", async (req, res) => {
       }
     );
   } catch (err) {
-    console.log(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).json({ message: "Server error during registration" });
   }
 });
@@ -90,9 +90,9 @@ router.post("/login", async (req, res) => {
 
     try {
       await transporter.sendMail(loginMailOptions);
-      console.log("Login notification email sent successfully");
+      req.log.info("Login notification email sent successfully");
     } catch (emailError) {
-      console.log("Error sending login notification email:", emailError);
+      req.log.warn({ err: emailError }, "Error sending login notification email");
       // Don't fail login if email fails
     }
 
@@ -122,7 +122,7 @@ router.post("/login", async (req, res) => {
       }
     );
   } catch (err) {
-    console.log(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).json({ message: "Server error during login" });
   }
 });
@@ -134,7 +134,7 @@ router.get("/profile", protect, async (req, res) => {
   try {
     res.json(req.user);
   } catch (err) {
-    console.log(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).json({ message: "Server error" });
   }
 });

@@ -1,0 +1,2644 @@
+[
+  {
+    "sku": "RBT-M-001",
+    "imageFile": "male/ali-morshedlou-WMD64tMfc4k-unsplash.jpg",
+    "name": "Midnight Tailored Blazer",
+    "description": "A dark tailored blazer with notch lapels, styled over a white shirt and a deep red tie. Pair with matching dark trousers for a formal look.",
+    "price": 89.99,
+    "countInStock": 20,
+    "category": "Outerwear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collections": "Outerwear",
+    "gender": "Men",
+    "isFeatured": true,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "outerwear",
+      "outerwear"
+    ],
+    "metaTitle": "Midnight Tailored Blazer",
+    "metaDescription": "A dark tailored blazer with notch lapels, styled over a white shirt and a deep red tie. Pair with matching dark trousers for a formal look."
+  },
+  {
+    "sku": "RBT-M-002",
+    "imageFile": "male/andrew-davie-4LAQaUoHHUA-unsplash.jpg",
+    "name": "Weekend Printed Trousers",
+    "description": "Relaxed white trousers with a colorful all-over motif. The pictured look pairs them with a plain black tee and casual shoes.",
+    "price": 49.99,
+    "countInStock": 20,
+    "category": "Bottom Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Men",
+    "isFeatured": true,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "bottom wear",
+      "casual wear"
+    ],
+    "metaTitle": "Weekend Printed Trousers",
+    "metaDescription": "Relaxed white trousers with a colorful all-over motif. The pictured look pairs them with a plain black tee and casual shoes."
+  },
+  {
+    "sku": "RBT-M-003",
+    "imageFile": "male/andrew-davie-Lw6z9_fw1oU-unsplash.jpg",
+    "name": "Stone Short-Sleeve Shirt",
+    "description": "A light stone-colored shirt with short sleeves, a pointed collar and a button front. Wear open over a simple base layer or buttoned with dark jeans.",
+    "price": 39.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Beige"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Men",
+    "isFeatured": true,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Stone Short-Sleeve Shirt",
+    "metaDescription": "A light stone-colored shirt with short sleeves, a pointed collar and a button front. Wear open over a simple base layer or buttoned with dark jeans."
+  },
+  {
+    "sku": "RBT-M-004",
+    "imageFile": "male/ben-tofan-liy0P6AmGPM-unsplash.jpg",
+    "name": "Burgundy Crewneck Sweater",
+    "description": "A deep burgundy sweater with a round neckline and visible knit texture. A simple layer for pairing with neutral trousers.",
+    "price": 44.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Red"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Men",
+    "isFeatured": true,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Burgundy Crewneck Sweater",
+    "metaDescription": "A deep burgundy sweater with a round neckline and visible knit texture. A simple layer for pairing with neutral trousers."
+  },
+  {
+    "sku": "RBT-M-005",
+    "imageFile": "male/clarisse-meyer-5xbdx3TqPnw-unsplash.jpg",
+    "name": "Mustard Everyday T-Shirt",
+    "description": "A mustard yellow T-shirt with short sleeves and a round neckline. Its plain front works well with dark casual trousers.",
+    "price": 24.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Yellow"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Mustard Everyday T-Shirt",
+    "metaDescription": "A mustard yellow T-shirt with short sleeves and a round neckline. Its plain front works well with dark casual trousers."
+  },
+  {
+    "sku": "RBT-M-006",
+    "imageFile": "male/de-andre-bush-HSpZ0Ffj0xY-unsplash.jpg",
+    "name": "Red Check Overshirt",
+    "description": "A red and black checked shirt worn open over a white tee. The button-front silhouette makes an easy casual layer with blue jeans.",
+    "price": 39.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Red"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Red Check Overshirt",
+    "metaDescription": "A red and black checked shirt worn open over a white tee. The button-front silhouette makes an easy casual layer with blue jeans."
+  },
+  {
+    "sku": "RBT-M-007",
+    "imageFile": "male/diego-sanchez-mPEuuh1JZSA-unsplash.jpg",
+    "name": "Sand Pleated Trousers",
+    "description": "Sand-colored trousers with a high waist, front pleats and a wide leg. Style with a tucked black polo to echo the photographed outfit.",
+    "price": 49.99,
+    "countInStock": 20,
+    "category": "Bottom Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Beige"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "bottom wear",
+      "casual wear"
+    ],
+    "metaTitle": "Sand Pleated Trousers",
+    "metaDescription": "Sand-colored trousers with a high waist, front pleats and a wide leg. Style with a tucked black polo to echo the photographed outfit."
+  },
+  {
+    "sku": "RBT-M-008",
+    "imageFile": "male/dieter-blom-YAHCLVsRUBw-unsplash.jpg",
+    "name": "Forest Textured Sweater",
+    "description": "A dark green crewneck sweater with a textured knit appearance and long sleeves. Pair with light trousers for contrast.",
+    "price": 44.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Forest Textured Sweater",
+    "metaDescription": "A dark green crewneck sweater with a textured knit appearance and long sleeves. Pair with light trousers for contrast."
+  },
+  {
+    "sku": "RBT-M-009",
+    "imageFile": "male/dillon-kydd-K6yX5vHHUs0-unsplash.jpg",
+    "name": "City Graphic Ringer Tee",
+    "description": "A light graphic T-shirt with dark contrast trim around the neck and sleeves. A casual choice for denim and skate-inspired outfits.",
+    "price": 29.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "City Graphic Ringer Tee",
+    "metaDescription": "A light graphic T-shirt with dark contrast trim around the neck and sleeves. A casual choice for denim and skate-inspired outfits."
+  },
+  {
+    "sku": "RBT-M-010",
+    "imageFile": "male/ehimetalor-akhere-unuabona-5YWoFhRuux8-unsplash.jpg",
+    "name": "Golden Check Casual Shirt",
+    "description": "A golden yellow checked button-front shirt shown over a light tee. Roll the sleeves and pair with jeans for a relaxed layered look.",
+    "price": 39.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Yellow"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Golden Check Casual Shirt",
+    "metaDescription": "A golden yellow checked button-front shirt shown over a light tee. Roll the sleeves and pair with jeans for a relaxed layered look."
+  },
+  {
+    "sku": "RBT-M-011",
+    "imageFile": "male/elijah-hiett-umfpFoKxIVg-unsplash.jpg",
+    "name": "Light Gray Pullover Hoodie",
+    "description": "A light gray pullover hoodie with drawstrings and a roomy neckline. Its understated front is easy to combine with everyday separates.",
+    "price": 44.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "gray"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Light Gray Pullover Hoodie",
+    "metaDescription": "A light gray pullover hoodie with drawstrings and a roomy neckline. Its understated front is easy to combine with everyday separates."
+  },
+  {
+    "sku": "RBT-M-012",
+    "imageFile": "male/eve-maier-2oFjdqRp4mc-unsplash.jpg",
+    "name": "Skyline Light-Wash Jeans",
+    "description": "Light blue jeans with a relaxed straight-leg silhouette. The photographed outfit pairs them with a pale sweatshirt and bright sneakers.",
+    "price": 49.99,
+    "countInStock": 20,
+    "category": "Bottom Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "bottom wear",
+      "casual wear"
+    ],
+    "metaTitle": "Skyline Light-Wash Jeans",
+    "metaDescription": "Light blue jeans with a relaxed straight-leg silhouette. The photographed outfit pairs them with a pale sweatshirt and bright sneakers."
+  },
+  {
+    "sku": "RBT-M-013",
+    "imageFile": "male/filip-rankovic-grobgaard-fDeUJwHy9RA-unsplash.jpg",
+    "name": "Urban Black Cargo Trousers",
+    "description": "Black trousers with a loose leg and utility-style pocket detailing. Wear with a short neutral jacket for a streetwear silhouette.",
+    "price": 54.99,
+    "countInStock": 20,
+    "category": "Bottom Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "bottom wear",
+      "casual wear"
+    ],
+    "metaTitle": "Urban Black Cargo Trousers",
+    "metaDescription": "Black trousers with a loose leg and utility-style pocket detailing. Wear with a short neutral jacket for a streetwear silhouette."
+  },
+  {
+    "sku": "RBT-M-014",
+    "imageFile": "male/glassesshop-WidHA6plUik-unsplash.jpg",
+    "name": "Navy City Overcoat",
+    "description": "A dark navy overcoat with broad lapels, shown over formal layers. Its long silhouette complements a shirt, tie and tailored trousers.",
+    "price": 99.99,
+    "countInStock": 20,
+    "category": "Outerwear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Navy"
+    ],
+    "collections": "Outerwear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "outerwear",
+      "outerwear"
+    ],
+    "metaTitle": "Navy City Overcoat",
+    "metaDescription": "A dark navy overcoat with broad lapels, shown over formal layers. Its long silhouette complements a shirt, tie and tailored trousers."
+  },
+  {
+    "sku": "RBT-M-015",
+    "imageFile": "male/joel-mott-zQ0WfMS7PTU-unsplash.jpg",
+    "name": "Coastal Cream Long-Sleeve Tee",
+    "description": "A pale cream long-sleeve top with a simple round neckline. Style with rolled jeans for the relaxed beach look shown in the photo.",
+    "price": 29.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Beige"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Coastal Cream Long-Sleeve Tee",
+    "metaDescription": "A pale cream long-sleeve top with a simple round neckline. Style with rolled jeans for the relaxed beach look shown in the photo."
+  },
+  {
+    "sku": "RBT-M-016",
+    "imageFile": "male/justus-menke-c08DhK2MCcE-unsplash.jpg",
+    "name": "Charcoal Essential T-Shirt",
+    "description": "A dark charcoal short-sleeve T-shirt with a plain front. An understated base for casual trousers or denim.",
+    "price": 24.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "gray"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Charcoal Essential T-Shirt",
+    "metaDescription": "A dark charcoal short-sleeve T-shirt with a plain front. An understated base for casual trousers or denim."
+  },
+  {
+    "sku": "RBT-M-017",
+    "imageFile": "male/lachlan-dempsey-6VPEOdpFNAs-unsplash.jpg",
+    "name": "Highland Navy Hooded Jacket",
+    "description": "A navy hooded jacket shown from the back in an outdoor setting. The hip-length shape layers easily over casual clothing.",
+    "price": 74.99,
+    "countInStock": 20,
+    "category": "Outerwear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Navy"
+    ],
+    "collections": "Outerwear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "outerwear",
+      "outerwear"
+    ],
+    "metaTitle": "Highland Navy Hooded Jacket",
+    "metaDescription": "A navy hooded jacket shown from the back in an outdoor setting. The hip-length shape layers easily over casual clothing."
+  },
+  {
+    "sku": "RBT-M-018",
+    "imageFile": "male/malen-almonacid-trossi-CKhsaj5dbRI-unsplash.jpg",
+    "name": "Deep Green Everyday Hoodie",
+    "description": "A deep green pullover hoodie with drawstrings and a small chest graphic. Pair with a neutral beanie and relaxed trousers.",
+    "price": 44.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Deep Green Everyday Hoodie",
+    "metaDescription": "A deep green pullover hoodie with drawstrings and a small chest graphic. Pair with a neutral beanie and relaxed trousers."
+  },
+  {
+    "sku": "RBT-M-019",
+    "imageFile": "male/malen-almonacid-trossi-fca3dsg8vz0-unsplash.jpg",
+    "name": "Forest Hooded Parka",
+    "description": "A dark green hooded parka with a button-front appearance and large front pockets. The longer cut creates a layered winter look.",
+    "price": 84.99,
+    "countInStock": 20,
+    "category": "Outerwear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collections": "Outerwear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "outerwear",
+      "outerwear"
+    ],
+    "metaTitle": "Forest Hooded Parka",
+    "metaDescription": "A dark green hooded parka with a button-front appearance and large front pockets. The longer cut creates a layered winter look."
+  },
+  {
+    "sku": "RBT-M-020",
+    "imageFile": "male/malen-almonacid-trossi-G_typwxGR-c-unsplash.jpg",
+    "name": "Woodland Longline Jacket",
+    "description": "A dark hooded jacket shown from the side and back, with a long hem and roomy sleeves. Style over everyday winter layers.",
+    "price": 84.99,
+    "countInStock": 20,
+    "category": "Outerwear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collections": "Outerwear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "outerwear",
+      "outerwear"
+    ],
+    "metaTitle": "Woodland Longline Jacket",
+    "metaDescription": "A dark hooded jacket shown from the side and back, with a long hem and roomy sleeves. Style over everyday winter layers."
+  },
+  {
+    "sku": "RBT-M-021",
+    "imageFile": "male/malen-almonacid-trossi-MWUFWEexgDE-unsplash.jpg",
+    "name": "White Statement Sweatshirt",
+    "description": "A white crewneck sweatshirt with bold red lettering across the front. The pictured outfit combines it with dark trousers and white sneakers.",
+    "price": 39.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "White Statement Sweatshirt",
+    "metaDescription": "A white crewneck sweatshirt with bold red lettering across the front. The pictured outfit combines it with dark trousers and white sneakers."
+  },
+  {
+    "sku": "RBT-M-022",
+    "imageFile": "male/mark-broadhead-jIH2R3YhKUY-unsplash.jpg",
+    "name": "White Relaxed Crewneck Tee",
+    "description": "A plain white T-shirt with a relaxed shape and round neck. Pair with olive or dark trousers for an easy warm-weather outfit.",
+    "price": 24.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "White Relaxed Crewneck Tee",
+    "metaDescription": "A plain white T-shirt with a relaxed shape and round neck. Pair with olive or dark trousers for an easy warm-weather outfit."
+  },
+  {
+    "sku": "RBT-M-023",
+    "imageFile": "male/ola-dybul-Vem-vji88aA-unsplash.jpg",
+    "name": "Black Street Bomber Jacket",
+    "description": "A black bomber-style jacket shown from the back in a street scene. Its short silhouette pairs with dark fitted trousers.",
+    "price": 64.99,
+    "countInStock": 20,
+    "category": "Outerwear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collections": "Outerwear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "outerwear",
+      "outerwear"
+    ],
+    "metaTitle": "Black Street Bomber Jacket",
+    "metaDescription": "A black bomber-style jacket shown from the back in a street scene. Its short silhouette pairs with dark fitted trousers."
+  },
+  {
+    "sku": "RBT-M-024",
+    "imageFile": "male/olena-bohovyk-0f3rGmmRLtc-unsplash.jpg",
+    "name": "Sand Straight-Leg Chinos",
+    "description": "Warm sand-colored trousers with a straight leg. The photo pairs them with a neutral tee for a coordinated casual look.",
+    "price": 44.99,
+    "countInStock": 20,
+    "category": "Bottom Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Beige"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "bottom wear",
+      "casual wear"
+    ],
+    "metaTitle": "Sand Straight-Leg Chinos",
+    "metaDescription": "Warm sand-colored trousers with a straight leg. The photo pairs them with a neutral tee for a coordinated casual look."
+  },
+  {
+    "sku": "RBT-M-025",
+    "imageFile": "male/patrick-t-kindt-KIcQzWym6O0-unsplash.jpg",
+    "name": "Rose Embroidered Overshirt",
+    "description": "A black button-front overshirt with prominent red floral embroidery and decorative chest details. Wear over a dark base layer.",
+    "price": 59.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Rose Embroidered Overshirt",
+    "metaDescription": "A black button-front overshirt with prominent red floral embroidery and decorative chest details. Wear over a dark base layer."
+  },
+  {
+    "sku": "RBT-M-026",
+    "imageFile": "male/rayul-_M6gy9oHgII-unsplash.jpg",
+    "name": "Caramel Casual Trousers",
+    "description": "Caramel-colored trousers with a relaxed leg, shown with a dark jacket and white shoes. A warm neutral for everyday outfits.",
+    "price": 44.99,
+    "countInStock": 20,
+    "category": "Bottom Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Beige"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "bottom wear",
+      "casual wear"
+    ],
+    "metaTitle": "Caramel Casual Trousers",
+    "metaDescription": "Caramel-colored trousers with a relaxed leg, shown with a dark jacket and white shoes. A warm neutral for everyday outfits."
+  },
+  {
+    "sku": "RBT-M-027",
+    "imageFile": "male/sorin-sirbu-_3iI0mADqho-unsplash.jpg",
+    "name": "Classic Blue Trucker Jacket",
+    "description": "A blue jacket with a denim appearance, pointed collar and flap chest pockets. Wear open over a contrasting top.",
+    "price": 64.99,
+    "countInStock": 20,
+    "category": "Outerwear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collections": "Outerwear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "outerwear",
+      "outerwear"
+    ],
+    "metaTitle": "Classic Blue Trucker Jacket",
+    "metaDescription": "A blue jacket with a denim appearance, pointed collar and flap chest pockets. Wear open over a contrasting top."
+  },
+  {
+    "sku": "RBT-M-028",
+    "imageFile": "male/taylor-Xqb7GmV_VoQ-unsplash.jpg",
+    "name": "Black Contrast-Trim T-Shirt",
+    "description": "A black short-sleeve T-shirt with slim contrasting bands at the sleeve edges. A minimal casual top for jeans or chinos.",
+    "price": 29.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Black Contrast-Trim T-Shirt",
+    "metaDescription": "A black short-sleeve T-shirt with slim contrasting bands at the sleeve edges. A minimal casual top for jeans or chinos."
+  },
+  {
+    "sku": "RBT-M-029",
+    "imageFile": "male/tony-saiko-RIwXSSIxPtY-unsplash.jpg",
+    "name": "Slate High-Collar Jacket",
+    "description": "A slate gray jacket with a high collar and a visible front zip. The cropped, roomy shape suits utility-inspired layering.",
+    "price": 79.99,
+    "countInStock": 20,
+    "category": "Outerwear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "gray"
+    ],
+    "collections": "Outerwear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "outerwear",
+      "outerwear"
+    ],
+    "metaTitle": "Slate High-Collar Jacket",
+    "metaDescription": "A slate gray jacket with a high collar and a visible front zip. The cropped, roomy shape suits utility-inspired layering."
+  },
+  {
+    "sku": "RBT-M-030",
+    "imageFile": "male/venrick-azcueta-qBa9744Bph0-unsplash.jpg",
+    "name": "Rainbow Check Statement Jacket",
+    "description": "A vivid multicolor checked jacket with a collar and front pockets. Its bright green, orange and purple blocks stand out over dark denim.",
+    "price": 74.99,
+    "countInStock": 20,
+    "category": "Outerwear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Purple"
+    ],
+    "collections": "Outerwear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "outerwear",
+      "outerwear"
+    ],
+    "metaTitle": "Rainbow Check Statement Jacket",
+    "metaDescription": "A vivid multicolor checked jacket with a collar and front pockets. Its bright green, orange and purple blocks stand out over dark denim."
+  },
+  {
+    "sku": "RBT-M-031",
+    "imageFile": "male/whereslugo-lBVOaVl4yy8-unsplash.jpg",
+    "name": "Layered Blue Denim-Style Jacket",
+    "description": "A blue trucker-style jacket shown on the right side of the photo, layered over a dark hoodie. Chest pockets and a pointed collar define the look.",
+    "price": 64.99,
+    "countInStock": 20,
+    "category": "Outerwear",
+    "brand": "Rabbit",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collections": "Outerwear",
+    "gender": "Men",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "outerwear",
+      "outerwear"
+    ],
+    "metaTitle": "Layered Blue Denim-Style Jacket",
+    "metaDescription": "A blue trucker-style jacket shown on the right side of the photo, layered over a dark hoodie. Chest pockets and a pointed collar define the look."
+  },
+  {
+    "sku": "RBT-W-001",
+    "imageFile": "female/aiony-haust-K0DxxljcRv0-unsplash.jpg",
+    "name": "Butter Yellow Oversized Blazer",
+    "description": "A pale yellow blazer with a relaxed shoulder line and long sleeves. The side-profile photo highlights its oversized silhouette.",
+    "price": 74.99,
+    "countInStock": 20,
+    "category": "Outerwear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Yellow"
+    ],
+    "collections": "Outerwear",
+    "gender": "Women",
+    "isFeatured": true,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "outerwear",
+      "outerwear"
+    ],
+    "metaTitle": "Butter Yellow Oversized Blazer",
+    "metaDescription": "A pale yellow blazer with a relaxed shoulder line and long sleeves. The side-profile photo highlights its oversized silhouette."
+  },
+  {
+    "sku": "RBT-W-002",
+    "imageFile": "female/alex-beholder-J69l0Z2c-h0-unsplash.jpg",
+    "name": "Ivory Wide-Leg Cropped Trousers",
+    "description": "Ivory trousers with a wide cropped leg. Pair with a loose neutral T-shirt and sneakers for the casual look shown.",
+    "price": 49.99,
+    "countInStock": 20,
+    "category": "Bottom Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": true,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "bottom wear",
+      "casual wear"
+    ],
+    "metaTitle": "Ivory Wide-Leg Cropped Trousers",
+    "metaDescription": "Ivory trousers with a wide cropped leg. Pair with a loose neutral T-shirt and sneakers for the casual look shown."
+  },
+  {
+    "sku": "RBT-W-003",
+    "imageFile": "female/alexander-jawfox-GNd5gstTSg8-unsplash.jpg",
+    "name": "Black Strappy Slit Dress",
+    "description": "A black dress with slim shoulder straps, a shaped neckline and a leg slit. Keep styling simple for an evening outfit.",
+    "price": 69.99,
+    "countInStock": 20,
+    "category": "Dresses",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collections": "Dresses",
+    "gender": "Women",
+    "isFeatured": true,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "dresses",
+      "dresses"
+    ],
+    "metaTitle": "Black Strappy Slit Dress",
+    "metaDescription": "A black dress with slim shoulder straps, a shaped neckline and a leg slit. Keep styling simple for an evening outfit."
+  },
+  {
+    "sku": "RBT-W-004",
+    "imageFile": "female/allef-vinicius-vXbNfW5K_AA-unsplash.jpg",
+    "name": "Monochrome Stripe Crop Top",
+    "description": "A black and light striped crop top with a wide neckline and long sleeves. The pictured look pairs it with high-waisted jeans.",
+    "price": 29.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": true,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Monochrome Stripe Crop Top",
+    "metaDescription": "A black and light striped crop top with a wide neckline and long sleeves. The pictured look pairs it with high-waisted jeans."
+  },
+  {
+    "sku": "RBT-W-005",
+    "imageFile": "female/alma-RzIGme6q2WY-unsplash.jpg",
+    "name": "Dark High-Waisted Slim Trousers",
+    "description": "Dark high-waisted trousers with a slim leg, styled with a pink layered tee and black boots. An easy base for casual separates.",
+    "price": 44.99,
+    "countInStock": 20,
+    "category": "Bottom Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "bottom wear",
+      "casual wear"
+    ],
+    "metaTitle": "Dark High-Waisted Slim Trousers",
+    "metaDescription": "Dark high-waisted trousers with a slim leg, styled with a pink layered tee and black boots. An easy base for casual separates."
+  },
+  {
+    "sku": "RBT-W-006",
+    "imageFile": "female/anastase-maragos-aQCT1xrqA9I-unsplash.jpg",
+    "name": "White Boxy Cropped Tee",
+    "description": "A white short-sleeve cropped tee with a boxy shape. The outdoor photo pairs it with loose patterned trousers.",
+    "price": 24.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "White Boxy Cropped Tee",
+    "metaDescription": "A white short-sleeve cropped tee with a boxy shape. The outdoor photo pairs it with loose patterned trousers."
+  },
+  {
+    "sku": "RBT-W-007",
+    "imageFile": "female/ardy-arjun-QNsHqLjy1BY-unsplash.jpg",
+    "name": "Navy Relaxed Blazer",
+    "description": "A navy blazer with lapels and a relaxed silhouette, shown with coordinating trousers. Wear over a simple dark top.",
+    "price": 74.99,
+    "countInStock": 20,
+    "category": "Outerwear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Navy"
+    ],
+    "collections": "Outerwear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "outerwear",
+      "outerwear"
+    ],
+    "metaTitle": "Navy Relaxed Blazer",
+    "metaDescription": "A navy blazer with lapels and a relaxed silhouette, shown with coordinating trousers. Wear over a simple dark top."
+  },
+  {
+    "sku": "RBT-W-008",
+    "imageFile": "female/ayo-ogunseinde-6W4F62sN_yI-unsplash.jpg",
+    "name": "White Retro Graphic Tee",
+    "description": "A white crewneck T-shirt with a bold red and blue front graphic. Style with denim for an everyday statement.",
+    "price": 29.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "White Retro Graphic Tee",
+    "metaDescription": "A white crewneck T-shirt with a bold red and blue front graphic. Style with denim for an everyday statement."
+  },
+  {
+    "sku": "RBT-W-009",
+    "imageFile": "female/ayo-ogunseinde-yFsUYtBGjzo-unsplash.jpg",
+    "name": "Midnight Long-Sleeve Top",
+    "description": "A dark fitted long-sleeve top with an understated neckline. The photographed outfit combines it with matching dark trousers.",
+    "price": 34.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Navy"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Midnight Long-Sleeve Top",
+    "metaDescription": "A dark fitted long-sleeve top with an understated neckline. The photographed outfit combines it with matching dark trousers."
+  },
+  {
+    "sku": "RBT-W-010",
+    "imageFile": "female/beauty-portrait-young-adult.jpg",
+    "name": "Cream Ribbed Scoop-Neck Top",
+    "description": "A cream long-sleeve top with a ribbed texture and a softly shaped scoop neckline. Pair with black trousers for contrast.",
+    "price": 34.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Beige"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Cream Ribbed Scoop-Neck Top",
+    "metaDescription": "A cream long-sleeve top with a ribbed texture and a softly shaped scoop neckline. Pair with black trousers for contrast."
+  },
+  {
+    "sku": "RBT-W-011",
+    "imageFile": "female/corey-saldana-An_-fZt7NdM-unsplash.jpg",
+    "name": "Light-Wash Cutoff Shorts",
+    "description": "Light blue shorts with a high waist and a cutoff-style hem. The photo pairs them with a bright red strappy top.",
+    "price": 34.99,
+    "countInStock": 20,
+    "category": "Bottom Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "bottom wear",
+      "casual wear"
+    ],
+    "metaTitle": "Light-Wash Cutoff Shorts",
+    "metaDescription": "Light blue shorts with a high waist and a cutoff-style hem. The photo pairs them with a bright red strappy top."
+  },
+  {
+    "sku": "RBT-W-012",
+    "imageFile": "female/corey-saldana-D2qbuc2e1Qc-unsplash.jpg",
+    "name": "Black Sleeve-Graphic Sweatshirt",
+    "description": "A loose black sweatshirt with white graphics along the sleeves. Pair with casual trousers for a streetwear look.",
+    "price": 44.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Black Sleeve-Graphic Sweatshirt",
+    "metaDescription": "A loose black sweatshirt with white graphics along the sleeves. Pair with casual trousers for a streetwear look."
+  },
+  {
+    "sku": "RBT-W-013",
+    "imageFile": "female/corey-saldana-kJpL9QiSnKs-unsplash.jpg",
+    "name": "Peach Graphic Hoodie",
+    "description": "A peach-colored hoodie with printed details on the front and sleeves. Its relaxed shape works with casual denim and sneakers.",
+    "price": 49.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Peach Graphic Hoodie",
+    "metaDescription": "A peach-colored hoodie with printed details on the front and sleeves. Its relaxed shape works with casual denim and sneakers."
+  },
+  {
+    "sku": "RBT-W-014",
+    "imageFile": "female/david-nieto-PN_vlniJa78-unsplash.jpg",
+    "name": "Black Tapered Casual Trousers",
+    "description": "Black trousers with a relaxed upper leg and tapered ankle, shown in a seated studio pose. Pair with a dark top and light sneakers.",
+    "price": 44.99,
+    "countInStock": 20,
+    "category": "Bottom Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "bottom wear",
+      "casual wear"
+    ],
+    "metaTitle": "Black Tapered Casual Trousers",
+    "metaDescription": "Black trousers with a relaxed upper leg and tapered ankle, shown in a seated studio pose. Pair with a dark top and light sneakers."
+  },
+  {
+    "sku": "RBT-W-015",
+    "imageFile": "female/david-wayne-_kYDvlhDmwM-unsplash.jpg",
+    "name": "Vintage Blue Denim-Style Shorts",
+    "description": "Faded blue shorts with a short hem and a casual fit. The photographed outfit pairs them with a pale sleeveless top and high-top shoes.",
+    "price": 34.99,
+    "countInStock": 20,
+    "category": "Bottom Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "bottom wear",
+      "casual wear"
+    ],
+    "metaTitle": "Vintage Blue Denim-Style Shorts",
+    "metaDescription": "Faded blue shorts with a short hem and a casual fit. The photographed outfit pairs them with a pale sleeveless top and high-top shoes."
+  },
+  {
+    "sku": "RBT-W-016",
+    "imageFile": "female/dom-hill-nimElTcTNyY-unsplash.jpg",
+    "name": "Sunshine Cropped Hoodie",
+    "description": "A bright yellow cropped hoodie with drawstrings and long sleeves. Wear with coordinating joggers or neutral trousers.",
+    "price": 44.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Yellow"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Sunshine Cropped Hoodie",
+    "metaDescription": "A bright yellow cropped hoodie with drawstrings and long sleeves. Wear with coordinating joggers or neutral trousers."
+  },
+  {
+    "sku": "RBT-W-017",
+    "imageFile": "female/drew-colins-LIEQsu5JuoM-unsplash.jpg",
+    "name": "Twilight Printed Summer Dress",
+    "description": "A short dark printed dress photographed in motion by the water. Its loose skirt creates a relaxed summer silhouette.",
+    "price": 54.99,
+    "countInStock": 20,
+    "category": "Dresses",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collections": "Dresses",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "dresses",
+      "dresses"
+    ],
+    "metaTitle": "Twilight Printed Summer Dress",
+    "metaDescription": "A short dark printed dress photographed in motion by the water. Its loose skirt creates a relaxed summer silhouette."
+  },
+  {
+    "sku": "RBT-W-018",
+    "imageFile": "female/farshad-sheikhzad-IUR8isHHmgI-unsplash.jpg",
+    "name": "Sand Relaxed Cargo Trousers",
+    "description": "Light sand trousers with a wide relaxed leg, shown seated with a dark jacket. Style with chunky white sneakers.",
+    "price": 49.99,
+    "countInStock": 20,
+    "category": "Bottom Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Beige"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "bottom wear",
+      "casual wear"
+    ],
+    "metaTitle": "Sand Relaxed Cargo Trousers",
+    "metaDescription": "Light sand trousers with a wide relaxed leg, shown seated with a dark jacket. Style with chunky white sneakers."
+  },
+  {
+    "sku": "RBT-W-019",
+    "imageFile": "female/farshad-sheikhzad-Oxmc8d-axcU-unsplash.jpg",
+    "name": "Dune High-Waisted Cargo Trousers",
+    "description": "Beige high-waisted cargo trousers with side pockets and a wide leg. The standing photo shows them styled with a short black jacket.",
+    "price": 54.99,
+    "countInStock": 20,
+    "category": "Bottom Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Beige"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "bottom wear",
+      "casual wear"
+    ],
+    "metaTitle": "Dune High-Waisted Cargo Trousers",
+    "metaDescription": "Beige high-waisted cargo trousers with side pockets and a wide leg. The standing photo shows them styled with a short black jacket."
+  },
+  {
+    "sku": "RBT-W-020",
+    "imageFile": "female/icons8-team-6LZuSzSwso0-unsplash.jpg",
+    "name": "Soft Gray Long-Sleeve Dress",
+    "description": "A light gray long dress with long sleeves and a defined waist. The side view highlights the flowing skirt and understated shape.",
+    "price": 64.99,
+    "countInStock": 20,
+    "category": "Dresses",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "gray"
+    ],
+    "collections": "Dresses",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "dresses",
+      "dresses"
+    ],
+    "metaTitle": "Soft Gray Long-Sleeve Dress",
+    "metaDescription": "A light gray long dress with long sleeves and a defined waist. The side view highlights the flowing skirt and understated shape."
+  },
+  {
+    "sku": "RBT-W-021",
+    "imageFile": "female/ismail-efe-top-w_5OeQBs118-unsplash.jpg",
+    "name": "Olive Stand-Collar Jacket",
+    "description": "An olive jacket with a raised collar and front fastenings. Pair with neutral separates for a simple outdoor-inspired look.",
+    "price": 64.99,
+    "countInStock": 20,
+    "category": "Outerwear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collections": "Outerwear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "outerwear",
+      "outerwear"
+    ],
+    "metaTitle": "Olive Stand-Collar Jacket",
+    "metaDescription": "An olive jacket with a raised collar and front fastenings. Pair with neutral separates for a simple outdoor-inspired look."
+  },
+  {
+    "sku": "RBT-W-022",
+    "imageFile": "female/jamar-crable-unfmZMNUDko-unsplash.jpg",
+    "name": "Ivory High-Waisted Beach Trousers",
+    "description": "Ivory high-waisted trousers with a wide leg, photographed in a beach setting. Pair with a light open shirt for relaxed styling.",
+    "price": 49.99,
+    "countInStock": 20,
+    "category": "Bottom Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "bottom wear",
+      "casual wear"
+    ],
+    "metaTitle": "Ivory High-Waisted Beach Trousers",
+    "metaDescription": "Ivory high-waisted trousers with a wide leg, photographed in a beach setting. Pair with a light open shirt for relaxed styling."
+  },
+  {
+    "sku": "RBT-W-023",
+    "imageFile": "female/jay-soundo-oYZt7fBawH4-unsplash.jpg",
+    "name": "Blush Belted Pleated Mini Skirt",
+    "description": "A pale pink pleated mini skirt with a matching belt. The street-style photo combines it with a fitted black sleeveless top.",
+    "price": 39.99,
+    "countInStock": 20,
+    "category": "Bottom Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "bottom wear",
+      "casual wear"
+    ],
+    "metaTitle": "Blush Belted Pleated Mini Skirt",
+    "metaDescription": "A pale pink pleated mini skirt with a matching belt. The street-style photo combines it with a fitted black sleeveless top."
+  },
+  {
+    "sku": "RBT-W-024",
+    "imageFile": "female/joel-mott-qclr7hbOCwk-unsplash.jpg",
+    "name": "Black Long-Sleeve Crop Top",
+    "description": "A fitted black crop top with long sleeves and a round neckline. Its simple silhouette pairs with high-waisted blue jeans.",
+    "price": 29.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Black Long-Sleeve Crop Top",
+    "metaDescription": "A fitted black crop top with long sleeves and a round neckline. Its simple silhouette pairs with high-waisted blue jeans."
+  },
+  {
+    "sku": "RBT-W-025",
+    "imageFile": "female/joeyy-lee-7x_1fK4Kgj8-unsplash.jpg",
+    "name": "Evening Halter Dress",
+    "description": "A dark halter-style dress with a defined waist and a full flowing skirt. The monochrome photo highlights its evening silhouette.",
+    "price": 79.99,
+    "countInStock": 20,
+    "category": "Dresses",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collections": "Dresses",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "dresses",
+      "dresses"
+    ],
+    "metaTitle": "Evening Halter Dress",
+    "metaDescription": "A dark halter-style dress with a defined waist and a full flowing skirt. The monochrome photo highlights its evening silhouette."
+  },
+  {
+    "sku": "RBT-W-026",
+    "imageFile": "female/josh-pereira-ANHQ4ZROiH8-unsplash.jpg",
+    "name": "Red Tie-Front Cropped Blouse",
+    "description": "A red cropped blouse with a front tie and open neckline. Style with high-waisted denim for a warm-weather outfit.",
+    "price": 34.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Red"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Red Tie-Front Cropped Blouse",
+    "metaDescription": "A red cropped blouse with a front tie and open neckline. Style with high-waisted denim for a warm-weather outfit."
+  },
+  {
+    "sku": "RBT-W-027",
+    "imageFile": "female/kevin-torres-wwGTlaBRgJk-unsplash.jpg",
+    "name": "Rose Print Wide-Leg Trousers",
+    "description": "White wide-leg trousers with a bold red and dark floral print. The beach photo highlights their flowing shape.",
+    "price": 49.99,
+    "countInStock": 20,
+    "category": "Bottom Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "bottom wear",
+      "casual wear"
+    ],
+    "metaTitle": "Rose Print Wide-Leg Trousers",
+    "metaDescription": "White wide-leg trousers with a bold red and dark floral print. The beach photo highlights their flowing shape."
+  },
+  {
+    "sku": "RBT-W-028",
+    "imageFile": "female/leyli-nova-gd0qpyteVFY-unsplash.jpg",
+    "name": "Blue Floral Strappy Mini Dress",
+    "description": "A blue floral mini dress with slim straps and a gathered skirt. Pair with understated accessories for a colorful daytime look.",
+    "price": 54.99,
+    "countInStock": 20,
+    "category": "Dresses",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collections": "Dresses",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "dresses",
+      "dresses"
+    ],
+    "metaTitle": "Blue Floral Strappy Mini Dress",
+    "metaDescription": "A blue floral mini dress with slim straps and a gathered skirt. Pair with understated accessories for a colorful daytime look."
+  },
+  {
+    "sku": "RBT-W-029",
+    "imageFile": "female/mahdi-chaghari-fNEMSHWktOM-unsplash.jpg",
+    "name": "Sage Tie-Back Jumpsuit",
+    "description": "A pale sage jumpsuit shown from the back, with a tie detail and patch pockets. The one-piece silhouette makes a simple statement.",
+    "price": 64.99,
+    "countInStock": 20,
+    "category": "Jumpsuits",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "jumpsuits",
+      "casual wear"
+    ],
+    "metaTitle": "Sage Tie-Back Jumpsuit",
+    "metaDescription": "A pale sage jumpsuit shown from the back, with a tie detail and patch pockets. The one-piece silhouette makes a simple statement."
+  },
+  {
+    "sku": "RBT-W-030",
+    "imageFile": "female/mahdi-chaghari-YKtDVRbpw2U-unsplash.jpg",
+    "name": "Blue Distressed Wide-Leg Jeans",
+    "description": "Blue high-waisted jeans with a wide leg and distressed knee details. The photo pairs them with a black sleeveless top.",
+    "price": 54.99,
+    "countInStock": 20,
+    "category": "Bottom Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "bottom wear",
+      "casual wear"
+    ],
+    "metaTitle": "Blue Distressed Wide-Leg Jeans",
+    "metaDescription": "Blue high-waisted jeans with a wide leg and distressed knee details. The photo pairs them with a black sleeveless top."
+  },
+  {
+    "sku": "RBT-W-031",
+    "imageFile": "female/masi-mohammadi-FgGVblkZTyA-unsplash.jpg",
+    "name": "Stone Casual Zip Jacket",
+    "description": "A stone-colored casual jacket with a front zip and relaxed sleeves. A neutral layer for everyday outfits.",
+    "price": 59.99,
+    "countInStock": 20,
+    "category": "Outerwear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Beige"
+    ],
+    "collections": "Outerwear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "outerwear",
+      "outerwear"
+    ],
+    "metaTitle": "Stone Casual Zip Jacket",
+    "metaDescription": "A stone-colored casual jacket with a front zip and relaxed sleeves. A neutral layer for everyday outfits."
+  },
+  {
+    "sku": "RBT-W-032",
+    "imageFile": "female/max-titov-gNDsuaRMQ6s-unsplash.jpg",
+    "name": "White Contrast-Hem Crop Top",
+    "description": "A white sleeveless crop top with dark stripes at the hem and a high neckline. Pair with dark jeans to echo the photographed look.",
+    "price": 29.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "White Contrast-Hem Crop Top",
+    "metaDescription": "A white sleeveless crop top with dark stripes at the hem and a high neckline. Pair with dark jeans to echo the photographed look."
+  },
+  {
+    "sku": "RBT-W-033",
+    "imageFile": "female/microsoft-365-7mBictB_urk-unsplash.jpg",
+    "name": "Cinnamon Open-Front Cardigan",
+    "description": "A cinnamon-brown long-sleeve outer layer worn open over a light outfit. The relaxed drape suits simple layered styling.",
+    "price": 44.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Brown"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Cinnamon Open-Front Cardigan",
+    "metaDescription": "A cinnamon-brown long-sleeve outer layer worn open over a light outfit. The relaxed drape suits simple layered styling."
+  },
+  {
+    "sku": "RBT-W-034",
+    "imageFile": "female/mohammad-reza-hzujQQ5-cUM-unsplash.jpg",
+    "name": "Black Graphic Long-Sleeve Top",
+    "description": "A black long-sleeve top with white lettering down the sleeves and a small chest graphic. Pair with blue jeans for an everyday outfit.",
+    "price": 39.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Black Graphic Long-Sleeve Top",
+    "metaDescription": "A black long-sleeve top with white lettering down the sleeves and a small chest graphic. Pair with blue jeans for an everyday outfit."
+  },
+  {
+    "sku": "RBT-W-035",
+    "imageFile": "female/ola-dybul-25xVzk7X1xk-unsplash (1).jpg",
+    "name": "Blush Hooded Plush Jacket",
+    "description": "A pale pink jacket with a plush appearance and a roomy hood. Its light color contrasts with the dark trousers in the photo.",
+    "price": 74.99,
+    "countInStock": 20,
+    "category": "Outerwear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Pink"
+    ],
+    "collections": "Outerwear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "outerwear",
+      "outerwear"
+    ],
+    "metaTitle": "Blush Hooded Plush Jacket",
+    "metaDescription": "A pale pink jacket with a plush appearance and a roomy hood. Its light color contrasts with the dark trousers in the photo."
+  },
+  {
+    "sku": "RBT-W-036",
+    "imageFile": "female/ola-dybul-Vem-vji88aA-unsplash.jpg",
+    "name": "Black Cropped Street Jacket",
+    "description": "A black short jacket shown on the right side of a street-style photo. The cropped shape pairs with dark high-waisted trousers.",
+    "price": 64.99,
+    "countInStock": 20,
+    "category": "Outerwear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collections": "Outerwear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "outerwear",
+      "outerwear"
+    ],
+    "metaTitle": "Black Cropped Street Jacket",
+    "metaDescription": "A black short jacket shown on the right side of a street-style photo. The cropped shape pairs with dark high-waisted trousers."
+  },
+  {
+    "sku": "RBT-W-037",
+    "imageFile": "female/oleg-ivanov-QhR78CbFPoE-unsplash.jpg",
+    "name": "Charcoal Textured Long Coat",
+    "description": "A dark textured long coat with a relaxed shape, worn over a black top and blue jeans. The longer hem adds a layered silhouette.",
+    "price": 89.99,
+    "countInStock": 20,
+    "category": "Outerwear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "gray"
+    ],
+    "collections": "Outerwear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "outerwear",
+      "outerwear"
+    ],
+    "metaTitle": "Charcoal Textured Long Coat",
+    "metaDescription": "A dark textured long coat with a relaxed shape, worn over a black top and blue jeans. The longer hem adds a layered silhouette."
+  },
+  {
+    "sku": "RBT-W-038",
+    "imageFile": "female/oleg-ivanov-ykurGtWomMw-unsplash.jpg",
+    "name": "Olive Relaxed Wide-Leg Trousers",
+    "description": "Dark olive trousers with a loose wide leg, shown seated with a pale strappy top. A casual alternative to fitted denim.",
+    "price": 49.99,
+    "countInStock": 20,
+    "category": "Bottom Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "bottom wear",
+      "casual wear"
+    ],
+    "metaTitle": "Olive Relaxed Wide-Leg Trousers",
+    "metaDescription": "Dark olive trousers with a loose wide leg, shown seated with a pale strappy top. A casual alternative to fitted denim."
+  },
+  {
+    "sku": "RBT-W-039",
+    "imageFile": "female/pouya-hajiebrahimi-nlIEfm6soyw-unsplash.jpg",
+    "name": "Black Contrast-Panel Jacket",
+    "description": "A black jacket with a broad pale panel visible beside the front opening. Pair with a light top for a coordinated contrast.",
+    "price": 64.99,
+    "countInStock": 20,
+    "category": "Outerwear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collections": "Outerwear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "outerwear",
+      "outerwear"
+    ],
+    "metaTitle": "Black Contrast-Panel Jacket",
+    "metaDescription": "A black jacket with a broad pale panel visible beside the front opening. Pair with a light top for a coordinated contrast."
+  },
+  {
+    "sku": "RBT-W-040",
+    "imageFile": "female/quan-nguyen-bYry70RTElE-unsplash.jpg",
+    "name": "Black Sleeveless Beach Top",
+    "description": "A plain black sleeveless top photographed by the sea. A simple warm-weather layer for shorts and casual skirts.",
+    "price": 24.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Black Sleeveless Beach Top",
+    "metaDescription": "A plain black sleeveless top photographed by the sea. A simple warm-weather layer for shorts and casual skirts."
+  },
+  {
+    "sku": "RBT-W-041",
+    "imageFile": "female/quan-nguyen-FiANPPQaaC8-unsplash.jpg",
+    "name": "Indigo Triangle Bikini Top",
+    "description": "An indigo triangle bikini top with narrow straps, shown with blue shorts by the water. This listing is for the top only.",
+    "price": 29.99,
+    "countInStock": 20,
+    "category": "Swimwear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collections": "Beachwear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "swimwear",
+      "beachwear"
+    ],
+    "metaTitle": "Indigo Triangle Bikini Top",
+    "metaDescription": "An indigo triangle bikini top with narrow straps, shown with blue shorts by the water. This listing is for the top only."
+  },
+  {
+    "sku": "RBT-W-042",
+    "imageFile": "female/quan-nguyen-oeX3hyWcyWg-unsplash.jpg",
+    "name": "Black Scoop-Neck One-Piece",
+    "description": "A black one-piece swimsuit with shoulder straps and a simple neckline, photographed on a boat. Accessories shown are styling only.",
+    "price": 44.99,
+    "countInStock": 20,
+    "category": "Swimwear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collections": "Beachwear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "swimwear",
+      "beachwear"
+    ],
+    "metaTitle": "Black Scoop-Neck One-Piece",
+    "metaDescription": "A black one-piece swimsuit with shoulder straps and a simple neckline, photographed on a boat. Accessories shown are styling only."
+  },
+  {
+    "sku": "RBT-W-043",
+    "imageFile": "female/rafaella-mendes-diniz-AoL-mVxprmk-unsplash.jpg",
+    "name": "Black Fine-Strap Open-Back Top",
+    "description": "A black top shown in a close back view, with fine straps and an open-back detail. Pair with high-waisted separates.",
+    "price": 29.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Black Fine-Strap Open-Back Top",
+    "metaDescription": "A black top shown in a close back view, with fine straps and an open-back detail. Pair with high-waisted separates."
+  },
+  {
+    "sku": "RBT-W-044",
+    "imageFile": "female/rafaella-mendes-diniz-et_78QkMMQs-unsplash.jpg",
+    "name": "Black Sheer Short-Sleeve Blouse",
+    "description": "A black blouse with sheer short sleeves and a light, loose silhouette. Style over a suitable base layer.",
+    "price": 39.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Black Sheer Short-Sleeve Blouse",
+    "metaDescription": "A black blouse with sheer short sleeves and a light, loose silhouette. Style over a suitable base layer."
+  },
+  {
+    "sku": "RBT-W-045",
+    "imageFile": "female/shlomi-platzman-VF0dgmBSf9Q-unsplash.jpg",
+    "name": "Olive Sleeveless Midi Dress",
+    "description": "An olive sleeveless midi dress with a loose skirt and a side opening visible in motion. Pair with white sneakers for casual styling.",
+    "price": 59.99,
+    "countInStock": 20,
+    "category": "Dresses",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Green"
+    ],
+    "collections": "Dresses",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "dresses",
+      "dresses"
+    ],
+    "metaTitle": "Olive Sleeveless Midi Dress",
+    "metaDescription": "An olive sleeveless midi dress with a loose skirt and a side opening visible in motion. Pair with white sneakers for casual styling."
+  },
+  {
+    "sku": "RBT-W-046",
+    "imageFile": "female/sonnie-hiles-gG70fyu3qsg-unsplash.jpg",
+    "name": "Classic Blue Skinny Jeans",
+    "description": "Blue fitted jeans with a narrow leg, photographed with a bright red top. A simple denim-inspired base for casual outfits.",
+    "price": 44.99,
+    "countInStock": 20,
+    "category": "Bottom Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "bottom wear",
+      "casual wear"
+    ],
+    "metaTitle": "Classic Blue Skinny Jeans",
+    "metaDescription": "Blue fitted jeans with a narrow leg, photographed with a bright red top. A simple denim-inspired base for casual outfits."
+  },
+  {
+    "sku": "RBT-W-047",
+    "imageFile": "female/spenser-sembrat-bNc5C0rqBCw-unsplash.jpg",
+    "name": "High-Rise City Wide-Leg Jeans",
+    "description": "High-rise blue jeans with a wide leg, shown with a light cropped tee under city lights. Pair with white sneakers.",
+    "price": 54.99,
+    "countInStock": 20,
+    "category": "Bottom Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Blue"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "bottom wear",
+      "casual wear"
+    ],
+    "metaTitle": "High-Rise City Wide-Leg Jeans",
+    "metaDescription": "High-rise blue jeans with a wide leg, shown with a light cropped tee under city lights. Pair with white sneakers."
+  },
+  {
+    "sku": "RBT-W-048",
+    "imageFile": "female/tony-saiko-HU1Me40RTGo-unsplash.jpg",
+    "name": "Cream Globe Graphic T-Shirt",
+    "description": "A light cream T-shirt with a colorful globe graphic on the front. The photographed look pairs it with neutral trousers.",
+    "price": 29.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Cream Globe Graphic T-Shirt",
+    "metaDescription": "A light cream T-shirt with a colorful globe graphic on the front. The photographed look pairs it with neutral trousers."
+  },
+  {
+    "sku": "RBT-W-049",
+    "imageFile": "female/tony-saiko-IqxRGqjZOIk-unsplash.jpg",
+    "name": "White Relaxed Straight-Leg Trousers",
+    "description": "Light trousers with a relaxed straight leg, shown on the right with a globe-print tee. A simple base for casual outfits.",
+    "price": 44.99,
+    "countInStock": 20,
+    "category": "Bottom Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "bottom wear",
+      "casual wear"
+    ],
+    "metaTitle": "White Relaxed Straight-Leg Trousers",
+    "metaDescription": "Light trousers with a relaxed straight leg, shown on the right with a globe-print tee. A simple base for casual outfits."
+  },
+  {
+    "sku": "RBT-W-050",
+    "imageFile": "female/young-teenage-girl-recording-reels-herself-outdoors-social-media.jpg",
+    "name": "Tropical Print Sleeveless Top",
+    "description": "A light sleeveless top with a colorful tropical print and a round neckline. Pair with a pale blue skirt for the look shown.",
+    "price": 29.99,
+    "countInStock": 20,
+    "category": "Top Wear",
+    "brand": "Rabbit",
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "White"
+    ],
+    "collections": "Casual Wear",
+    "gender": "Women",
+    "isFeatured": false,
+    "isPublished": true,
+    "rating": 0,
+    "numReviews": 0,
+    "tags": [
+      "sample-catalog",
+      "top wear",
+      "casual wear"
+    ],
+    "metaTitle": "Tropical Print Sleeveless Top",
+    "metaDescription": "A light sleeveless top with a colorful tropical print and a round neckline. Pair with a pale blue skirt for the look shown."
+  }
+]

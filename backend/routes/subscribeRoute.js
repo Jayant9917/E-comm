@@ -31,16 +31,16 @@ router.post("/subscribe", async (req, res) => {
     const mailOptions = createNewsletterConfirmationEmail(email);
     try {
       await transporter.sendMail(mailOptions);
-      console.log("Newsletter confirmation email sent to", email);
+      req.log.info("Newsletter confirmation email sent");
     } catch (emailErr) {
-      console.log("Error sending newsletter confirmation email:", emailErr);
+      req.log.warn({ err: emailErr }, "Error sending newsletter confirmation email");
     }
 
     res
       .status(201)
       .json({ message: "Subscribed successfully to the newsletter" });
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).json({ message: "Internal Server Error" });
   }
 });

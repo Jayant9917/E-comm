@@ -1,5 +1,8 @@
 const dotenv = require("dotenv");
-dotenv.config();
+dotenv.config({ quiet: true });
+const logger = require('./config/logger');
+const requestLogger = require('./middleware/requestLogger');
+const errorHandler = require('./middleware/errorHandler');
 
 const express = require("express");
 const cors = require("cors");
@@ -17,11 +20,13 @@ const productAdminRoutes = require("./routes/productAdminRoutes");
 const adminOrderRoutes = require("./routes/adminOrderRoutes");
 
 const app = express();
+app.use(requestLogger);
 app.use(express.json());
 
 // Configure CORS with a dynamic origin whitelist and preflight support
 const allowedOrigins = [
   'http://localhost:5173',
+  'http://127.0.0.1:5173',
   'http://localhost:3000',
   'https://e-comm-rabbit.vercel.app',
   'https://e-comm-h265.vercel.app',
@@ -40,10 +45,10 @@ const corsOptions = {
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
+  exposedHeaders: ['X-Request-Id'],
 };
 
 app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
 
 // Serve static images from the images folder
 app.use("/images", express.static(path.join(__dirname, "images")));
@@ -71,6 +76,8 @@ app.use("/api/admin/users", adminRoutes);
 app.use("/api/admin/products", productAdminRoutes);
 app.use("/api/admin/orders", adminOrderRoutes);
 
+app.use(errorHandler);
+
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  logger.info({ event: 'server.started', port: PORT, environment: process.env.NODE_ENV || 'development' }, `Server listening at http://localhost:${PORT}`);
 });

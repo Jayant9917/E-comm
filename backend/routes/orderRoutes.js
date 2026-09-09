@@ -16,7 +16,7 @@ router.get("/my-orders", protect, async (req, res) => {
     }); // Sort by most recent orders
     res.json(orders);
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
@@ -37,7 +37,7 @@ router.get("/:id", protect, async (req, res) => {
     //Return the full order details
     res.json(order);
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).json({ message: "Internal Server Error" });
   }
 });

@@ -93,7 +93,7 @@ router.post("/", async (req, res) => {
       return res.status(201).json(newCart);
     }
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).json({ message: "Server error" });
   }
 });
@@ -133,7 +133,7 @@ router.put("/", async (req, res) => {
       return res.status(400).json({ message: "Product not found in cart" });
     }
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).json({ message: "Server error" });
   }
 });
@@ -168,7 +168,7 @@ router.delete("/", async (req, res) => {
       return res.status(404).json({ message: "Product not found in cart" });
     }
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).json({ message: "Server error" });
   }
 });
@@ -192,7 +192,7 @@ router.get("/", async (req, res) => {
       });
     }
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).json({ message: "Server error" });
   }
 });
@@ -249,7 +249,7 @@ router.post("/merge", protect, async (req, res) => {
         try {
           await Cart.findOneAndDelete({ guestId });
         } catch (err) {
-          console.error("Error deleting guest Cart: ", err);
+          req.log.error({ err: err }, "Error deleting guest Cart");
         }
 
         res.status(200).json(userCart);
@@ -268,7 +268,7 @@ router.post("/merge", protect, async (req, res) => {
         try {
           await Cart.findOneAndDelete({ guestId });
         } catch (err) {
-          console.error("Error deleting guest Cart: ", err);
+          req.log.error({ err: err }, "Error deleting guest Cart");
         }
 
         res.status(200).json(newUserCart);
@@ -283,7 +283,7 @@ router.post("/merge", protect, async (req, res) => {
       res.status(200).json({ products: [], totalPrice: 0 });
     }
   } catch (err) {
-    console.error("Cart merge error:", err);
+    req.log.error({ err: err }, "Cart merge error");
     res.status(500).json({ message: "Server Error" });
   }
 });
@@ -322,7 +322,7 @@ router.post("/abandoned-reminder", protect, async (req, res) => {
       to: req.user.email,
     });
 
-    console.log(`Abandoned cart reminder sent to ${req.user.email}`);
+    req.log.info("Abandoned cart reminder sent");
 
     res.json({
       message: "Abandoned cart reminder sent successfully",
@@ -331,7 +331,7 @@ router.post("/abandoned-reminder", protect, async (req, res) => {
       cartAge: Math.floor(cartAge / (1000 * 60 * 60)) + " hours",
     });
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).json({ message: "Server Error" });
   }
 });

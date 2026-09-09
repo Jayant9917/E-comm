@@ -3,7 +3,7 @@ const multer = require("multer");
 const cloudinary = require("cloudinary").v2;
 const streamifier = require("streamifier");
 
-require("dotenv").config();
+require("dotenv").config({ quiet: true });
 
 // Cloudinary configuration
 cloudinary.config({
@@ -49,7 +49,7 @@ router.post("/", upload.single("image"), async (req, res) => {
     // Respond with the uploaded image URL
     res.json({ imageUrl: result.secure_url });
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).json({ message: "Server Error" });
   }
 });

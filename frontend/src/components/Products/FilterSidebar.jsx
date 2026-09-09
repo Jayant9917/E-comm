@@ -19,7 +19,7 @@ const FilterSidebar = () => {
 
   const [priceRange, setPriceRange] = useState([0, 100]);
 
-  const categories = ["Top Wear", "Bottom Wear"];
+  const categories = ["Top Wear", "Bottom Wear", "Outerwear", "Dresses", "Jumpsuits", "Swimwear"];
 
   const colors = [
     "Red",
@@ -33,6 +33,7 @@ const FilterSidebar = () => {
     "gray",
     "Navy",
     "Beige",
+    "Brown",
   ];
 
   const sizes = ["XS", "S", "M", "L", "XL", "XXL"];
@@ -49,6 +50,7 @@ const FilterSidebar = () => {
   ];
 
   const brands = [
+    "Rabbit",
     "Nike",
     "Adidas",
     "Puma",

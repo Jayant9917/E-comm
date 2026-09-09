@@ -1,89 +1,58 @@
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-const Product = require("./models/Product");
-const User = require("./models/User");
-const Cart = require("./models/Cart");
-const products = require("./data/products");
-const { getImagesByGender } = require("./images/imageIndex");
+const fs = require('fs');
+const path = require('path');
+const crypto = require('crypto');
+const mongoose = require('mongoose');
+const { root, buildProducts } = require('./scripts/catalog');
+const logger = require('./config/logger');
+const Product = require('./models/Product');
+const User = require('./models/User');
 
-dotenv.config();
-
-// Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI);
-
-// Function to seed data
-
-const seedData = async () => {
-  try {
-    console.log("🌱 Starting data seeding process...");
-
-    // Clear existing data
-    console.log("🗑️  Clearing existing data...");
-    await Product.deleteMany({});
-    await User.deleteMany({});
-    await Cart.deleteMany({});
-
-    // Create a default admin user
-    console.log("👤 Creating admin user...");
-    const createdUser = await User.create({
-      name: "Admin User",
-      email: "admin@example.com",
-      password: "123456",
-      role: "admin",
-    });
-    console.log(`✅ Admin user created with ID: ${createdUser._id}`);
-
-    // Assign the default user ID to each product
-    const userID = createdUser._id;
-    console.log(`📦 Preparing ${products.length} products...`);
-
-    const sampleProducts = products.map((product) => {
-      // Determine gender key used by imageIndex (male/female)
-      const genderKey = (product.gender || '').toLowerCase().includes('women')
-        ? 'female'
-        : 'male';
-      const genderImages = getImagesByGender(genderKey);
-      const defaults = Object.values(genderImages || {});
-      const fallbackUrl = defaults && defaults.length > 0 ? defaults[0] : undefined;
-
-      // Ensure images array exists and every image has a url
-      let images = Array.isArray(product.images) ? product.images : [];
-      if (images.length === 0 && fallbackUrl) {
-        images = [
-          {
-            url: fallbackUrl,
-            altText: `${product.name} Image`,
-          },
-        ];
-      } else if (images.length > 0) {
-        images = images.map((img, idx) => ({
-          ...img,
-          url: img && img.url ? img.url : fallbackUrl,
-          altText: img && img.altText ? img.altText : `${product.name} Image ${idx + 1}`,
-        }));
-      }
-
-      return { ...product, user: userID, images };
-    });
-
-    // Insert the products into the DB
-    console.log("💾 Inserting products into database...");
-    await Product.insertMany(sampleProducts);
-
-    console.log("🎉 Products Data seeded successfully!");
-    console.log(`📊 Total products created: ${products.length}`);
-    console.log(`👤 Admin user: ${createdUser.email} (Password: 123456)`);
-    process.exit(0);
-  } catch (err) {
-    console.error("❌ Error seeding data: ", err);
-    if (err.errors) {
-      console.error("🔍 Validation errors:");
-      Object.keys(err.errors).forEach((key) => {
-        console.error(`  - ${key}: ${err.errors[key].message}`);
-      });
-    }
-    process.exit(1);
+async function seed() {
+  const products = buildProducts();
+  const validationOwner = new mongoose.Types.ObjectId();
+  for (const product of products) await new Product({ ...product, user: validationOwner }).validate();
+  if (process.argv.includes('--dry-run')) {
+    logger.info(`Validated ${products.length} products with Cloudinary images. No database writes.`);
+    return;
   }
-};
-
-seedData();
+  if (!process.env.MONGODB_URI) throw new Error('Missing MONGODB_URI');
+  await mongoose.connect(process.env.MONGODB_URI, { serverSelectionTimeoutMS: 15000 });
+  try {
+    const previous = await Product.find().lean();
+    const backupDir = path.join(root, 'backups');
+    fs.mkdirSync(backupDir, { recursive: true });
+    const backupPath = path.join(backupDir, `products-${new Date().toISOString().replace(/[:.]/g, '-')}.json`);
+    fs.writeFileSync(backupPath, JSON.stringify(previous, null, 2) + '\n', { flag: 'wx' });
+    let owner = await User.findOne({ role: 'admin' }).sort({ createdAt: 1 });
+    if (!owner) {
+      const email = process.env.SEED_ADMIN_EMAIL || 'admin@example.com';
+      if (await User.exists({ email })) throw new Error('Seed admin email belongs to a non-admin; set SEED_ADMIN_EMAIL to another address.');
+      const password = process.env.SEED_ADMIN_PASSWORD || crypto.randomBytes(24).toString('base64url');
+      const credentialsDir = path.join(root, '.catalog-work');
+      fs.mkdirSync(credentialsDir, { recursive: true });
+      const credentialPath = path.join(credentialsDir, 'admin-credentials.json');
+      fs.writeFileSync(credentialPath, JSON.stringify({ email, password }, null, 2) + '\n', { mode: 0o600 });
+      owner = await User.create({ name: 'Rabbit Admin', email, password, role: 'admin' });
+      logger.info('Created seed administrator. Credentials saved in backend/.catalog-work/admin-credentials.json (gitignored).');
+    }
+    // Preserve IDs and never delete users, carts, orders, or other products.
+    // Initial stock and reviews are insert-only so re-seeding cannot reset them.
+    const operations = products.map(({ countInStock, rating, numReviews, ...product }) => ({
+      updateOne: {
+        filter: { sku: product.sku },
+        update: { $set: product, $setOnInsert: { user: owner._id, countInStock, rating, numReviews } },
+        upsert: true,
+      },
+    }));
+    const result = await Product.bulkWrite(operations, { ordered: true });
+    const saved = await Product.find({ sku: { $in: products.map(p => p.sku) } }).lean();
+    if (saved.length !== products.length) throw new Error('Post-seed product count mismatch.');
+    logger.info({ inserted: result.upsertedCount, matched: result.matchedCount,
+      catalogProducts: saved.length, men: saved.filter(p => p.gender === 'Men').length,
+      women: saved.filter(p => p.gender === 'Women').length,
+      totalProducts: await Product.countDocuments(), backup: path.relative(root, backupPath) }, 'Catalog seeded');
+  } finally {
+    await mongoose.disconnect();
+  }
+}
+seed().catch(error => { logger.error({ err: error }, 'Catalog operation failed'); process.exitCode = 1; });

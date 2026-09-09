@@ -12,7 +12,7 @@ router.get("/", protect, admin, async (req, res) => {
     const products = await Product.find({});
     res.json(products);
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
@@ -28,7 +28,7 @@ router.post("/", protect, admin, async (req, res) => {
       .status(201)
       .json({ message: "Product created successfully", product: savedProduct });
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
@@ -53,7 +53,7 @@ router.put("/:id", protect, admin, async (req, res) => {
       res.status(404).json({ message: "Product not found" });
     }
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
@@ -71,7 +71,7 @@ router.delete("/:id", protect, admin, async (req, res) => {
       res.status(404).json({ message: "Product not found" });
     }
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).json({ message: "Internal Server Error" });
   }
 });

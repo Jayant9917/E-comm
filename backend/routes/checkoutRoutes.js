@@ -95,7 +95,7 @@ router.post("/", async (req, res) => {
     await checkout.save();
     res.status(201).json(checkout);
   } catch (err) {
-    console.error("❌ Backend: Error creating checkout session:", err);
+    req.log.error({ err: err }, "❌ Error creating checkout session");
     res.status(500).json({ message: "Server error" });
   }
 });
@@ -130,9 +130,9 @@ router.put("/:id/pay", async (req, res) => {
           );
           try {
             await transporter.sendMail(mailOptions);
-            console.log("Payment receipt email sent to", user.email);
+            req.log.info("Payment receipt email sent");
           } catch (emailErr) {
-            console.log("Error sending payment receipt email:", emailErr);
+            req.log.warn({ err: emailErr }, "Error sending payment receipt email");
           }
         }
       } else if (checkout.shippingAddress?.email) {
@@ -144,15 +144,9 @@ router.put("/:id/pay", async (req, res) => {
         );
         try {
           await transporter.sendMail(mailOptions);
-          console.log(
-            "Payment receipt email sent to guest:",
-            checkout.shippingAddress.email
-          );
+          req.log.info("Payment receipt email sent to guest");
         } catch (emailErr) {
-          console.log(
-            "Error sending payment receipt email to guest:",
-            emailErr
-          );
+          req.log.warn({ err: emailErr }, "Error sending payment receipt email to guest");
         }
       }
 
@@ -161,7 +155,7 @@ router.put("/:id/pay", async (req, res) => {
       res.status(400).json({ message: "Invalid payment status" });
     }
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).json({ message: "Server error" });
   }
 });
@@ -213,7 +207,7 @@ router.post("/:id/finalize", async (req, res) => {
       try {
         finalOrder = await Order.create(orderData);
       } catch (orderErr) {
-        console.error("❌ Backend: Error creating order:", orderErr);
+        req.log.error({ err: orderErr }, "❌ Error creating order");
         if (orderErr.name === "ValidationError") {
           return res.status(400).json({
             message: "Order validation failed",
@@ -236,7 +230,7 @@ router.post("/:id/finalize", async (req, res) => {
           await cart.findOneAndDelete({ guestId: checkout.guestId });
         }
       } catch (cartError) {
-        console.log("Error deleting cart:", cartError);
+        req.log.error({ err: cartError }, "Error deleting cart");
         // Continue with order creation even if cart deletion fails
       }
 
@@ -251,9 +245,9 @@ router.post("/:id/finalize", async (req, res) => {
           );
           try {
             await transporter.sendMail(mailOptions);
-            console.log("Order confirmation email sent to", user.email);
+            req.log.info("Order confirmation email sent");
           } catch (emailErr) {
-            console.log("Error sending order confirmation email:", emailErr);
+            req.log.warn({ err: emailErr }, "Error sending order confirmation email");
           }
         }
       } else if (checkout.shippingAddress?.email) {
@@ -265,15 +259,9 @@ router.post("/:id/finalize", async (req, res) => {
         );
         try {
           await transporter.sendMail(mailOptions);
-          console.log(
-            "Order confirmation email sent to guest:",
-            checkout.shippingAddress.email
-          );
+          req.log.info("Order confirmation email sent to guest");
         } catch (emailErr) {
-          console.log(
-            "Error sending order confirmation email to guest:",
-            emailErr
-          );
+          req.log.warn({ err: emailErr }, "Error sending order confirmation email to guest");
         }
       }
 
@@ -284,7 +272,7 @@ router.post("/:id/finalize", async (req, res) => {
       res.status(400).json({ message: "Checkout not paid" });
     }
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).json({ message: "Server error" });
   }
 });

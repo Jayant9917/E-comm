@@ -1,3 +1,4 @@
+const logger = require("../config/logger");
 const express = require("express");
 const Product = require("../models/Product");
 const User = require("../models/User");
@@ -12,6 +13,10 @@ const {
 const Subscriber = require("../models/Subscriber");
 
 const router = express.Router();
+
+// Product images already contain their public delivery URLs (including Cloudinary).
+// Keep those URLs intact when serializing Mongoose documents for the storefront.
+const normalizeProductImages = (_req, product) => product.toObject();
 
 // Helper function to send product notification emails
 const sendProductNotification = async (
@@ -51,12 +56,10 @@ const sendProductNotification = async (
         ...mailOptions,
         to: admin.email,
       });
-      console.log(
-        `Product ${action} notification email sent to ${admin.email}`
-      );
+      logger.info({ action, productName }, "Product notification email sent");
     }
   } catch (error) {
-    console.log(`Error sending product ${action} notification email:`, error);
+    logger.warn({ err: error }, "Error sending product notification email");
   }
 };
 
@@ -136,25 +139,18 @@ router.post("/", protect, admin, async (req, res) => {
         );
         try {
           await transporter.sendMail(mailOptions);
-          console.log("Product announcement email sent to", sub.email);
+          req.log.info("Product announcement email sent");
         } catch (emailErr) {
-          console.log(
-            "Error sending product announcement email to",
-            sub.email,
-            emailErr
-          );
+          req.log.warn({ err: emailErr }, "Error sending product announcement email");
         }
       }
     } catch (err) {
-      console.log(
-        "Error sending product announcement emails to subscribers:",
-        err
-      );
+      req.log.warn({ err: err }, "Error sending product announcement emails to subscribers");
     }
 
     res.status(201).json(createdProduct);
   } catch (err) {
-    console.log(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).send("server error");
   }
 });
@@ -235,7 +231,7 @@ router.put("/:id", protect, admin, async (req, res) => {
       res.status(404).json({ message: "No product found with that ID" });
     }
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).send("Server Error");
   }
 });
@@ -263,7 +259,7 @@ router.delete("/:id", protect, admin, async (req, res) => {
       });
     }
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).send("Server Error");
   }
 });
@@ -356,7 +352,7 @@ router.get("/", async (req, res) => {
     const normalized = products.map((p) => normalizeProductImages(req, p));
     res.json(normalized);
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).send("Server Error");
   }
 });
@@ -373,22 +369,32 @@ router.get("/best-seller", async (req, res) => {
       res.status(404).json({ message: "No Best Seller Found" });
     }
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).send("Server Error");
   }
 });
 
 // @route GET /api/products/new-arrivals
-// @desc Retrieve latest 8 products - Creation date
+// @desc Retrieve 8 recent products, alternating women's and men's arrivals
 // @access Public
 router.get("/new-arrivals", async (req, res) => {
   try {
-    //Fetch atleast 8 products
-    const newArrivals = await Product.find().sort({ createdAt: -1 }).limit(8);
+    // Include both collections even when a batch of seeded products shares a timestamp.
+    const [women, men] = await Promise.all([
+      Product.find({ gender: "Women" }).sort({ createdAt: -1, _id: -1 }).limit(8),
+      Product.find({ gender: "Men" }).sort({ createdAt: -1, _id: -1 }).limit(8),
+    ]);
+    const newArrivals = [];
+    for (let index = 0; index < Math.max(women.length, men.length); index++) {
+      if (women[index]) newArrivals.push(women[index]);
+      if (men[index]) newArrivals.push(men[index]);
+      if (newArrivals.length >= 8) break;
+    }
+    newArrivals.length = Math.min(newArrivals.length, 8);
     const normalized = newArrivals.map((p) => normalizeProductImages(req, p));
     res.json(normalized);
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).send("Server Error");
   }
 });
@@ -405,7 +411,7 @@ router.get("/:id", async (req, res) => {
       res.status(404).json({ message: "Product Not Found" });
     }
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).send("Server Error");
   }
 });
@@ -431,7 +437,7 @@ router.get("/similar/:id", async (req, res) => {
     const normalized = similarProducts.map((p) => normalizeProductImages(req, p));
     res.json(normalized);
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).send("Server Error");
   }
 });

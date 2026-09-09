@@ -12,7 +12,7 @@ router.get("/", protect, admin, async (req, res) => {
     const orders = await Order.find({}).populate("user", "name email");
     res.json(orders);
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).json({ message: "Server Error" });
   }
 });
@@ -47,7 +47,7 @@ router.put("/:id", protect, admin, async (req, res) => {
       res.status(404).json({ message: "Order not found" });
     }
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
@@ -65,7 +65,7 @@ router.delete("/:id", protect, admin, async (req, res) => {
       res.status(404).json({ message: "Order not found" });
     }
   } catch (err) {
-    console.error(err);
+    req.log.error({ err: err }, "Request failed");
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
