@@ -30,6 +30,7 @@ const allowedOrigins = [
   'http://localhost:3000',
   'https://e-comm-rabbit.vercel.app',
   'https://e-comm-h265.vercel.app',
+  ...(process.env.FRONTEND_URL ? process.env.FRONTEND_URL.split(',').map((origin) => origin.trim()).filter(Boolean) : []),
 ];
 
 const corsOptions = {
@@ -60,6 +61,11 @@ connectDB();
 
 app.get("/", (req, res) => {
   res.send("Hello World");
+});
+
+// Railway uses this endpoint to confirm that the service is alive.
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok", service: "rabbit-api" });
 });
 
 // API Routes
